@@ -10,107 +10,107 @@ namespace gracosmod123
         {
             if (type == NPCID.SkeletonMerchant)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("ConjureBone"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("ConjureBone"));
                 nextSlot++;
                 if (NPC.downedBoss1)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DuelistHeadband"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("DuelistHeadband"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DuelistShirt"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("DuelistShirt"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DuelistPants"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("DuelistPants"));
                     nextSlot++;
                 }
                 if (Main.moonPhase < 4)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneArmorBreaker"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("ArcaneArmorBreaker"));
                     nextSlot++;
                 }
                 else
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("AerodynamicFins"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("AerodynamicFins"));
                     nextSlot++;
                 }*/
             }
             if (type == NPCID.Demolitionist)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("PrimedGrenadeCore"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("PrimedGrenadeCore"));
                 nextSlot++;*/
             }
             if (type == NPCID.Cyborg)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("TeleportationArrow"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("TeleportationArrow"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TeleportationArrowGrab"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("TeleportationArrowGrab"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TeleportationArrowSwap"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("TeleportationArrowSwap"));
                 nextSlot++;*/
             }
             if (type == NPCID.WitchDoctor)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("MinionFang"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("MinionFang"));
                 nextSlot++;*/
             }
             /*if (type == NPCID.Dryad && NPC.downedMechBossAny)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("BloomingBow"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("BloomingBow"));
                 nextSlot++;
             }*/
             if (type == NPCID.Dryad)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));  //an example of how to add a vanilla terraria item
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));  //an example of how to add a vanilla terraria item
                 nextSlot++;
-                if (NPC.downedBoss1)   //this make so when the EOC is killed the town npc will sell this
+                if (NPC.downedBoss1)   //this make so when the EOC is killed the town NPC will sell this
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("StarflowerSeeds"));  //an example of how to add a vanilla terraria item
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("StarflowerSeeds"));  //an example of how to add a vanilla terraria item
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("StarflowerPlanterBox"));  //an example of how to add a vanilla terraria item
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("StarflowerPlanterBox"));  //an example of how to add a vanilla terraria item
                     nextSlot++;
                 }
                 if (Main.hardMode)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("potionmed"));  //an example of how to add a vanilla terraria item
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("potionmed"));  //an example of how to add a vanilla terraria item
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("Starflower"));  //an example of how to add a vanilla terraria item
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("Starflower"));  //an example of how to add a vanilla terraria item
                     nextSlot++;
                 }
                 if (NPC.downedGolemBoss)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("potionbig"));  //an example of how to add a vanilla terraria item
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("potionbig"));  //an example of how to add a vanilla terraria item
                     nextSlot++;
                 }
 
             }
             if (type == NPCID.Mechanic)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("Fan"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("Fan"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("VFan"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("VFan"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("Illuminator"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("Illuminator"));
                 nextSlot++;*/
             }
             if (type == NPCID.ArmsDealer)
             {
                 /*if (QwertyWorld.downedAncient)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("TankShift"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("TankShift"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("MiniTankStaff"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("MiniTankStaff"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("TankCommanderHelmet"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("TankCommanderHelmet"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("TankCommanderJacket"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("TankCommanderJacket"));
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("TankCommanderPants"));
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType("TankCommanderPants"));
                     nextSlot++;
                 }*/
             }
             if (type == NPCID.Merchant)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("Flechettes"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("Flechettes"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("Flashlight"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("Flashlight"));
                 nextSlot++;*/
                 shop.item[nextSlot].SetDefaults(ItemID.MagicMirror);
                 nextSlot++;
@@ -122,47 +122,47 @@ namespace gracosmod123
             }
             if (type == NPCID.Steampunker)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("Steambath"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("Steambath"));
                 nextSlot++;*/
             }
             if (type == NPCID.DyeTrader)
             {
-                /* shop.item[nextSlot].SetDefaults(mod.ItemType("CustomDye"));
+                /* shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomDye"));
                  nextSlot++;
-                 shop.item[nextSlot].SetDefaults(mod.ItemType("CustomDye2"));
+                 shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomDye2"));
                  nextSlot++;
-                 shop.item[nextSlot].SetDefaults(mod.ItemType("CustomDye3"));
+                 shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomDye3"));
                  nextSlot++;
-                 shop.item[nextSlot].SetDefaults(mod.ItemType("CustomDye4"));
+                 shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomDye4"));
                  nextSlot++;*/
             }
             if (type == NPCID.Clothier)
             {
-                /*shop.item[nextSlot].SetDefaults(mod.ItemType("SRobe"));
+                /*shop.item[nextSlot].SetDefaults(ModContent.ItemType("SRobe"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("DressB"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("DressB"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("DressC"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("DressC"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("Miniskirt"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("Miniskirt"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("Shorts"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("Shorts"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("SwimsuitTop"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("SwimsuitTop"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("SwimsuitBottom"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("SwimsuitBottom"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeatherBelt"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("LeatherBelt"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeatherShoesMale"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("LeatherShoesMale"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeatherShoesFemale"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("LeatherShoesFemale"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeatherBootsMale"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("LeatherBootsMale"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeatherBootsFemale"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("LeatherBootsFemale"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("HighHeels"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("HighHeels"));
                 nextSlot++;*/
             }
         }
@@ -171,29 +171,29 @@ namespace gracosmod123
         {
             if (Main.rand.Next(0, 5) == 0)
             {
-                shop[nextSlot] = mod.ItemType("Metronome");
+                shop[nextSlot] = ModContent.ItemType("Metronome");
                 nextSlot++;
             }
             int selectAccesory = Main.rand.Next(4);
             switch (selectAccesory)
             {
                 case 0:
-                    shop[nextSlot] = mod.ItemType("SwordEmbiggenner");
+                    shop[nextSlot] = ModContent.ItemType("SwordEmbiggenner");
                     nextSlot++;
                     break;
 
                 case 1:
-                    shop[nextSlot] = mod.ItemType("Gemini");
+                    shop[nextSlot] = ModContent.ItemType("Gemini");
                     nextSlot++;
                     break;
 
                 case 2:
-                    shop[nextSlot] = mod.ItemType("QuestionableSubstance");
+                    shop[nextSlot] = ModContent.ItemType("QuestionableSubstance");
                     nextSlot++;
                     break;
 
                 case 4:
-                    shop[nextSlot] = mod.ItemType("BookOfMinionTactics");
+                    shop[nextSlot] = ModContent.ItemType("BookOfMinionTactics");
                     nextSlot++;
                     break;
             }

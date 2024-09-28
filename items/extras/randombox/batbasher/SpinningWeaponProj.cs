@@ -13,8 +13,8 @@ namespace gracosmod123.items.extras.randombox.batbasher
         {
             projectile.width = 220;     //Set the hitbox width
             projectile.height = 220;       //Set the hitbox height
-            projectile.friendly = true;    //Tells the game whether it is friendly to players/friendly npcs or not
-            projectile.penetrate = -1;    //Tells the game how many enemies it can hit before being destroyed. -1 = never
+            projectile.friendly = true;    //Tells the game whether it is friendly to players/friendly NPCs or not
+            Projectile.Penetrate = -1;    //Tells the game how many enemies it can hit before being destroyed. -1 = never
             projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
             projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water        
             projectile.melee = true;  //Tells the game whether it is a melee projectile or not
@@ -30,7 +30,7 @@ namespace gracosmod123.items.extras.randombox.batbasher
             projectile.soundDelay--;
             if (projectile.soundDelay <= 0)//this is the proper sound delay for this type of weapon
             {
-                Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, 15);    //this is the sound when the weapon is used
+                SoundEngine.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, 15);    //this is the sound when the weapon is used
                 projectile.soundDelay = 45;    //this is the proper sound delay for this type of weapon
             }
             //-----------------------------------------------How the projectile works---------------------------------------------------------------------

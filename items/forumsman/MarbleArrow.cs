@@ -25,7 +25,7 @@ namespace gracosmod123.items.forumsman
             projectile.friendly = true;
             projectile.ranged = true;
 
-            projectile.penetrate = 40;
+            Projectile.Penetrate = 40;
             projectile.timeLeft = 600;
 
             projectile.ignoreWater = true;
@@ -38,8 +38,8 @@ namespace gracosmod123.items.forumsman
 
         /*public override void Kill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
-            Projectile.NewProjectile(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
+            SoundEngine.PlaySound(SoundID.Item10, projectile.position);
+            Projectile.NewProjectileDirect(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
         }*/
     }
 }//

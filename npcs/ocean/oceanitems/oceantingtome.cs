@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace gracosmod123.npcs.ocean.oceanitems
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class oceantingtome : ModItem
     {
@@ -20,30 +20,30 @@ namespace gracosmod123.npcs.ocean.oceanitems
         }
         public override void SetDefaults()
         {
-            item.damage = 300;
+            Item.DamageType = 300;
             item.magic = true;                     //this make the item do magic damage
-            item.width = 24;
-            item.height = 28;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            Item.width = 24;
+            Item.height = 28;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
             item.useStyle = 5;        //this is how the item is holded
-            item.noMelee = true;
-            item.knockBack = 2;
-            item.value = 1000;
-            item.rare = 6;
-            item.mana = 20;             //mana use
-            item.UseSound = SoundID.Item21;            //this is the sound when you use the item
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("oceanshotspin");  //this make the item shoot your projectile
-            item.shootSpeed = 8f;    //projectile speed when shoot
+            Item.noMelee = true;
+            Item.knockBack = 2;
+            Item.value = 1000;
+            Item.rare = 6;
+            Item.mana = 20;             //mana use
+            Item.UseSound = SoundID.Item21;            //this is the sound when you use the item
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("oceanshotspin");  //this make the Item.shoot your projectile
+            Item.shootSpeed = 8f;    //projectile speed when shoot
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<oreaqua.Aquabar>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

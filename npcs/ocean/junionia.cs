@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean
+namespace gracosmod123.NPCs.ocean
 {
     public class junionia : ModProjectile
     {
@@ -27,7 +27,7 @@ namespace gracosmod123.npcs.ocean
             spawned = false;
             projectile.width = 16;
             projectile.height = 16;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.hostile = true;
             projectile.timeLeft = 210;
             projectile.ignoreWater = true;

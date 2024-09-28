@@ -24,23 +24,23 @@ namespace gracosmod123.items.extras.yesssssss
 
         public override void SetDefaults()
         {
-            item.damage = 36;
-            item.mana = 100;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            Item.DamageType = 36;
+            Item.mana = 100;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
             item.useStyle = 1;
             item.noUseGraphic = true;
-            item.noMelee = true;
-            item.knockBack = 10;
-            item.value = Item.buyPrice(5, 0, 0, 0);
-            item.rare = 10;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Turret");
+            Item.noMelee = true;
+            Item.knockBack = 10;
+            Item.value = Item.buyPrice(5, 0, 0, 0);
+            Item.rare = 10;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("Turret");
             item.summon = true;
             item.sentry = true;
-            item.buffType = mod.BuffType("Turretbuff");
+            Item.buffType = ModContent.BuffType("Turretbuff");
         }
 
         public override bool AltFunctionUse(Player player)
@@ -52,7 +52,7 @@ namespace gracosmod123.items.extras.yesssssss
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -69,7 +69,7 @@ namespace gracosmod123.items.extras.yesssssss
         {
             Vector2 SPos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
             position = SPos;
-            if (player.ownedProjectileCounts[mod.ProjectileType("Turret")] < player.maxTurrets)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType("Turret")] < player.maxTurrets)
             {
                 return true;
             }
@@ -77,11 +77,11 @@ namespace gracosmod123.items.extras.yesssssss
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(2860, 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace gracosmod123.projectiles
             projectile.height = 44;
             projectile.aiStyle = 19;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.tileCollide = false;
             projectile.scale = 1.3f;
             projectile.hide = true;

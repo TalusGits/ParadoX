@@ -21,7 +21,7 @@ namespace gracosmod123.items.enchantedstuff
             projectile.width = 22;
             projectile.height = 22;
             projectile.friendly = true;
-            projectile.penetrate = -1; // Make the flail infinitely penetrate like other flails
+            Projectile.Penetrate = -1; // Make the flail infinitely penetrate like other flails
             projectile.melee = true;
             projectile.aiStyle = 15; // The vanilla flails all use aiStyle 15, but we must not use it since we want to customize the range and behavior.
         }
@@ -161,7 +161,7 @@ namespace gracosmod123.items.enchantedstuff
             projectile.netUpdate = true;
             Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
             // Play the sound
-            Main.PlaySound(SoundID.Dig, (int)projectile.position.X, (int)projectile.position.Y);
+            SoundEngine.PlaySound(SoundID.Dig, (int)projectile.position.X, (int)projectile.position.Y);
         }
 
         return false;

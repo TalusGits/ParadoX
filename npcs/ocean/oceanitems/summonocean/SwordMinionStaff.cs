@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems.summonocean
+namespace gracosmod123.NPCs.ocean.oceanitems.summonocean
 {
     public class SwordMinionStaff : ModItem
     {
@@ -18,22 +18,22 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
         public override void SetDefaults()
         {
             item.summon = true;
-            item.mana = 4;
-            item.damage = 300;
-            item.rare = 7;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.knockBack = 2f;
+            Item.mana = 4;
+            Item.DamageType = 300;
+            Item.rare = 7;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.knockBack = 2f;
             item.useStyle = 5;
-            item.useAnimation = item.useTime = 8;
-            item.shootSpeed = 24f;
-            item.width = item.height = 44;
+            Item.useAnimation = Item.useTime = 8;
+            Item.shootSpeed = 24f;
+            Item.width = Item.height = 44;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.shoot = mod.ProjectileType("SwordMinion");
-            item.UseSound = SoundID.Item44;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.buffType = mod.BuffType("SwordMinionBuff");
-            item.buffTime = 3600;
+            Item.shoot = ModContent.ProjectileType("SwordMinion");
+            Item.UseSound = SoundID.Item44;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.buffType = ModContent.BuffType("SwordMinionBuff");
+            Item.buffTime = 3600;
         }
         public delegate bool SpecialCondition(NPC possibleTarget);
         public static Vector2 PolarVector(float radius, float theta)
@@ -52,20 +52,20 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
             //If you want to prioritse a certain target this is where it's processed, mostly used by minions that haave a target priority
             if (overrideTarget != -1)
             {
-                if ((Main.npc[overrideTarget].Center - position).Length() < maxDistance)
+                if ((Main.NPC[overrideTarget].Center - position).Length() < maxDistance)
                 {
-                    target = Main.npc[overrideTarget];
+                    target = Main.NPC[overrideTarget];
                     return true;
                 }
             }
             //this is the meat of the targetting logic, it loops through every NPC to check if it is valid the miniomum distance and target selected are updated so that the closest valid NPC is selected
-            for (int k = 0; k < Main.npc.Length; k++)
+            for (int k = 0; k < Main.NPC.Length; k++)
             {
-                NPC possibleTarget = Main.npc[k];
+                NPC possibleTarget = Main.NPC[k];
                 float distance = (possibleTarget.Center - position).Length();
                 if (distance < maxDistance && possibleTarget.active && possibleTarget.chaseable && !possibleTarget.dontTakeDamage && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && (Collision.CanHit(position, 0, 0, possibleTarget.Center, 0, 0) || ignoreTiles) && specialCondition(possibleTarget))
                 {
-                    target = Main.npc[k];
+                    target = Main.NPC[k];
                     foundTarget = true;
 
                     maxDistance = (target.Center - position).Length();
@@ -126,7 +126,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
                     return false;
                 }
             }
-            player.AddBuff(mod.BuffType("SwordMinionBuff"), 3600); //Idk why but the item.buffType didn't work for this
+            player.AddBuff(ModContent.BuffType("SwordMinionBuff"), 3600); //Idk why but the Item.buffType didn't work for this
             position = Main.MouseWorld;
             return true;
         }
@@ -160,7 +160,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
             projectile.minion = true;
             projectile.minionSlots = 1;
             projectile.width = projectile.height = 10;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.usesLocalNPCImmunity = true;
             projectile.localNPCHitCooldown = 15;
             projectile.tileCollide = false;
@@ -214,9 +214,9 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
                 flyTo = target.Center + SwordMinionStaff.PolarVector(bladeLength / 2, difference2.ToRotation());
                 turnTo = (target.Center - projectile.Center).ToRotation();
                 int nerabyEnemies = 0;
-                foreach (NPC npc in Main.npc)
+                foreach (NPC NPC in Main.NPC)
                 {
-                    if (npc.active && npc.chaseable && !npc.dontTakeDamage && !npc.friendly && npc.lifeMax > 5 && !npc.immortal && (npc.Center - projectile.Center).Length() < bladeLength)
+                    if (NPC.active && NPC.chaseable && !NPC.dontTakeDamage && !NPC.friendly && NPC.LifeMax > 5 && !NPC.immortal && (NPC.Center - projectile.Center).Length() < bladeLength)
                     {
                         nerabyEnemies++;
                     }

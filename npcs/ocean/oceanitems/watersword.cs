@@ -9,8 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using gracosmod123.npcs.ocean.oceanitems;
-namespace gracosmod123.npcs.ocean.oceanitems
+using gracosmod123.NPCs.ocean.oceanitems;
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class watersword : ModItem
     {
@@ -22,38 +22,38 @@ namespace gracosmod123.npcs.ocean.oceanitems
 
         public override void SetDefaults()
         {
-            item.damage = 300;
-            item.width = 40000;
-            item.height = 600000;
-            item.useTime = 10;
-            item.useAnimation = 12;
+            Item.DamageType = 300;
+            Item.width = 40000;
+            Item.height = 600000;
+            Item.useTime = 10;
+            Item.useAnimation = 12;
             item.useStyle = 1;
-            item.knockBack = 50;
-            item.value = 100;
-            item.rare = 10;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Tide");
-            item.shootSpeed = 16f;
+            Item.knockBack = 50;
+            Item.value = 100;
+            Item.rare = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("Tide");
+            Item.shootSpeed = 16f;
             item.useTurn = true;
             item.melee = true;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<oreaqua.Aquabar>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
         /*public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemID.BeetleHusk, 20);
             recipe.AddIngredient(ItemID.Boulder, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }*/
     }
 }

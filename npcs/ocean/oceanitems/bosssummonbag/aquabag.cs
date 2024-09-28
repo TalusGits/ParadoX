@@ -3,19 +3,19 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems.bosssummonbag
+namespace gracosmod123.NPCs.ocean.oceanitems.bosssummonbag
 {
     public class aquabag : ModItem
     {
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 36;
-            item.height = 32;
-            item.rare = 9;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
+            Item.rare = 9;
             item.expert = true;
-            //bossBagNPC = mod.NPCType("AntlionQueen");
+            //bossBagNPC = ModContent.NPCType("AntlionQueen");
         }
 
         public override void SetStaticDefaults()
@@ -30,38 +30,38 @@ namespace gracosmod123.npcs.ocean.oceanitems.bosssummonbag
 
         /*public override void OpenBossBag(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("accesore"));
+            player.QuickSpawnItem(ModContent.ItemType("accesore"));
 
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("mechbemask"));
+                player.QuickSpawnItem(ModContent.ItemType("mechbemask"));
             }
             switch (Main.rand.Next(4))
             {
                 case 0:
-                    player.QuickSpawnItem(mod.ItemType("scythe"));
+                    player.QuickSpawnItem(ModContent.ItemType("scythe"));
                     break;
                 case 1:
-                    player.QuickSpawnItem(mod.ItemType("mechsky"));
+                    player.QuickSpawnItem(ModContent.ItemType("mechsky"));
                     break;
                 case 2:
-                    player.QuickSpawnItem(mod.ItemType("eliasBow"));
+                    player.QuickSpawnItem(ModContent.ItemType("eliasBow"));
                     break;
                 case 3:
-                    player.QuickSpawnItem(mod.ItemType("remote"));
+                    player.QuickSpawnItem(ModContent.ItemType("remote"));
                     break;
             }
             if (Main.rand.Next(20) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("mechqueentrophy"));
+                player.QuickSpawnItem(ModContent.ItemType("mechqueentrophy"));
             }*/
         public override void OpenBossBag(Player player)
         {                                         //below it's a choice from 3 items that will drop randomly
             //and this is the items that will 100% drop from the treasure bag
-            player.QuickSpawnItem(mod.ItemType("aquaexpertitem"), Main.rand.Next(1, 1));
-            player.QuickSpawnItem(mod.ItemType("blueblockore"), Main.rand.Next(25, 35));
+            player.QuickSpawnItem(ModContent.ItemType("aquaexpertitem"), Main.rand.Next(1, 1));
+            player.QuickSpawnItem(ModContent.ItemType("blueblockore"), Main.rand.Next(25, 35));
         }
-        public override int BossBagNPC => ModContent.NPCType<npcs.ocean.POSIDEN>();
+        public override int BossBagNPC => ModContent.NPCType<NPCs.ocean.POSIDEN>();
 
     }
 }
@@ -81,13 +81,13 @@ namespace YourModName.Items
         public override void SetDefaults()
         {
             item.name = "Cool Treasure Bag";
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
             item.toolTip = "Right click to open";
-            item.rare = 11;
-            bossBagNPC = mod.NPCType("NpcName");  //add this if the tresure bag is droped from a boss
+            Item.rare = 11;
+            bossBagNPC = ModContent.NPCType("NPCName");  //add this if the tresure bag is droped from a boss
             item.expert = true;      //add this if it's expert mode only
         }
         public override bool CanRightClick()
@@ -100,19 +100,19 @@ namespace YourModName.Items
             int choice = Main.rand.Next(3);
             if (choice == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("PetCall"));      
+                player.QuickSpawnItem(ModContent.ItemType("PetCall"));      
             }
             if (choice == 1)
             {
-                player.QuickSpawnItem(mod.ItemType("ShotGun"));
+                player.QuickSpawnItem(ModContent.ItemType("ShotGun"));
             }
             if (choice == 2)
             {
-                player.QuickSpawnItem(mod.ItemType("YourSword"));
+                player.QuickSpawnItem(ModContent.ItemType("YourSword"));
             }
             //and this is the items that will 100% drop from the treasure bag
-            player.QuickSpawnItem(mod.ItemType("CoolSoul"), Main.rand.Next(25, 35));
-            player.QuickSpawnItem(mod.ItemType("Flail"));
+            player.QuickSpawnItem(ModContent.ItemType("CoolSoul"), Main.rand.Next(25, 35));
+            player.QuickSpawnItem(ModContent.ItemType("Flail"));
         }
     }
 }*/

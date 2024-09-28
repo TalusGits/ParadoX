@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-/*namespace gracosmod123.npcs
+/*namespace gracosmod123.NPCs
 {
     public class shotharpHoming : ModProjectile
     {
@@ -29,7 +29,7 @@ using Terraria.ModLoader;
             projectile.height = 30;
             projectile.friendly = false;
             projectile.hostile = true;
-            projectile.penetrate = 1;
+            Projectile.Penetrate = 1;
             projectile.tileCollide = false;
             projectile.timeLeft = 60;
             ProjectileID.Sets.Homing[projectile.type] = true;
@@ -44,7 +44,7 @@ using Terraria.ModLoader;
         public override void AI()
         {
             projectile.timeLeft = 60;
-            if (!Main.npc[Owner].active)
+            if (!Main.NPC[Owner].active)
             {
                 projectile.Kill();
             }
@@ -54,9 +54,9 @@ using Terraria.ModLoader;
                 Distance += 1.5f;
             }
             Rotation = MathHelper.WrapAngle(Rotation + MathHelper.TwoPi / 200f);
-            NPC npc = Main.npc[Owner];
-            projectile.Center = npc.Center + new Vector2(0, Distance);
-            projectile.Center = projectile.Center.RotatedBy(Rotation, npc.Center);
+            NPC NPC = Main.NPC[Owner];
+            projectile.Center = NPC.Center + new Vector2(0, Distance);
+            projectile.Center = projectile.Center.RotatedBy(Rotation, NPC.Center);
         }
 
         public override void Kill(int timeLeft)
@@ -73,7 +73,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs
+namespace gracosmod123.NPCs
 {
     public class shotharpHoming : ModProjectile
     {
@@ -92,7 +92,7 @@ namespace gracosmod123.npcs
             //mystDur = 1f + projectile.knockBack;
             projectile.width = 22;
             projectile.height = 22;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.hostile = true;
             projectile.timeLeft = 220;
             projectile.ignoreWater = true;

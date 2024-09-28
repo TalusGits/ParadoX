@@ -3,7 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean
+namespace gracosmod123.NPCs.ocean
 {
     public class TrueEtherialPulse : ModProjectile
     {

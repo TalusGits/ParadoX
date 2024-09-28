@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace gracosmod123.npcs.ocean.oceanitems.armor
+namespace gracosmod123.NPCs.ocean.oceanitems.armor
 {
 	[AutoloadEquip(EquipType.Wings)]
 	public class aquaticwings : ModItem
@@ -20,10 +20,10 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
 		}
 
 		public override void SetDefaults() {
-			item.width = 22;
-			item.height = 20;
-			item.value = 10000;
-			item.rare = ItemRarityID.Green;
+			Item.width = 22;
+			Item.height = 20;
+			Item.value = 10000;
+			Item.rare = ItemRarityID.Green;
 			item.accessory = true;
 			item.defense = 35;
 		}
@@ -47,11 +47,11 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
 		}
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<oreaqua.Aquabar>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

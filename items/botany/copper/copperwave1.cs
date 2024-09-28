@@ -31,7 +31,7 @@ namespace gracosmod123.items.botany.copper
         {
             for (int k = 0; k < 2; k++)
             {
-                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("Copperdust"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100);
+                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("Copperdust"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity.X += 0.6f * projectile.spriteDirection;
             }
@@ -41,7 +41,7 @@ namespace gracosmod123.items.botany.copper
         {
             for (int k = 0; k < 15; k++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Copperdust"), (float)Main.rand.Next(-4, 4), (float)Main.rand.Next(-4, 4), 0);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType("Copperdust"), (float)Main.rand.Next(-4, 4), (float)Main.rand.Next(-4, 4), 0);
                 Main.dust[dust].noGravity = true;
             }
         }

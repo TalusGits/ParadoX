@@ -19,23 +19,23 @@ namespace gracosmod123.items.extras.fakealter
         }
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 24;
-            item.maxStack = 1;
-            item.value = 1000000;
-            item.rare = 7;
+            Item.width = 24;
+            Item.height = 24;
+            Item.maxStack = 1;
+            Item.value = 1000000;
+            Item.rare = 7;
             item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
             item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("ArtificialAltar");
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType("ArtificialAltar");
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemID.Bookcase);
             recipe.AddIngredient(ItemID.ImbuingStation);
             recipe.AddIngredient(ItemID.CrystalBall);
@@ -45,7 +45,7 @@ namespace gracosmod123.items.extras.fakealter
             recipe.AddIngredient(ItemID.LihzahrdFurnace);
             recipe.AddIngredient(ItemID.LunarCraftingStation);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

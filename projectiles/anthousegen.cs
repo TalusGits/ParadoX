@@ -25,7 +25,7 @@ namespace gracosmod123.projectiles
 			projectile.height = 10;
 			projectile.aiStyle = 16;
 			projectile.friendly = true;
-			projectile.penetrate = -1;
+			Projectile.Penetrate = -1;
 			projectile.timeLeft = 1000;
 
 			drawOffsetX = -15;

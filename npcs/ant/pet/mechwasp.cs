@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.ant.pet
+namespace gracosmod123.NPCs.ant.pet
 {
     // PurityWisp uses inheritace as an example of how it can be useful in modding.
     // HoverShooter and Minion classes help abstract common functionality away, which is useful for mods that have many similar behaviors.
@@ -28,7 +28,7 @@ namespace gracosmod123.npcs.ant.pet
             projectile.friendly = true;
             projectile.minion = true;
             projectile.minionSlots = 1;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.timeLeft = 18000;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;

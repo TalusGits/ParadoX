@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class scythe : ModItem
     {
@@ -13,33 +13,33 @@ namespace gracosmod123.npcs.ant
 
         public override void SetDefaults()
         {
-            item.damage = 102;
+            Item.DamageType = 102;
             item.melee = true;
-            item.width = 40000;
-            item.height = 600000;
-            item.useTime = 10;
-            item.useAnimation = 12;
+            Item.width = 40000;
+            Item.height = 600000;
+            Item.useTime = 10;
+            Item.useAnimation = 12;
             item.useStyle = 1;
-            item.knockBack = 50;
-            item.value = 100;
-            item.rare = 10;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("scythe2");
-            item.shootSpeed = 16f;
+            Item.knockBack = 50;
+            Item.value = 100;
+            Item.rare = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("scythe2");
+            Item.shootSpeed = 16f;
             item.useTurn = true;
-            item.noMelee = false;
+            Item.noMelee = false;
 
         }
 
         /*public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemID.BeetleHusk, 20);
             recipe.AddIngredient(ItemID.Boulder, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }*/
     }
 }

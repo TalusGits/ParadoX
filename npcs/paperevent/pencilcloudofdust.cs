@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class pencilcloudofdust : ModProjectile
     {
@@ -13,7 +13,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.height = 30;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 1;
+            Projectile.Penetrate = 1;
             projectile.tileCollide = false;
             projectile.timeLeft = 25;
         }
@@ -35,7 +35,7 @@ namespace gracosmod123.npcs.paperevent
         {
             for (int k = 0; k < 50; k++)
             {
-                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("White"));
+                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("White"));
                 Main.dust[dust].noGravity = true;
                 Dust dust1 = Main.dust[dust];
                 dust1.position.X = dust1.position.X + ((float)(Main.rand.Next(-50, 51) / 20) - 1.5f);
@@ -43,7 +43,7 @@ namespace gracosmod123.npcs.paperevent
                 dust2.position.Y = dust2.position.Y + ((float)(Main.rand.Next(-50, 51) / 20) - 1.5f);
                 if (Main.dust[dust].position != projectile.Center) Main.dust[dust].velocity = projectile.DirectionTo(Main.dust[dust].position) * 2.0f;
             }
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
+            SoundEngine.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
         }
     }
 }

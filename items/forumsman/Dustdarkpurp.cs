@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace gracosmod123.items.forumsman
 {
-    public class Dustdarkpurp : ModDust
+    public class Dustdarkpurp : ModContent.DustType
     {
         public override void OnSpawn(Dust dust)
         {

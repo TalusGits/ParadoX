@@ -3,43 +3,43 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using gracosmod123.npcs.ocean;
-namespace gracosmod123.npcs.ocean.oceanitems.bosssummonbag
+using gracosmod123.NPCs.ocean;
+namespace gracosmod123.NPCs.ocean.oceanitems.bosssummonbag
 {
     public class Piranah : ModNPC
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ocean Servant");
-            Main.npcFrameCount[npc.type] = 6;
+            Main.NPCFrameCount[NPC.type] = 6;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 28;
-            npc.height = 44;
-            //npc.aiStyle = 67;
-            npc.defense = 20;
+            NPC.width = 28;
+            NPC.height = 44;
+            //NPC.aiStyle = 67;
+            NPC.defense = 20;
 
-            //npc.HitSound = SoundID.NPCHit1;
-            //npc.DeathSound = SoundID.NPCDeath1;
-            //npc.npcSlots = 0.5f;
-            //npc.noGravity = true;
-            //npc.catchItem = 2007;
+            //NPC.HitSound = SoundID.NPCHit1;
+            //NPC.DeathSound = SoundID.NPCDeath1;
+            //NPC.NPCSlots = 0.5f;
+            //NPC.noGravity = true;
+            //NPC.catchItem = 2007;
 
-            npc.CloneDefaults(58);
-            //npc.aiStyle = 0;
+            NPC.CloneDefaults(58);
+            //NPC.aiStyle = 0;
             aiType = 58;
             animationType = 58;
             if (Main.expertMode == true)
             {
-                npc.lifeMax = 1000;
-                npc.damage = 128;
+                NPC.LifeMax = 1000;
+                NPC.damage = 128;
             }
             else
             {
-                npc.lifeMax = 1000;
-                npc.damage = 80;
+                NPC.LifeMax = 1000;
+                NPC.damage = 80;
             }
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -56,7 +56,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.bosssummonbag
         }
         public override bool CheckDead()
         {
-            var player = Main.player[npc.target];
+            var player = Main.player[NPC.target];
             switch (Main.rand.Next(4))
             {
                 case 0:
@@ -69,10 +69,10 @@ namespace gracosmod123.npcs.ocean.oceanitems.bosssummonbag
                     Main.NewText("Just Surrender To His LordShip", 125, 200, 255);
                     break;
                 case 3:
-                    if (!NPC.AnyNPCs(mod.NPCType("POSIDEN")))
+                    if (!NPC.AnyNPCs(ModContent.NPCType("POSIDEN")))
                     {
-                        NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("POSIDEN"));
-                        Main.PlaySound(SoundID.Roar, player.position, 0);
+                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType("POSIDEN"));
+                        SoundEngine.PlaySound(SoundID.Roar, player.position, 0);
                         return true;
                     }
                     return false;

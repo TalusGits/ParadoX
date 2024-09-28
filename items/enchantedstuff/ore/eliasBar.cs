@@ -20,29 +20,29 @@ namespace gracosmod123.items.enchantedstuff.ore
         public override void SetDefaults()
         {
             item.Size = new Vector2(16);
-            item.rare = ItemRarityID.Blue;
-            item.value = Item.sellPrice(copper: 90);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(copper: 90);
 
-            item.autoReuse = true;
+            Item.autoReuse = true;
             item.useTurn = true;
-            item.useTime = 15;
-            item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.useAnimation = 15;
             item.useStyle = ItemUseStyleID.SwingThrow;
 
-            item.consumable = true;
-            item.maxStack = 99;
+            Item.consumable = true;
+            Item.maxStack = 99;
 
-            item.createTile = TileType<items.enchantedstuff.ore.eliasBars>();
+            Item.createTile = TileType<items.enchantedstuff.ore.eliasBars>();
             item.placeStyle = 0;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<encore>(), 5);
             recipe.AddTile(TileID.Furnaces);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

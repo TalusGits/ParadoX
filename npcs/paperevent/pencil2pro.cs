@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class pencil2pro : ModProjectile
     {
@@ -16,7 +16,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.aiStyle = 27;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 4;
+            Projectile.Penetrate = 4;
             projectile.light = 0.5f;
             projectile.timeLeft = 80;
             projectile.tileCollide = false;
@@ -33,15 +33,15 @@ namespace gracosmod123.npcs.paperevent
         public override void AI()
         {
             ++projectile.ai[1];
-            if ((double)projectile.ai[1] % 10.0 == 0.0) Projectile.NewProjectile(projectile.position, Vector2.Zero, mod.ProjectileType("pencilcloudofdust"), projectile.damage, (int)(projectile.knockBack * 0.7f), projectile.owner);
+            if ((double)projectile.ai[1] % 10.0 == 0.0) Projectile.NewProjectileDirect(projectile.position, Vector2.Zero, ModContent.ProjectileType("pencilcloudofdust"), projectile.damage, (int)(projectile.knockBack * 0.7f), projectile.owner);
         }
 
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 34);
+            SoundEngine.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 34);
             for (int k = 0; k < 16; k++)
             {
-                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("White"));
+                int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("White"));
                 Main.dust[dust].noGravity = true;
             }
         }

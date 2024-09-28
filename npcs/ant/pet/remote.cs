@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.ant.pet
+namespace gracosmod123.NPCs.ant.pet
 {
     public class remote : ModItem
     {
@@ -18,26 +18,26 @@ namespace gracosmod123.npcs.ant.pet
 
         public override void SetDefaults()
         {
-            item.damage = 110;
+            Item.DamageType = 110;
             item.summon = true;
-            item.mana = 10;
-            item.width = 26;
-            item.height = 28;
-            item.useTime = 36;
-            item.useAnimation = 36;
+            Item.mana = 10;
+            Item.width = 26;
+            Item.height = 28;
+            Item.useTime = 36;
+            Item.useAnimation = 36;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.noMelee = true;
-            item.knockBack = 3;
-            item.value = Item.buyPrice(0, 30, 0, 0);
-            item.rare = ItemRarityID.Cyan;
-            item.UseSound = SoundID.Item44;
-            item.shoot = ProjectileType<mechwasp>();
-            item.buffType = BuffType<npcs.ant.pet.mechanized>(); //The buff added to player after used the item
+            Item.noMelee = true;
+            Item.knockBack = 3;
+            Item.value = Item.buyPrice(0, 30, 0, 0);
+            Item.rare = ItemRarityID.Cyan;
+            Item.UseSound = SoundID.Item44;
+            Item.shoot = ProjectileType<mechwasp>();
+            Item.buffType = BuffType<NPCs.ant.pet.mechanized>(); //The buff added to player after used the item
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            player.AddBuff(item.buffType, 2);
+            player.AddBuff(Item.buffType, 2);
             position = Main.MouseWorld;
             return true;
         }

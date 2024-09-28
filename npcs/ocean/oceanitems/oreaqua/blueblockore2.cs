@@ -9,7 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.ocean.oceanitems.oreaqua
+namespace gracosmod123.NPCs.ocean.oceanitems.oreaqua
 {
     public class blueblockore2 : ModTile
     {
@@ -20,7 +20,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.oreaqua
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSpelunker[Type] = true;
-            drop = ItemType<npcs.ocean.oceanitems.oreaqua.blueblockore>();
+            drop = ItemType<NPCs.ocean.oceanitems.oreaqua.blueblockore>();
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Aquatic Ore");
             AddMapEntry(new Color(162, 184, 185), name);

@@ -17,18 +17,18 @@ namespace gracosmod123.devitems
         }
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 30;
-            item.noMelee = true;
-            item.useTime = 5;
-            item.useAnimation = 5;
+            Item.width = 28;
+            Item.height = 30;
+            Item.noMelee = true;
+            Item.useTime = 5;
+            Item.useAnimation = 5;
             item.reuseDelay = 5;
-            item.autoReuse = true;
+            Item.autoReuse = true;
             item.channel = true;
             item.useStyle = 4;
-            item.value = 0;
-            item.rare = 10;
-            item.shoot = mod.ProjectileType("CheatManipulation");
+            Item.value = 0;
+            Item.rare = 10;
+            Item.shoot = ModContent.ProjectileType("CheatManipulation");
         }
         public override void ModifyTooltips(List<TooltipLine> list)
         {

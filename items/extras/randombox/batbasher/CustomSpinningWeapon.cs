@@ -9,21 +9,21 @@ namespace gracosmod123.items.extras.randombox.batbasher
     {
         public override void SetDefaults()
         {
-            item.damage = 11;    //The damage stat for the Weapon.
+            Item.DamageType = 11;    //The damage stat for the Weapon.
             item.melee = true;     //This defines if it does Melee damage and if its effected by Melee increasing Armor/Accessories.
-            item.width = 80;    //The size of the width of the hitbox in pixels.
-            item.height = 80;    //The size of the height of the hitbox in pixels.
-            item.useTime = 10;   //How fast the Weapon is used.
-            item.useAnimation = 10;     //How long the Weapon is used for.
+            Item.width = 80;    //The size of the width of the hitbox in pixels.
+            Item.height = 80;    //The size of the height of the hitbox in pixels.
+            Item.useTime = 10;   //How fast the Weapon is used.
+            Item.useAnimation = 10;     //How long the Weapon is used for.
             item.channel = true;
             item.useStyle = 100;    //The way your Weapon will be used, 1 is the regular sword swing for example
-            item.knockBack = 8f;    //The knockback stat of your Weapon.
-            item.value = Item.buyPrice(0, 10, 0, 0); //	How much the item is worth, in copper coins, when you sell it to a merchant. It costs 1/5th of this to buy it back from them. An easy way to remember the value is platinum, gold, silver, copper or PPGGSSCC (so this item price is 10gold)
-            item.shoot = mod.ProjectileType("SpinningWeaponProj");  //This defines what type of projectile this weapon will shoot	
+            Item.knockBack = 8f;    //The knockback stat of your Weapon.
+            Item.value = Item.buyPrice(0, 10, 0, 0); //	How much the item is worth, in copper coins, when you sell it to a merchant. It costs 1/5th of this to buy it back from them. An easy way to remember the value is platinum, gold, silver, copper or PPGGSSCC (so this item price is 10gold)
+            Item.shoot = ModContent.ProjectileType("SpinningWeaponProj");  //This defines what type of projectile this weapon will shoot	
             item.noUseGraphic = true; // this defines if it does not use graphic
             if (Main.hardMode)
             {
-                item.damage = 22;
+                Item.DamageType = 22;
             }
         }
         public override void SetStaticDefaults()

@@ -22,22 +22,22 @@ namespace gracosmod123.items.forumsman
 
         public override void SetDefaults()
         {
-            item.damage = 45;
+            Item.DamageType = 45;
             item.magic = true;
-            item.mana = 4;
-            item.width = 48;
-            item.height = 64;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            Item.mana = 4;
+            Item.width = 48;
+            Item.height = 64;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
             item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 2.3f;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 3;
-            item.UseSound = SoundID.Item75;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("FlamethrowerProj");
-            item.shootSpeed = 10.0f;
+            Item.noMelee = true;
+            Item.knockBack = 2.3f;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 3;
+            Item.UseSound = SoundID.Item75;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("FlamethrowerProj");
+            Item.shootSpeed = 10.0f;
             Item.staff[item.type] = true;
         }
 
@@ -47,22 +47,22 @@ namespace gracosmod123.items.forumsman
             position += Vector2.Normalize(new Vector2(speedX, speedY)) * 70.5f;
             float speed = (float)(3.0 + (double)Main.rand.NextFloat() * 6.0);
             Vector2 start = Vector2.UnitY.RotatedByRandom(6.32);
-            Projectile.NewProjectile(position.X, position.Y, start.X * speed, start.Y * speed, type, damage, knockBack, player.whoAmI, vector.X, vector.Y);
+            Projectile.NewProjectileDirect(position.X, position.Y, start.X * speed, start.Y * speed, type, damage, knockBack, player.whoAmI, vector.X, vector.Y);
             return false;
 		}*/
         public override bool UseItem(Player player)
         {
-            Dust.NewDust(player.position, player.width, player.height, mod.DustType("Dustdarkpurp"), 0, 0);
+            Dust.NewDust(player.position, player.width, player.height, ModContent.DustType("Dustdarkpurp"), 0, 0);
             return true;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(621, 20);//pearlwood
             recipe.AddIngredient(181, 20);//amythest
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

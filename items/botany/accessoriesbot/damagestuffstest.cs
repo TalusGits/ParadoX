@@ -10,10 +10,10 @@ namespace gracosmod123.items.botany.accessoriesbot
     {
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 90, 15);
-            item.rare = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 90, 15);
+            Item.rare = 1;
             item.accessory = true;
         }
 

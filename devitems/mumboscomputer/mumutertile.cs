@@ -14,7 +14,7 @@ namespace gracosmod123.devitems.mumboscomputer
     {
         public override void SetDefaults()
         {
-            Main.tileSolidTop[Type] = false;
+            TileLoader.IsTileSolidop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
@@ -32,7 +32,7 @@ namespace gracosmod123.devitems.mumboscomputer
             AddMapEntry(new Color(75, 75, 50), name);
             disableSmartCursor = true;
             Main.tileLighted[Type] = true;
-            dustType = mod.DustType("labdust");
+            dustType = ModContent.DustType("labdust");
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
@@ -42,21 +42,21 @@ namespace gracosmod123.devitems.mumboscomputer
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("mumuter"));
+            Item.NewItem(i * 16, j * 16, 48, 32, ModContent.ItemType("mumuter"));
         }
         public override void RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             //QwertyMethods.ServerClientCheck();
-            if (!NPC.AnyNPCs(mod.NPCType("FortressBoss")))
+            if (!NPC.AnyNPCs(ModContent.NPCType("FortressBoss")))
             {
                 for (int b = 0; b < 58; b++) // this searches every invintory slot
                 {
-                    if (player.inventory[b].type == mod.ItemType("FortressBossSummon") && player.inventory[b].stack > 0) //this checks if the slot has the valid item
+                    if (player.inventory[b].type == ModContent.ItemType("FortressBossSummon") && player.inventory[b].stack > 0) //this checks if the slot has the valid item
                     {
                         if (Main.netMode == 0)
                         {
-                            int npcID = NPC.NewNPC(i * 16 + 400, j * 16, mod.NPCType("FortressBoss"));
+                            int NPCID = NPC.NewNPC(i * 16 + 400, j * 16, ModContent.NPCType("FortressBoss"));
                         }
                         else
                         {
@@ -77,7 +77,7 @@ namespace gracosmod123.devitems.mumboscomputer
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("FortressBossSummon");
+            player.showItemIcon2 = ModContent.ItemType("FortressBossSummon");
         }
     }
 }

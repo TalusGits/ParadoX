@@ -8,7 +8,7 @@ using Terraria.Localization;//uses the localization folders
 using System.IO;//what?
 using Microsoft.Xna.Framework.Graphics;//framework
 using Terraria.Utilities;
-namespace gracosmod123.npcs//location in the folders
+namespace gracosmod123.NPCs//location in the folders
 
 {
     [AutoloadHead]
@@ -16,63 +16,63 @@ namespace gracosmod123.npcs//location in the folders
     {
         public override void SetDefaults()
         {
-            npc.lifeMax = 165;
-            npc.damage = 12;
-            npc.defense = 8;
-            npc.knockBackResist = 0f;
-            npc.width = 78;
-            npc.height = 54;
-            npc.aiStyle = 44;
+            NPC.LifeMax = 165;
+            NPC.damage = 12;
+            NPC.defense = 8;
+            NPC.knockBackResist = 0f;
+            NPC.width = 78;
+            NPC.height = 54;
+            NPC.aiStyle = 44;
             aiType = NPCID.FlyingFish;
             animationType = 48;
-            npc.npcSlots = 0.5f;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.noGravity = true;
-            npc.npcSlots = 2f;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = Item.buyPrice(0, 0, 34, 5);
-            //bannerItem = mod.ItemType("BirdTravellerBanner");
-            //banner = npc.type;
-            npc.rarity = 1;
+            NPC.NPCSlots = 0.5f;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.noGravity = true;
+            NPC.NPCSlots = 2f;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = Item.buyPrice(0, 0, 34, 5);
+            //bannerItem = ModContent.ItemType("BirdTravellerBanner");
+            //banner = NPC.type;
+            NPC.rarity = 1;
         }
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mysteryskeeto");
-            Main.npcFrameCount[npc.type] = 4;
+            Main.NPCFrameCount[NPC.type] = 4;
         }
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = (int)(npc.lifeMax * 1);
-            npc.damage = (int)(npc.damage * 1);
+            NPC.LifeMax = (int)(NPC.LifeMax * 1);
+            NPC.damage = (int)(NPC.damage * 1);
         }
 
         private float timer;
         public override void AI()
         {
-            npc.TargetClosest(true);
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
             ++timer;
             if (timer >= 180f && timer % 20f == 0f)
             {
                 Vector2 player2 = player.Center;
                 Vector2 vector2_1 = player2;
                 float speed = 10f;
-                Vector2 vector2_2 = vector2_1 - npc.Center;
+                Vector2 vector2_2 = vector2_1 - NPC.Center;
                 float distance = (float)Math.Sqrt((double)vector2_2.X * (double)vector2_2.X + (double)vector2_2.Y * (double)vector2_2.Y);
                 vector2_2 *= speed / distance;
-                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, vector2_2.X, vector2_2.Y, mod.ProjectileType("shotharp"), npc.damage / 3 + 15, 5.0f, 0, 0.0f, 0.0f);
+                Projectile.NewProjectileDirect(NPC.Center.X, NPC.Center.Y, vector2_2.X, vector2_2.Y, ModContent.ProjectileType("shotharp"), NPC.damage / 3 + 15, 5.0f, 0, 0.0f, 0.0f);
             }
             if (timer >= 180f && timer % 20f == 0f)
             {
                 Vector2 player2 = player.Center;
                 Vector2 vector2_1 = player2;
                 float speed = 25f;
-                Vector2 vector2_2 = vector2_1 - npc.Center;
+                Vector2 vector2_2 = vector2_1 - NPC.Center;
                 float distance = (float)Math.Sqrt((double)vector2_2.X * (double)vector2_2.X + (double)vector2_2.Y * (double)vector2_2.Y);
                 vector2_2 *= speed / distance;
-                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, vector2_2.X, vector2_2.Y, mod.ProjectileType("shotharpHoming"), npc.damage / 3 + 15, 5.0f, 0, 0.0f, 0.0f);
+                Projectile.NewProjectileDirect(NPC.Center.X, NPC.Center.Y, vector2_2.X, vector2_2.Y, ModContent.ProjectileType("shotharpHoming"), NPC.damage / 3 + 15, 5.0f, 0, 0.0f, 0.0f);
             }
             if (timer >= 260.0f)
                 timer = 0.0f;
@@ -80,11 +80,11 @@ namespace gracosmod123.npcs//location in the folders
 
         public override void HitEffect(int hitDirection, double damage)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
                 for (int k = 0; k < 20; k++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
                 }
             }
         }
@@ -93,16 +93,16 @@ namespace gracosmod123.npcs//location in the folders
         {
             if (Main.netMode != 1)
             {
-                int centerX = (int)(npc.position.X + (float)(npc.width / 2)) / 16;
-                int centerY = (int)(npc.position.Y + (float)(npc.height / 2)) / 16;
-                int halfLength = npc.width / 2 / 16 + 1;
+                int centerX = (int)(NPC.position.X + (float)(NPC.width / 2)) / 16;
+                int centerY = (int)(NPC.position.Y + (float)(NPC.height / 2)) / 16;
+                int halfLength = NPC.width / 2 / 16 + 1;
                 if (Main.rand.Next(2) == 0)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("randombox"), Main.rand.Next(100, 500), false, 0, false, false);
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("randombox"), Main.rand.Next(100, 500), false, 0, false, false);
                 }
                 if (Main.rand.Next(2) == 0)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Gun"), 1, false, 0, false, false);
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("Gun"), 1, false, 0, false, false);
                 }
             }
         }

@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class paperFlailProj : ModProjectile
     {
@@ -23,7 +23,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.melee = true;
             projectile.tileCollide = false;
             projectile.timeLeft = 3600;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.usesIDStaticNPCImmunity = true;
             projectile.idStaticNPCHitCooldown = 10;
             projectile.light = 0.50f; // projectile light still a lot
@@ -47,7 +47,7 @@ namespace gracosmod123.npcs.paperevent
                 for (int i = 0; i < 20; i++)
                 {
                     if (Main.netMode != 1)
-                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<npcs.paperevent.pencilcloudofdust>(), (int)(80), 3, Main.myPlayer);
+                        Projectile.NewProjectileDirect(projectile.Center.X, projectile.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<NPCs.paperevent.pencilcloudofdust>(), (int)(80), 3, Main.myPlayer);
                 }
                 shootDelay = 0;
             }
@@ -208,7 +208,7 @@ namespace gracosmod123.npcs.paperevent
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D texture = ModContent.GetTexture("gracosmod123/npcs/paperevent/paperFlailChain");
+            Texture2D texture = ModContent.GetTexture("gracosmod123/NPCs/paperevent/paperFlailChain");
             Player player = Main.player[projectile.owner];
             Vector2 position = projectile.Center;
             Vector2 playerCenter = player.MountedCenter;

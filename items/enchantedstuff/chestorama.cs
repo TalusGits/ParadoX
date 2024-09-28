@@ -24,17 +24,17 @@ namespace gracosmod123.items.enchantedstuff
         {
 
             item.Size = new Vector2(18);
-            item.value = Item.sellPrice(silver: 24);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 24);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 8;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<ore.eliasBar>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

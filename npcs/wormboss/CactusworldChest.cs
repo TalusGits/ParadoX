@@ -18,19 +18,19 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
-using gracosmod123.npcs.wormboss;
+using gracosmod123.NPCs.wormboss;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.World.Generation;
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class CactusworldChest : ModWorld
     {
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInIceChests = { ModContent.ItemType<goldenRelic>(), ModContent.ItemType<goldenRelic>(), ModContent.ItemType<goldenRelic>() };//mod.ItemType("goldenRelic")
+            int[] itemsToPlaceInIceChests = { ModContent.ItemType<goldenRelic>(), ModContent.ItemType<goldenRelic>(), ModContent.ItemType<goldenRelic>() };//ModContent.ItemType("goldenRelic")
             int itemsToPlaceInIceChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             {

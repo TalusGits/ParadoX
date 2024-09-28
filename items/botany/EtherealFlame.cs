@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace gracosmod123.items.botany
 {
-	public class EtherealFlame : ModDust
+	public class EtherealFlame : ModContent.DustType
 	{
 		public override void OnSpawn(Dust dust) {
 			dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;

@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent.boss
+namespace gracosmod123.NPCs.paperevent.boss
 {
     public class paperdagger : ModProjectile
     {
@@ -17,7 +17,7 @@ namespace gracosmod123.npcs.paperevent.boss
             aiType = ProjectileID.Bullet;
             projectile.friendly = false;
             projectile.ignoreWater = true;
-            projectile.penetrate = 1;
+            Projectile.Penetrate = 1;
             projectile.timeLeft = 540;
             projectile.tileCollide = false;
             projectile.hostile = true;
@@ -47,7 +47,7 @@ namespace gracosmod123.npcs.paperevent.boss
                 for (int k = 0; (double)k < (double)count; k++)
                 {
                     Vector2 vector2 = (Vector2.UnitX * 0.0f + -Vector2.UnitY.RotatedBy((double)k * (6.22 / (double)count), new Vector2()) * new Vector2(2.0f, 8.0f)).RotatedBy((double)projectile.velocity.ToRotation(), new Vector2());
-                    int dust_ = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("White"));
+                    int dust_ = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("White"));
                     Main.dust[dust_].scale = 1.25f;
                     Main.dust[dust_].noGravity = true;
                     Main.dust[dust_].position = projectile.Center + vector2;

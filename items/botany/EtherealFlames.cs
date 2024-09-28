@@ -16,8 +16,8 @@ namespace gracosmod123.items.botany
 			longerExpertDebuff = true;
 		}
 
-		public override void Update(NPC npc, ref int buffIndex) {
-			npc.GetGlobalNPC<ExampleGlobalNPC>().eFlames = true;
+		public override void Update(NPC NPC, ref int buffIndex) {
+			NPC.GetGlobalNPC<ExampleGlobalNPC>().eFlames = true;
 		}
 	}
 }

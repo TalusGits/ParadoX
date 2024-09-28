@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     [AutoloadBossHead]
     public class GrandCactusWormTail : ModNPC
@@ -18,30 +18,30 @@ namespace gracosmod123.npcs.wormboss
         }
         public override void SetDefaults()
         {
-            npc.dontTakeDamage = false;
+            NPC.dontTakeDamage = false;
 
-            npc.active = true;
-            npc.CloneDefaults(NPCID.DiggerTail);
-            npc.aiStyle = -1;
-            npc.damage = 25;
-            npc.defense = 15;
-            npc.knockBackResist = 0f;
-            npc.width = 82;
-            npc.height = 112;
-            npc.behindTiles = true;
-            npc.noTileCollide = true;
-            npc.netAlways = true;
-            npc.noGravity = true;
-            npc.dontCountMe = true;
-            npc.lavaImmune = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            NPC.active = true;
+            NPC.CloneDefaults(NPCID.DiggerTail);
+            NPC.aiStyle = -1;
+            NPC.damage = 25;
+            NPC.defense = 15;
+            NPC.knockBackResist = 0f;
+            NPC.width = 82;
+            NPC.height = 112;
+            NPC.behindTiles = true;
+            NPC.NoTileCollide = true;
+            NPC.netAlways = true;
+            NPC.noGravity = true;
+            NPC.dontCountMe = true;
+            NPC.lavaImmune = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
 
-            if (Vector2.Distance(target.Center, npc.Center) > 50)
+            if (Vector2.Distance(target.Center, NPC.Center) > 50)
             {
                 return false;
             }
@@ -49,26 +49,26 @@ namespace gracosmod123.npcs.wormboss
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.damage = (int)(npc.damage * 0.7f);
+            NPC.damage = (int)(NPC.damage * 0.7f);
         }
         public override void BossHeadRotation(ref float rotation)
         {
-            rotation = npc.rotation;
+            rotation = NPC.rotation;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("npcs/wormboss/GrandCactusWormTail_Gore"), npc.scale);
+                Gore.NewGore(NPC.position, NPC.velocity, mod.GetGoreSlot("NPCs/wormboss/GrandCactusWormTail_Gore"), NPC.scale);
             }
         }
         public override bool PreAI()
         {
-            Player P = Main.player[npc.target];
-            if (!Main.player[npc.target].active || Main.player[npc.target].dead)
+            Player P = Main.player[NPC.target];
+            if (!Main.player[NPC.target].active || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
-                if (!Main.player[npc.target].active || Main.player[npc.target].dead)
+                NPC.TargetClosest(true);
+                if (!Main.player[NPC.target].active || Main.player[NPC.target].dead)
                 {
                     if (_despawn == 0)
                         _despawn++;
@@ -76,67 +76,67 @@ namespace gracosmod123.npcs.wormboss
             }
             else if (!Main.dayTime)
                 _despawn = 0;
-            if (P.ZoneUndergroundDesert || Vector2.Distance(npc.Center, P.MountedCenter) > 4000 || npc.target < 0 || npc.target == 255 || P.dead || !P.active)
+            if (P.ZoneUndergroundDesert || Vector2.Distance(NPC.Center, P.MountedCenter) > 4000 || NPC.target < 0 || NPC.target == 255 || P.dead || !P.active)
             {
-                npc.active = true;
-                npc.dontTakeDamage = false;
+                NPC.active = true;
+                NPC.dontTakeDamage = false;
             }
             else
             {
-                npc.dontTakeDamage = true;
+                NPC.dontTakeDamage = true;
             }
             if (_despawn >= 1)
             {
                 _despawn++;
-                npc.noTileCollide = true;
+                NPC.NoTileCollide = true;
                 if (_despawn >= 300)
-                    npc.active = false;
+                    NPC.active = false;
                 _despawn = 0;
             }
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.NPC[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
                     if (Main.netMode == 2)
                     {
-                        NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                        NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                     }
                 }
             }
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.NPC.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].Center.X - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].Center.Y - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.NPC[(int)NPC.ai[1]].Center.X - NPC.Center.X;
+                float dirY = Main.NPC[(int)NPC.ai[1]].Center.Y - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)npc.width) / length;
+                float dist = (length - (float)NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
-                npc.velocity = Vector2.Zero;
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
-                npc.netUpdate = true;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X = NPC.position.X + posX;
+                NPC.position.Y = NPC.position.Y + posY;
+                NPC.netUpdate = true;
             }
             return false;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
-            Texture2D texture = Main.npcTexture[npc.type];
+            Texture2D texture = Main.NPCTexture[NPC.type];
             Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
-            Main.spriteBatch.Draw(texture, npc.Center - Main.screenPosition, new Rectangle?(), drawColor, npc.rotation, origin, npc.scale, SpriteEffects.None, 0);
+            Main.spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, new Rectangle?(), drawColor, NPC.rotation, origin, NPC.scale, SpriteEffects.None, 0);
             return false;
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

@@ -39,7 +39,7 @@ namespace gracosmod123.lab.chest
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
             chest = "Lab Container";
-            chestDrop = mod.ItemType("Advancedchestitem");
+            chestDrop = ModContent.ItemType("Advancedchestitem");
         }
 
         public override bool HasSmartInteract()
@@ -99,16 +99,16 @@ namespace gracosmod123.lab.chest
             }
             if (player.sign >= 0)
             {
-                Main.PlaySound(SoundID.MenuClose);
+                SoundEngine.PlaySound(SoundID.MenuClose);
                 player.sign = -1;
                 Main.editSign = false;
-                Main.npcChatText = "";
+                Main.NPCChatText = "";
             }
             if (Main.editChest)
             {
-                Main.PlaySound(SoundID.MenuTick);
+                SoundEngine.PlaySound(SoundID.MenuTick);
                 Main.editChest = false;
-                Main.npcChatText = "";
+                Main.NPCChatText = "";
             }
             if (player.editedChestName)
             {
@@ -121,7 +121,7 @@ namespace gracosmod123.lab.chest
                 {
                     player.chest = -1;
                     Recipe.FindRecipes();
-                    Main.PlaySound(SoundID.MenuClose);
+                    SoundEngine.PlaySound(SoundID.MenuClose);
                 }
                 else
                 {
@@ -138,7 +138,7 @@ namespace gracosmod123.lab.chest
                     if (chest == player.chest)
                     {
                         player.chest = -1;
-                        Main.PlaySound(SoundID.MenuClose);
+                        SoundEngine.PlaySound(SoundID.MenuClose);
                     }
                     else
                     {
@@ -147,7 +147,7 @@ namespace gracosmod123.lab.chest
                         Main.recBigList = false;
                         player.chestX = left;
                         player.chestY = top;
-                        Main.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
+                        SoundEngine.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
                     }
                     Recipe.FindRecipes();
                 }
@@ -177,7 +177,7 @@ namespace gracosmod123.lab.chest
             else
             {
                 player.showItemIconText = Main.chest[chest].name;
-                player.showItemIcon2 = mod.ItemType("Advancedchestitem");
+                player.showItemIcon2 = ModContent.ItemType("Advancedchestitem");
             }
             player.noThrow = 2;
             player.showItemIcon = true;

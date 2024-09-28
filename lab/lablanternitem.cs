@@ -7,17 +7,17 @@ namespace gracosmod123.lab
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 99;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 99;
             item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
             item.useStyle = 1;
-            item.consumable = true;
-            item.value = 150;
-            item.createTile = mod.TileType("lablantern");
+            Item.consumable = true;
+            Item.value = 150;
+            Item.createTile = ModContent.TileType("lablantern");
         }
     }
 }

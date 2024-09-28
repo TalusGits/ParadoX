@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class starfish2 : ModProjectile
     {
@@ -25,7 +25,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
             spawned = false;
             projectile.width = 16;
             projectile.height = 16;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.hostile = false;
             projectile.friendly = true;
             projectile.timeLeft = 210;

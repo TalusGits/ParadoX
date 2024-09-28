@@ -10,21 +10,21 @@ namespace gracosmod123
     public static class AntiarisHelper
     {
         //thanks blushiemagic!
-        public static void MoveTowards(this NPC npc, Vector2 playerTarget, float speed, float turnResistance)
+        public static void MoveTowards(this NPC NPC, Vector2 playerTarget, float speed, float turnResistance)
         {
-            var Move = playerTarget - npc.Center;
+            var Move = playerTarget - NPC.Center;
             float Length = Move.Length();
             if (Length > speed)
             {
                 Move *= speed / Length;
             }
-            Move = (npc.velocity * turnResistance + Move) / (turnResistance + 1f);
+            Move = (NPC.velocity * turnResistance + Move) / (turnResistance + 1f);
             Length = Move.Length();
             if (Length > speed)
             {
                 Move *= speed / Length;
             }
-            npc.velocity = Move;
+            NPC.velocity = Move;
         }
         public static Vector2 RotateVector(Vector2 origin, Vector2 vecToRot, float rot)
         {

@@ -14,7 +14,7 @@ namespace gracosmod123.items.tiles
     {
         public override void SetDefaults()
         {
-            Main.tileSolidTop[Type] = false;
+            TileLoader.IsTileSolidop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = false;
@@ -35,7 +35,7 @@ namespace gracosmod123.items.tiles
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("Toolboxitem"));
+            Item.NewItem(i * 16, j * 16, 48, 32, ModContent.ItemType("Toolboxitem"));
         }
     }
 }

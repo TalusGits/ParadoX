@@ -11,27 +11,27 @@ namespace gracosmod123.items.extras
     {
         public override void SetDefaults()
         {
-            item.damage = 20;
+            Item.DamageType = 20;
             item.melee = true;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 22;
+            Item.useAnimation = 22;
             //Use useStyle 1 for normal swinging or for throwing
             //use useStyle 2 for an item that drinks such as a potion,
             //use useStyle 3 to make the sword act like a shortsword
             //use useStyle 4 for use like a life crystal,
             //and use useStyle 5 for staffs or guns
             item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = Item.sellPrice(0, 0, 20, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             item.useTurn = true;
-            item.shoot = 15/*ProjectileID.ImpProjectile*/;//295//296//41
-            item.shootSpeed = 60f;
-            item.value = Item.sellPrice(0, 9, 0, 0);
+            Item.shoot = 15/*ProjectileID.ImpProjectile*/;//295//296//41
+            Item.shootSpeed = 60f;
+            Item.value = Item.sellPrice(0, 9, 0, 0);
         }
 
         public override void SetStaticDefaults()
@@ -50,12 +50,12 @@ namespace gracosmod123.items.extras
                 Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
                 if (Main.hardMode)
                 {
-                    item.damage = 36;
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, 295, damage, knockBack, player.whoAmI);
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                    Item.DamageType = 36;
+                    Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, 295, damage, knockBack, player.whoAmI);
+                    Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
                 }
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, 41, damage, knockBack, player.whoAmI);
+                Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, 41, damage, knockBack, player.whoAmI);
 
             }
             return false;

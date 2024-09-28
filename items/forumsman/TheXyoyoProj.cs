@@ -30,7 +30,7 @@ namespace gracosmod123.items.forumsman
             projectile.Size = new Vector2(16);
             projectile.aiStyle = 99;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.melee = true;
             projectile.scale = 1f;
             projectile.tileCollide = false;
@@ -40,7 +40,7 @@ namespace gracosmod123.items.forumsman
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            //target.AddBuff(BuffID.OnFire, 180);
+            //target.AddBuff(ModContent.BuffType.OnFire, 180);
             /*for (int i = 0; i < 50; i++)
             {
             }*/
@@ -60,7 +60,7 @@ namespace gracosmod123.items.forumsman
                 for (int count = 0; count < 10; count++)
                 {
                     Vector2 spawn = projectile.Center + distance * ((float)count * k).ToRotationVector2();
-                    Projectile.NewProjectile((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, mod.ProjectileType("starfish2"), projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
+                    Projectile.NewProjectileDirect((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, ModContent.ProjectileType("starfish2"), projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
                 }
             }*/
 

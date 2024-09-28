@@ -22,7 +22,7 @@ namespace gracosmod123.projectiles.summons
             projectile.width = 16;
             projectile.height = 16;
             projectile.alpha = 255;
-            projectile.penetrate = 1;
+            Projectile.Penetrate = 1;
             projectile.friendly = true;
             projectile.ignoreWater = true;
         }
@@ -31,7 +31,7 @@ namespace gracosmod123.projectiles.summons
         {
             if (projectile.localAI[0] == 0f)
             {
-                Main.PlaySound(SoundID.Item20, projectile.position);
+                SoundEngine.PlaySound(SoundID.Item20, projectile.position);
                 projectile.localAI[0] = 1f;
             }
             int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 66, 0f, 0f, 100, new Color(44, 164, 255), 1.5f);
@@ -52,7 +52,7 @@ namespace gracosmod123.projectiles.summons
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.maxPenetrate = -1;
             projectile.tileCollide = false;
             projectile.position += projectile.velocity;
@@ -95,7 +95,7 @@ namespace gracosmod123.projectiles.summons
         public override void AI()
         {
             //this is projectile dust
-            int DustID2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width + 2, projectile.height + 2, mod.DustType("ret2"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 20, default(Color), 2.9f);
+            int DustID2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width + 2, projectile.height + 2, ModContent.DustType("ret2"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 20, default(Color), 2.9f);
             Main.dust[DustID2].noGravity = true;
             //this make that the projectile faces the right way 
             projectile.rotation = (float)Math.Atan2((double)projectile.velocity.Y, (double)projectile.velocity.X) + 1.57f;

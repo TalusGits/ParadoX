@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace gracosmod123.npcs.wormboss.accessories
+namespace gracosmod123.NPCs.wormboss.accessories
 {
     [AutoloadEquip(EquipType.Neck)]
     public class JadeNecklace : ModItem
@@ -17,21 +17,21 @@ namespace gracosmod123.npcs.wormboss.accessories
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
-            item.rare = 1;
+            Item.width = 22;
+            Item.height = 22;
+            Item.rare = 1;
             item.accessory = true;
-            item.value = Item.sellPrice(0, 0, 50, 0);
-            item.rare = ItemRarityID.Green;
+            Item.value = Item.sellPrice(0, 0, 50, 0);
+            Item.rare = ItemRarityID.Green;
 
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(mod, "GlowingCrystalItem", 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

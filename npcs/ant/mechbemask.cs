@@ -2,16 +2,16 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     [AutoloadEquip(EquipType.Head)]
     public class mechbemask : ModItem
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 12;
-            item.rare = 9;
+            Item.width = 16;
+            Item.height = 12;
+            Item.rare = 9;
             item.vanity = true;
         }
 

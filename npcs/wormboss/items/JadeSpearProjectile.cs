@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace gracosmod123.npcs.wormboss.items
+namespace gracosmod123.NPCs.wormboss.items
 {
     public class JadeSpearProjectile : ModProjectile//MysticItem
     {
@@ -23,7 +23,7 @@ namespace gracosmod123.npcs.wormboss.items
             projectile.height = 44;
             projectile.aiStyle = 19;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.tileCollide = false;
             projectile.scale = 1.3f;
             projectile.hide = true;
@@ -95,7 +95,7 @@ namespace gracosmod123.npcs.wormboss.items
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            //target.AddBuff(BuffID.OnFire, 180);
+            //target.AddBuff(ModContent.BuffType.OnFire, 180);
             /*for (int i = 0; i < 50; i++)
             {
             }*/
@@ -104,7 +104,7 @@ namespace gracosmod123.npcs.wormboss.items
             for (int count = 0; count < 10; count++)
             {
                 Vector2 spawn = projectile.Center + distance * ((float)count * k).ToRotationVector2();
-                Projectile.NewProjectile((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, 229/*ID*/, projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
+                Projectile.NewProjectileDirect((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, 229/*ID*/, projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
             }
         }
     }

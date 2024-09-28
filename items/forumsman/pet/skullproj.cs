@@ -28,7 +28,7 @@ namespace gracosmod123.items.forumsman.pet
             projectile.friendly = true;
             projectile.minion = true;
             projectile.minionSlots = 1;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.timeLeft = 18000;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;

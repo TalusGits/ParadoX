@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class CactusWormBall : ModProjectile
     {
@@ -18,7 +18,7 @@ namespace gracosmod123.npcs.wormboss
             projectile.height = 38;
             projectile.aiStyle = 1;
             projectile.hostile = true;
-            projectile.penetrate = 1;
+            Projectile.Penetrate = 1;
             projectile.timeLeft = 300;
             projectile.tileCollide = false;
             aiType = ProjectileID.Bullet;
@@ -65,7 +65,7 @@ namespace gracosmod123.npcs.wormboss
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, mod.NPCType("CactusThorn"));
+                    NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, ModContent.NPCType("CactusThorn"));
                 }
             }
         }*/

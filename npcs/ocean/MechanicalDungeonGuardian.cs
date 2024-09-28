@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using gracosmod123.npcs.ocean;
-namespace gracosmod123.npcs.ocean
+using gracosmod123.NPCs.ocean;
+namespace gracosmod123.NPCs.ocean
 {
     public class MechanicalDungeonGuardian : ModNPC
     {
@@ -27,27 +27,27 @@ namespace gracosmod123.npcs.ocean
             vMag = 0f;
             vMax = 8f;
             tVel = 0f;
-            npc.width = 130;
-            npc.height = 130;
-            npc.damage = 10;
-            npc.defense = 21;
-            npc.lifeMax = 50000;
-            npc.HitSound = SoundID.NPCHit4;
-            npc.DeathSound = SoundID.NPCDeath14;
-            npc.value = 60f;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = 0;
-            npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            NPC.width = 130;
+            NPC.height = 130;
+            NPC.damage = 10;
+            NPC.defense = 21;
+            NPC.LifeMax = 50000;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.value = 60f;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = 0;
+            NPC.lavaImmune = true;
+            NPC.noGravity = true;
+            NPC.NoTileCollide = true;
         }
 
         public override void AI()
         {
             Shoot();
-            npc.rotation += .4f;
-            targetPos = Main.player[npc.target].Center;
-            MoveToTarget(npc);
+            NPC.rotation += .4f;
+            targetPos = Main.player[NPC.target].Center;
+            MoveToTarget(NPC);
         }
 
         private void Shoot()
@@ -58,15 +58,15 @@ namespace gracosmod123.npcs.ocean
                 for (int i = 0; i < 8; i++)
                 {
                     if (Main.netMode != 1)
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<starfish>(), (int)(80), 3, Main.myPlayer);
+                        Projectile.NewProjectileDirect(NPC.Center.X, NPC.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<starfish>(), (int)(80), 3, Main.myPlayer);
                 }
                 shootDelay = 0;
             }
         }
 
-        private void MoveToTarget(NPC npc)
+        private void MoveToTarget(NPC NPC)
         {
-            float dist = Vector2.Distance(targetPos, npc.Center);
+            float dist = Vector2.Distance(targetPos, NPC.Center);
             tVel = dist / 15;
             if (vMag < vMax && vMag < tVel)
             {
@@ -83,7 +83,7 @@ namespace gracosmod123.npcs.ocean
             }
             if (dist != 0)
             {
-                npc.velocity = npc.DirectionTo(targetPos) * vMag;
+                NPC.velocity = NPC.DirectionTo(targetPos) * vMag;
             }
         }
     }

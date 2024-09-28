@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class PaperShuriken : ModItem
     {
@@ -16,23 +16,23 @@ namespace gracosmod123.npcs.paperevent
 
         public override void SetDefaults()
         {
-            item.damage = 35;
+            Item.DamageType = 35;
             item.melee = true;
-            item.knockBack = 5;
-            item.value = Item.sellPrice(gold: 2);
-            item.rare = 3;
-            item.width = 34;
-            item.height = 34;
+            Item.knockBack = 5;
+            Item.value = Item.sellPrice(gold: 2);
+            Item.rare = 3;
+            Item.width = 34;
+            Item.height = 34;
             item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.useTime = 18;
-            item.useAnimation = 18;
-            item.shoot = mod.ProjectileType("PaperShurikenP");
+            Item.shootSpeed = 14f;
+            Item.useTime = 18;
+            Item.useAnimation = 18;
+            Item.shoot = ModContent.ProjectileType("PaperShurikenP");
             item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.maxStack = 999;
-            item.consumable = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
         }
     }
 
@@ -50,7 +50,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.width = 18;
             projectile.height = 18;
             projectile.friendly = true;
-            projectile.penetrate = 7;
+            Projectile.Penetrate = 7;
             projectile.melee = true;
             projectile.timeLeft = 450;
             projectile.tileCollide = true;
@@ -58,7 +58,7 @@ namespace gracosmod123.npcs.paperevent
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D texture = mod.GetTexture("npcs/paperevent/PaperShurikenP");
+            Texture2D texture = mod.GetTexture("NPCs/paperevent/PaperShurikenP");
             spriteBatch.Draw(texture, new Vector2(projectile.Center.X - Main.screenPosition.X, projectile.Center.Y - Main.screenPosition.Y + 2),
                         new Rectangle(0, 0, texture.Width, texture.Height), lightColor, projectile.rotation,
                         new Vector2(texture.Width * 0.5f, texture.Height * 0.5f), 1f, SpriteEffects.None, 0f);

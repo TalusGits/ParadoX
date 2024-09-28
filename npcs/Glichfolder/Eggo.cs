@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.Glichfolder//location in the folders
+namespace gracosmod123.NPCs.Glichfolder//location in the folders
 {
     public class Eggo : ModItem
     {
@@ -18,26 +18,26 @@ namespace gracosmod123.npcs.Glichfolder//location in the folders
 
         public override void SetDefaults()
         {
-            item.width = 78;
-            item.height = 78;
-            item.maxStack = 9999;
-            item.rare = 3;
-            item.useAnimation = 45;
-            item.useTime = 45;
+            Item.width = 78;
+            Item.height = 78;
+            Item.maxStack = 9999;
+            Item.rare = 3;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
             item.useStyle = 5;
-            item.UseSound = SoundID.Item44;
-            item.consumable = false;
+            Item.UseSound = SoundID.Item44;
+            Item.consumable = false;
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("Glich")))
+            if (!NPC.AnyNPCs(ModContent.NPCType("Glich")))
             {
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Glich"));
+                NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType("Glich"));
                 Main.NewText("hello0, pr0101ype 5425635426", 255, 194, 40);
                 Main.NewText("Y0u never had 10 g0 away ", 255, 194, 40);
                 Main.NewText("N0W I1'S 1IME 10 BR1NG Y0U BACK ", 255, 194, 40);
-                Main.PlaySound(SoundID.Roar, player.position, 0);
+                SoundEngine.PlaySound(SoundID.Roar, player.position, 0);
                 item.stack--;
                 return true;
             }

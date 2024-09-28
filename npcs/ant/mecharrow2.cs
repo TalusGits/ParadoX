@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class mecharrow2 : ModProjectile
     {
@@ -26,10 +26,10 @@ namespace gracosmod123.npcs.ant
             projectile.friendly = true;
             projectile.ranged = true;
 
-            projectile.penetrate = 40;
+            Projectile.Penetrate = 40;
             projectile.timeLeft = 600;
 
-            projectile.ignoreWater = true;//npcs.ant
+            projectile.ignoreWater = true;//NPCs.ant
             projectile.tileCollide = false;
             //projectile.speed = 2000f;
             //projectile.extraUpdates = 1;
@@ -38,8 +38,8 @@ namespace gracosmod123.npcs.ant
 
         /*public override void Kill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
-            Projectile.NewProjectile(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
+            SoundEngine.PlaySound(SoundID.Item10, projectile.position);
+            Projectile.NewProjectileDirect(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
         }*//*
     }
 }//

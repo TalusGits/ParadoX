@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.paperevent.lightpet
+namespace gracosmod123.NPCs.paperevent.lightpet
 {
     public class PaperAirplaneitem : ModItem
     {
@@ -16,9 +16,9 @@ namespace gracosmod123.npcs.paperevent.lightpet
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.shoot = mod.ProjectileType("PaperAirplane");
-            item.buffType = mod.BuffType("PaperAirplanebuff");
+            Item.DamageTypeType(ItemID.ZephyrFish);
+            Item.shoot = ModContent.ProjectileType("PaperAirplane");
+            Item.buffType = ModContent.BuffType("PaperAirplanebuff");
             item.noUseGraphic = true; // this defines if it does not use graphic
         }
 
@@ -26,7 +26,7 @@ namespace gracosmod123.npcs.paperevent.lightpet
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
     }

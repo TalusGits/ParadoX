@@ -236,14 +236,14 @@ namespace gracosmod123
 
         private void BlazeEffect()
         {
-            foreach (NPC npc in Main.npc)
+            foreach (NPC NPC in Main.NPC)
             {
                 float range = 120;
-                if (npc.active && !npc.friendly && (npc.damage > 0 || npc.type == NPCID.TargetDummy) && !npc.dontTakeDamage && !npc.buffImmune[BuffID.Frostburn] && Vector2.Distance(player.Center, npc.Center) <= range)
+                if (NPC.active && !NPC.friendly && (NPC.damage > 0 || NPC.type == NPCID.TargetDummy) && !NPC.dontTakeDamage && !NPC.buffImmune[ModContent.BuffType.Frostburn] && Vector2.Distance(player.Center, NPC.Center) <= range)
                 {
-                    if (npc.FindBuffIndex(BuffID.OnFire) == -1)
+                    if (NPC.FindBuffIndex(ModContent.BuffType.OnFire) == -1)
                     {
-                        npc.AddBuff(BuffID.OnFire, 2 * 60, false);
+                        NPC.AddBuff(ModContent.BuffType.OnFire, 2 * 60, false);
                     }
                 }
             }
@@ -251,7 +251,7 @@ namespace gracosmod123
 
         public override void ModifyWeaponDamage(Item item, ref float add, ref float mult, ref float flat)
         {
-            if (item.ammo == AmmoID.Snowball)
+            if (Item.ammo == AmmoID.Snowball)
                 mult = mult * SnowDamage;
 
             base.ModifyWeaponDamage(item, ref add, ref mult, ref flat);
@@ -440,23 +440,23 @@ namespace gracosmod123
 
         private void SpawnSpore()
         {
-            Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 567, 48,
+            Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 567, 48,
                 3f, player.whoAmI);
 
-            Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 568, 48,
+            Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 568, 48,
                 3f, player.whoAmI);
 
-            Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 569, 48,
+            Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 569, 48,
                 3f, player.whoAmI);
 
-            Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 570, 48,
+            Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 570, 48,
                 3f, player.whoAmI);
             if (Main.rand.Next(0, 2) == 0)
-                Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 571,
+                Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 571,
                     48, 3f, player.whoAmI);
 
             if (Main.rand.Next(0, 2) == 0)
-                Projectile.NewProjectile(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 567,
+                Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 6 - Main.rand.Next(12), 6 - Main.rand.Next(12), 567,
                     48, 3f, player.whoAmI);
         }
 

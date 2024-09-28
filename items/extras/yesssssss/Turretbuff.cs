@@ -22,7 +22,7 @@ namespace gracosmod123.items.extras.yesssssss
         public override void Update(Player player, ref int buffIndex)
         {
             exampleplayer modPlayer = player.GetModPlayer<exampleplayer>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("Turret")] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType("Turret")] > 0)
             {
                 modPlayer.turret = true;
             }

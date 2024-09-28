@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class starfish3 : ModProjectile
     {
@@ -27,7 +27,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
             spawned = false;
             projectile.width = 16;
             projectile.height = 16;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.hostile = false;
             projectile.friendly = true;
             projectile.timeLeft = 210;
@@ -79,7 +79,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
                 for (int i = 0; i < 20; i++)
                 {
                     if (Main.netMode != 1)
-                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<starfish2>(), (int)(80), 3, Main.myPlayer);
+                        Projectile.NewProjectileDirect(projectile.Center.X, projectile.Center.Y, (float)Math.Cos(Math.PI / 4 * i) * 12, (float)Math.Sin(Math.PI / 4 * i) * 12, ModContent.ProjectileType<starfish2>(), (int)(80), 3, Main.myPlayer);
                 }
                 shootDelay = 0;
             }
@@ -96,7 +96,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            //target.AddBuff(BuffID.OnFire, 180);
+            //target.AddBuff(ModContent.BuffType.OnFire, 180);
             /*for (int i = 0; i < 50; i++)
             {
             }*/
@@ -105,7 +105,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
             for (int count = 0; count < 10; count++)
             {
                 Vector2 spawn = projectile.Center + distance * ((float)count * k).ToRotationVector2();
-                Projectile.NewProjectile((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, mod.ProjectileType("starfish2"), projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
+                Projectile.NewProjectileDirect((int)spawn.X, (int)spawn.Y, 0.0f, 0.0f, ModContent.ProjectileType("starfish2"), projectile.damage, projectile.knockBack, 0, (float)projectile.whoAmI, (float)count);
             }
         }
 

@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
-using gracosmod123.npcs.ocean.oceanitems.oreaqua;
+using gracosmod123.NPCs.ocean.oceanitems.oreaqua;
 namespace gracosmod123
 {
     public class oregentry
@@ -118,7 +118,7 @@ namespace gracosmod123
                         if (_bysmalBig[j, i] == 1)
                         {
                             WorldGen.KillTile(xPosO + i, yPosO + j);
-                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<npcs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
+                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<NPCs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
                         }
                     }
                 }
@@ -136,7 +136,7 @@ namespace gracosmod123
                         if (_bysmalMed[j, i] == 1)
                         {
                             WorldGen.KillTile(xPosO + i, yPosO + j);
-                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<npcs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
+                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<NPCs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
                         }
                     }
                 }
@@ -154,7 +154,7 @@ namespace gracosmod123
                         if (_bysmalSmall[j, i] == 1)
                         {
                             WorldGen.KillTile(xPosO + i, yPosO + j);
-                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<npcs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
+                            WorldGen.PlaceTile(xPosO + i, yPosO + j, ModContent.TileType<NPCs.ocean.oceanitems.oreaqua.blueblockore2>(), true, true);
                         }
                     }
                 }

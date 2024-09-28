@@ -18,7 +18,7 @@ namespace gracosmod123.items.enchantedstuff.ore
         {
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;
-            Main.tileSolidTop[Type] = true;
+            TileLoader.IsTileSolidop[Type] = true;
             Main.tileFrameImportant[Type] = true;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);

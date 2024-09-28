@@ -20,18 +20,18 @@ namespace gracosmod123.items.enchantedstuff.ore
         public override void SetDefaults()
         {
             item.Size = new Vector2(12);
-            item.rare = ItemRarityID.Blue;
-            item.value = Item.sellPrice(copper: 2);
-            item.autoReuse = true;
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(copper: 2);
+            Item.autoReuse = true;
             item.useTurn = true;
-            item.useTime = 10;
-            item.useAnimation = 12;
+            Item.useTime = 10;
+            Item.useAnimation = 12;
             item.useStyle = ItemUseStyleID.SwingThrow;
 
-            item.consumable = true;
-            item.maxStack = 999;
+            Item.consumable = true;
+            Item.maxStack = 999;
 
-            item.createTile = TileType<items.enchantedstuff.ore.encore2>();
+            Item.createTile = TileType<items.enchantedstuff.ore.encore2>();
         }
     }
 }

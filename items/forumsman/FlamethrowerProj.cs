@@ -13,10 +13,10 @@ namespace gracosmod123.items.forumsman       //We need this to basically indicat
         {
             projectile.width = 12;  //Set the hitbox width
             projectile.height = 12; //Set the hitbox height
-            projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly npcs or not
+            projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly NPCs or not
             projectile.ignoreWater = true;  //Tells the game whether or not projectile will be affected by water
             projectile.ranged = true;  //Tells the game whether it is a ranged projectile or not
-            projectile.penetrate = -1; //Tells the game how many enemies it can hit before being destroyed, -1 infinity
+            Projectile.Penetrate = -1; //Tells the game how many enemies it can hit before being destroyed, -1 infinity
             projectile.timeLeft = 125;  //The amount of time the projectile is alive for  
             projectile.extraUpdates = 3;
         }
@@ -32,10 +32,10 @@ namespace gracosmod123.items.forumsman       //We need this to basically indicat
             {
                 if (Main.rand.Next(3) == 0)     //this defines how many dust to spawn
                 {
-                    int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("Dustdarkpurp"), projectile.velocity.X * 1.2f, projectile.velocity.Y * 1.2f, 130, default(Color), 3.75f);   //this defines the flames dust and color, change DustID to wat dust you want from Terraria, or add mod.DustType("CustomDustName") for your custom dust
+                    int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("Dustdarkpurp"), projectile.velocity.X * 1.2f, projectile.velocity.Y * 1.2f, 130, default(Color), 3.75f);   //this defines the flames dust and color, change DustID to wat dust you want from Terraria, or add ModContent.DustType("CustomDustName") for your custom dust
                     Main.dust[dust].noGravity = true; //this make so the dust has no gravity
                     Main.dust[dust].velocity *= 2.5f;
-                    int dust2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("Dustdarkpurp"), projectile.velocity.X * 1.2f, projectile.velocity.Y * 1.2f, 130, default(Color), 1.5f); //this defines the flames dust and color parcticles, like when they fall thru ground, change DustID to wat dust you want from Terraria
+                    int dust2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("Dustdarkpurp"), projectile.velocity.X * 1.2f, projectile.velocity.Y * 1.2f, 130, default(Color), 1.5f); //this defines the flames dust and color parcticles, like when they fall thru ground, change DustID to wat dust you want from Terraria
                 }
             }
             else
@@ -47,7 +47,7 @@ namespace gracosmod123.items.forumsman       //We need this to basically indicat
 
         /*public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)  //how to add a buff to a projectile
         {
-            target.AddBuff(mod.BuffType("CustomDebuff"), 600);    //this adds the buff to the npc that got hit by this projectile , 600 is the time the buff lasts
+            target.AddBuff(ModContent.BuffType("CustomDebuff"), 600);    //this adds the buff to the NPC that got hit by this projectile , 600 is the time the buff lasts
         }*/
 
         public override bool OnTileCollide(Vector2 oldVelocity)

@@ -1,7 +1,7 @@
 ﻿using System;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems.summonocean
+namespace gracosmod123.NPCs.ocean.oceanitems.summonocean
 {
     public class MinionManager : ModPlayer
     {

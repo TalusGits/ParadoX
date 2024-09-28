@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.wormboss.items
+namespace gracosmod123.NPCs.wormboss.items
 {
     public class JadePickaxe : ModItem
     {
@@ -15,28 +15,28 @@ namespace gracosmod123.npcs.wormboss.items
 
         public override void SetDefaults()
         {
-            item.damage = 10;
+            Item.DamageType = 10;
             item.melee = true;
-            item.width = 40;
-            item.height = 40;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            Item.width = 40;
+            Item.height = 40;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
             item.pick = 70;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.knockBack = 200;
-            item.value = 10000;
-            item.rare = ItemRarityID.Green;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
+            Item.knockBack = 200;
+            Item.value = 10000;
+            Item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(mod, "GlowingCrystalItem", 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         // public override void MeleeEffects(Player player, Rectangle hitbox)

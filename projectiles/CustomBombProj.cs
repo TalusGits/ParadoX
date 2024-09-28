@@ -14,8 +14,8 @@ namespace gracosmod123.projectiles
             projectile.width = 22;   //This defines the hitbox width
             projectile.height = 22;    //This defines the hitbox height
             projectile.aiStyle = 16;  //How the projectile works, 16 is the aistyle Used for: Grenades, Dynamite, Bombs, Sticky Bomb.
-            projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
-            projectile.penetrate = -1; //Tells the game how many enemies it can hit before being destroyed
+            projectile.friendly = true; //Tells the game whether it is friendly to players/friendly NPCs or not
+            Projectile.Penetrate = -1; //Tells the game how many enemies it can hit before being destroyed
             projectile.timeLeft = 170; //The amount of time the projectile is alive for
         }
         public override void SetStaticDefaults()
@@ -27,7 +27,7 @@ namespace gracosmod123.projectiles
         {
 
             Vector2 position = projectile.Center;
-            Main.PlaySound(SoundID.Item14, (int)position.X, (int)position.Y);
+            SoundEngine.PlaySound(SoundID.Item14, (int)position.X, (int)position.Y);
             int radius = 200;     //this is the explosion radius, the highter is the value the bigger is the explosion
 
             for (int x = -radius; x <= radius; x++)

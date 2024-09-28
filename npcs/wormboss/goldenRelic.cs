@@ -8,7 +8,7 @@ using Terraria.Localization;//uses the localization folders
 using System.IO;//what?
 using Microsoft.Xna.Framework.Graphics;//framework
 using Terraria.Utilities;
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class goldenRelic : ModItem
     {
@@ -22,25 +22,25 @@ namespace gracosmod123.npcs.wormboss
 
         public override void SetDefaults()
         {
-            item.width = 78;
-            item.height = 78;
-            item.maxStack = 9999;
-            item.rare = 3;
-            item.useAnimation = 45;
-            item.useTime = 45;
+            Item.width = 78;
+            Item.height = 78;
+            Item.maxStack = 9999;
+            Item.rare = 3;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
             item.useStyle = 5;
-            item.UseSound = SoundID.Item44;
-            item.consumable = false;
-            item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item44;
+            Item.consumable = false;
+            Item.rare = ItemRarityID.Green;
 
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("GrandCactusWormHead")))
+            if (!NPC.AnyNPCs(ModContent.NPCType("GrandCactusWormHead")))
             {
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("GrandCactusWormHead"));
-                Main.PlaySound(SoundID.Roar, player.position, 0);
+                NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType("GrandCactusWormHead"));
+                SoundEngine.PlaySound(SoundID.Roar, player.position, 0);
                 item.stack--;
                 return true;
             }

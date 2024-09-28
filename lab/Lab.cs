@@ -63,14 +63,14 @@ namespace gracosmod123.lab
                 {
                     for (int t = 0; t < 10; t++)
                     {
-                        WorldGen.PlaceTile(Main.spawnTileX + m, Main.spawnTileY + 59, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - m, Main.spawnTileY + 59, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + m, Main.spawnTileY + 41, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - m, Main.spawnTileY + 41, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 41 + m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 41 + m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 59 - m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 59 - m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + m, Main.spawnTileY + 59, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - m, Main.spawnTileY + 59, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + m, Main.spawnTileY + 41, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - m, Main.spawnTileY + 41, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 41 + m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 41 + m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 59 - m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 59 - m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
 
                         WorldGen.PlaceWall(Main.spawnTileX + m, Main.spawnTileY + t + 50, mod.WallType("labwall"));//kills the area in a 10 block wide cube
                         WorldGen.PlaceWall(Main.spawnTileX - m, Main.spawnTileY + t + 50, mod.WallType("labwall"));//kills the area in a 10 block wide cube
@@ -81,7 +81,7 @@ namespace gracosmod123.lab
                 }
                 for (int pltfrm = 0; pltfrm < 18; pltfrm++)
                 {
-                    WorldGen.PlaceTile(Main.spawnTileX - 9 + pltfrm, Main.spawnTileY + 51, mod.TileType("labplatform"));//places a 18 piece long platform across the middle
+                    WorldGen.PlaceTile(Main.spawnTileX - 9 + pltfrm, Main.spawnTileY + 51, ModContent.TileType("labplatform"));//places a 18 piece long platform across the middle
                 }
                 WorldGen.KillTile(Main.spawnTileX - 7, Main.spawnTileY + 51);//kills the blocks on the platforms
                 WorldGen.KillTile(Main.spawnTileX + 7, Main.spawnTileY + 51);//kills the blocks on the platforms
@@ -92,14 +92,14 @@ namespace gracosmod123.lab
                 WorldGen.KillTile(Main.spawnTileX - 9, Main.spawnTileY + 56);//kills the blocks on the platforms//8
                 WorldGen.KillTile(Main.spawnTileX - 9, Main.spawnTileY + 57);//kills the blocks on the platforms//9
                 WorldGen.KillTile(Main.spawnTileX - 9, Main.spawnTileY + 58);//kills the blocks on the platforms//10
-                WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 56, mod.TileType("labdoorclosed"));//places the door 56
-                WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 56, mod.TileType("labdoorclosed"));//places the door 56
-                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 51, mod.TileType("labbrick"));//places bricks
-                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 51, mod.TileType("labbrick"));//places bricks
-                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 42, mod.TileType("lablantern"));//places top lanterns
-                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 42, mod.TileType("lablantern"));//places top lanterns
-                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 52, mod.TileType("lablantern"));//places lanterns
-                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 52, mod.TileType("lablantern"));//places lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY + 56, ModContent.TileType("labdoorclosed"));//places the door 56
+                WorldGen.PlaceTile(Main.spawnTileX - 9, Main.spawnTileY + 56, ModContent.TileType("labdoorclosed"));//places the door 56
+                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 51, ModContent.TileType("labbrick"));//places bricks
+                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 51, ModContent.TileType("labbrick"));//places bricks
+                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 42, ModContent.TileType("lablantern"));//places top lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 42, ModContent.TileType("lablantern"));//places top lanterns
+                WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY + 52, ModContent.TileType("lablantern"));//places lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 7, Main.spawnTileY + 52, ModContent.TileType("lablantern"));//places lanterns
                 ////////house1
                 ////////house1
                 ////////house1
@@ -137,14 +137,14 @@ namespace gracosmod123.lab
                 {
                     for (int t = 0; t < 10; t++)
                     {
-                        WorldGen.PlaceTile(Main.spawnTileX + m+ num, Main.spawnTileY + 59, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - m+ num, Main.spawnTileY + 59, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + m+ num, Main.spawnTileY + 41, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - m+ num, Main.spawnTileY + 41, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 41 + m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 41 + m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 59 - m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
-                        WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 59 - m, mod.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + m+ num, Main.spawnTileY + 59, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - m+ num, Main.spawnTileY + 59, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + m+ num, Main.spawnTileY + 41, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - m+ num, Main.spawnTileY + 41, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 41 + m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 41 + m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 59 - m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
+                        WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 59 - m, ModContent.TileType("labbrick"));//kills the area in a 10 block wide cube
 
                         WorldGen.PlaceWall(Main.spawnTileX + m+ num, Main.spawnTileY + t + 50, mod.WallType("labwall"));//kills the area in a 10 block wide cube
                         WorldGen.PlaceWall(Main.spawnTileX - m+ num, Main.spawnTileY + t + 50, mod.WallType("labwall"));//kills the area in a 10 block wide cube
@@ -155,7 +155,7 @@ namespace gracosmod123.lab
                 }
                 for (int pltfrm = 0; pltfrm < 18; pltfrm++)
                 {
-                    WorldGen.PlaceTile(Main.spawnTileX - 9 + pltfrm+ num, Main.spawnTileY + 51, mod.TileType("labplatform"));//places a 18 piece long platform across the middle
+                    WorldGen.PlaceTile(Main.spawnTileX - 9 + pltfrm+ num, Main.spawnTileY + 51, ModContent.TileType("labplatform"));//places a 18 piece long platform across the middle
                 }
                 WorldGen.KillTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 51);//kills the blocks on the platforms
                 WorldGen.KillTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 51);//kills the blocks on the platforms
@@ -166,14 +166,14 @@ namespace gracosmod123.lab
                 WorldGen.KillTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 56);//kills the blocks on the platforms//8
                 WorldGen.KillTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 57);//kills the blocks on the platforms//9
                 WorldGen.KillTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 58);//kills the blocks on the platforms//10
-                WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 56, mod.TileType("labdoorclosed"));//places the door
-                WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 56, mod.TileType("labdoorclosed"));//places the door
-                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 51, mod.TileType("labbrick"));//places bricks
-                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 51, mod.TileType("labbrick"));//places bricks
-                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 42, mod.TileType("lablantern"));//places top lanterns
-                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 42, mod.TileType("lablantern"));//places top lanterns
-                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 52, mod.TileType("lablantern"));//places lanterns
-                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 52, mod.TileType("lablantern"));//places lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 9+ num, Main.spawnTileY + 56, ModContent.TileType("labdoorclosed"));//places the door
+                WorldGen.PlaceTile(Main.spawnTileX - 9+ num, Main.spawnTileY + 56, ModContent.TileType("labdoorclosed"));//places the door
+                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 51, ModContent.TileType("labbrick"));//places bricks
+                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 51, ModContent.TileType("labbrick"));//places bricks
+                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 42, ModContent.TileType("lablantern"));//places top lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 42, ModContent.TileType("lablantern"));//places top lanterns
+                WorldGen.PlaceTile(Main.spawnTileX - 7+ num, Main.spawnTileY + 52, ModContent.TileType("lablantern"));//places lanterns
+                WorldGen.PlaceTile(Main.spawnTileX + 7+ num, Main.spawnTileY + 52, ModContent.TileType("lablantern"));//places lanterns
 
             }));
         }

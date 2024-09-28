@@ -44,7 +44,7 @@ namespace gracosmod123.items.extras.yesssssss
         {
             Player player = Main.player[projectile.owner];
             exampleplayer modPlayer = player.GetModPlayer<exampleplayer>();
-            if (player.dead || !player.HasBuff(mod.BuffType("Turret")))
+            if (player.dead || !player.HasBuff(ModContent.BuffType("Turret")))
             {
                 modPlayer.turret = false;
             }
@@ -57,7 +57,7 @@ namespace gracosmod123.items.extras.yesssssss
                 projectile.localAI[1] = 1f;
                 projectile.localAI[0] = 1f;
                 projectile.ai[0] = 120f;
-                Main.PlaySound(SoundID.Item11, projectile.position);
+                SoundEngine.PlaySound(SoundID.Item11, projectile.position);
             }
             projectile.velocity.X = 0f;
             projectile.velocity.Y = projectile.velocity.Y + 0.2f;
@@ -87,12 +87,12 @@ namespace gracosmod123.items.extras.yesssssss
             {
                 for (int num512 = 0; num512 < 200; num512++)
                 {
-                    if (Main.npc[num512].CanBeChasedBy(this, false))
+                    if (Main.NPC[num512].CanBeChasedBy(this, false))
                     {
-                        float num513 = Main.npc[num512].position.X + Main.npc[num512].width / 2;
-                        float num514 = Main.npc[num512].position.Y + Main.npc[num512].height / 2;
+                        float num513 = Main.NPC[num512].position.X + Main.NPC[num512].width / 2;
+                        float num514 = Main.NPC[num512].position.Y + Main.NPC[num512].height / 2;
                         float num515 = Math.Abs(projectile.position.X + projectile.width / 2 - num513) + Math.Abs(projectile.position.Y + projectile.height / 2 - num514);
-                        if (num515 < num508 && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num512].position, Main.npc[num512].width, Main.npc[num512].height))
+                        if (num515 < num508 && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.NPC[num512].position, Main.NPC[num512].width, Main.NPC[num512].height))
                         {
                             num508 = num515;
                             num506 = num513;
@@ -107,7 +107,7 @@ namespace gracosmod123.items.extras.yesssssss
             {
                 if (counter == 60)
                 {
-                    Main.PlaySound(2, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/ThereYouAre"));
+                    SoundEngine.PlaySound(2, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/ThereYouAre"));
                 }
                 counter++;
                 if (counter == 1200)
@@ -205,7 +205,7 @@ namespace gracosmod123.items.extras.yesssssss
                         num523 *= num525;
                         num524 *= num525;
                         int num526 = projectile.damage;
-                        Projectile.NewProjectile(vector37.X, vector37.Y, num523, num524, num522, num526, projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectileDirect(vector37.X, vector37.Y, num523, num524, num522, num526, projectile.knockBack, Main.myPlayer, 0f, 0f);
                     }
                 }
             }

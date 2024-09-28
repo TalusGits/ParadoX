@@ -29,7 +29,7 @@ namespace gracosmod123.lab
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Lab Chair");
             AddMapEntry(new Color(162, 184, 185), name);
-            dustType = mod.DustType("labdust");
+            dustType = ModContent.DustType("labdust");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Chairs };
         }
@@ -41,7 +41,7 @@ namespace gracosmod123.lab
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, mod.ItemType("labchairitem"));
+            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType("labchairitem"));
         }
     }
 }

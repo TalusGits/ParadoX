@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
-    public class White : ModDust
+    public class White : ModContent.DustType
     {
         public override void OnSpawn(Dust dust)
         {

@@ -12,7 +12,7 @@ namespace gracosmod123.lab
         {
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            Main.tileSolidTop[Type] = true;
+            TileLoader.IsTileSolidop[Type] = true;
             Main.tileSolid[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
@@ -29,7 +29,7 @@ namespace gracosmod123.lab
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             dustType = 7;
-            drop = mod.ItemType("labplatformitem");
+            drop = ModContent.ItemType("labplatformitem");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Platforms };
 

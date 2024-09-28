@@ -23,9 +23,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.World.Generation;
-using gracosmod123.npcs.wormboss;
+using gracosmod123.NPCs.wormboss;
 
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class Cactusworld
     {
@@ -58,7 +58,7 @@ namespace gracosmod123.npcs.wormboss
             //         (WorldGen.SolidTile(x, y + 1) && Main.tile[x, y + 1].type == 117))
             //     {
             //         Main.NewText("GenCrystals5");
-            //         WorldGen.PlaceTile(x, y, ModContent.TileType<npcs.wormboss.GlowingCrystal>(), false, false, -1,
+            //         WorldGen.PlaceTile(x, y, ModContent.TileType<NPCs.wormboss.GlowingCrystal>(), false, false, -1,
             //             Main.rand.Next(18));    // Random style between 0-17, rotation is done automatically 8 is tile id
             //         Main.NewText("GenCrystals6");
             //     }
@@ -73,7 +73,7 @@ namespace gracosmod123.npcs.wormboss
                         {
                             if (Main.rand.Next(8) == 0)
                             {
-                                WorldGen.PlaceTile(i, j, ModContent.TileType<npcs.wormboss.GlowingCrystal>(), true, false, -1, Main.rand.Next(18));
+                                WorldGen.PlaceTile(i, j, ModContent.TileType<NPCs.wormboss.GlowingCrystal>(), true, false, -1, Main.rand.Next(18));
                             }
                         }
                         else if (Main.tile[i, j].wall == (ushort)187 && Main.tile[i, j].type == (ushort)396)

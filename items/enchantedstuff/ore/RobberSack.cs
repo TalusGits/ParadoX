@@ -9,18 +9,18 @@ namespace gracosmod123.items.enchantedstuff.ore
     {
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.value = Item.sellPrice(0, 0, 15, 0);
-            item.width = 38;
-            item.height = 42;
-            item.rare = 0;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.value = Item.sellPrice(0, 0, 15, 0);
+            Item.width = 38;
+            Item.height = 42;
+            Item.rare = 0;
             item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
             item.useStyle = 1;
-            item.createTile = mod.TileType("RobberSack1");
+            Item.createTile = ModContent.TileType("RobberSack1");
 
         }
 		
@@ -42,7 +42,7 @@ namespace gracosmod123.items.enchantedstuff.ore
             player.QuickSpawnItem(ItemID.SilverCoin, Main.rand.Next(15, 50));
             player.QuickSpawnItem(ItemID.GoldCoin, Main.rand.Next(1, 2));
             player.QuickSpawnItem(29, 1);
-            //player.QuickSpawnItem(mod.ItemType("accessory "), Main.rand.Next(1, 2));
+            //player.QuickSpawnItem(ModContent.ItemType("accessory "), Main.rand.Next(1, 2));
             player.QuickSpawnItem(ItemID.Torch, Main.rand.Next(30, 60));
             player.QuickSpawnItem(ItemID.Rope, Main.rand.Next(200, 270));
             player.QuickSpawnItem(ItemID.GrapplingHook, Main.rand.Next(1, 1));
@@ -59,7 +59,7 @@ namespace gracosmod123.items.enchantedstuff.ore
                 player.QuickSpawnItem(ItemID.SilverCoin, Main.rand.Next(15, 50));
                 player.QuickSpawnItem(ItemID.GoldCoin, Main.rand.Next(1, 2));
                 player.QuickSpawnItem(29, 1);
-                //player.QuickSpawnItem(mod.ItemType("accessory "), Main.rand.Next(1, 2));
+                //player.QuickSpawnItem(ModContent.ItemType("accessory "), Main.rand.Next(1, 2));
                 player.QuickSpawnItem(ItemID.Torch, Main.rand.Next(30, 60));
                 player.QuickSpawnItem(ItemID.Rope, Main.rand.Next(200, 270));
                 player.QuickSpawnItem(ItemID.GrapplingHook, Main.rand.Next(1, 1));

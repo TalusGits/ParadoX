@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class mechsky : ModItem
     {
@@ -16,21 +16,21 @@ namespace gracosmod123.npcs.ant
 
         public override void SetDefaults()
         {
-            item.damage = 13;
+            Item.DamageType = 13;
             item.melee = true;
-            item.knockBack = 1;
-            item.value = 50000;
-            item.rare = 3;
-            item.width = 14;
-            item.height = 34;
+            Item.knockBack = 1;
+            Item.value = 50000;
+            Item.rare = 3;
+            Item.width = 14;
+            Item.height = 34;
             item.useStyle = 1;
-            item.shootSpeed = 12f;
-            item.useTime = 4;
-            item.useAnimation = 12;
-            item.shoot = mod.ProjectileType("CaeliteRainKnifeP");
+            Item.shootSpeed = 12f;
+            Item.useTime = 4;
+            Item.useAnimation = 12;
+            Item.shoot = ModContent.ProjectileType("CaeliteRainKnifeP");
             //item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
         }
 
 
@@ -62,7 +62,7 @@ namespace gracosmod123.npcs.ant
                 projectile.width = 18;
                 projectile.height = 18;
                 projectile.friendly = true;
-                projectile.penetrate = -1;
+                Projectile.Penetrate = -1;
                 projectile.melee = true;
                 projectile.light = 30.00f; // projectile light still a lot
                 projectile.tileCollide = false;
@@ -77,7 +77,7 @@ namespace gracosmod123.npcs.ant
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    target.AddBuff(mod.BuffType("PowerDown"), 120);//poisnedprime
+                    target.AddBuff(ModContent.BuffType("PowerDown"), 120);//poisnedprime
                 }
                 projectile.localNPCImmunity[target.whoAmI] = -1;
                 target.immune[projectile.owner] = 0;
@@ -87,7 +87,7 @@ namespace gracosmod123.npcs.ant
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    //Dust dust = Dust.NewDustPerfect(projectile.Center, mod.DustType("CaeliteDust"), Vector2.Zero);
+                    //Dust dust = Dust.NewDustPerfect(projectile.Center, ModContent.DustType("CaeliteDust"), Vector2.Zero);
                     //dust.frame.Y = 0;
                 }
                 if (runOnce)

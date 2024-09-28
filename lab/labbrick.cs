@@ -19,7 +19,7 @@ namespace gracosmod123.lab
         {
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            //Main.tileSolidTop[Type] = true;
+            //TileLoader.IsTileSolidop[Type] = true;
             Main.tileSolid[Type] = true;
             //Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
@@ -33,14 +33,14 @@ namespace gracosmod123.lab
             TileObjectData.newTile.StyleWrapLimit = 27;
             TileObjectData.newTile.UsesCustomCanPlace = false;
             TileObjectData.addTile(Type);
-            dustType = mod.DustType("labdust");
+            dustType = ModContent.DustType("labdust");
             soundType = 21;
             soundStyle = 2;
             minPick = 50;
             //name.SetDefault("Lab Brick");
             AddMapEntry(new Color(162, 184, 185));
             mineResist = 1;
-            drop = mod.ItemType("labbrickitem");
+            drop = ModContent.ItemType("labbrickitem");
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -94,7 +94,7 @@ namespace gracosmod123
             blockyAccessoryPrevious = blockyAccessory;
             blockyAccessory = blockyHideVanity = blockyForceVanity = blockyPower = false;
 
-            player.statLifeMax2 += exampleLifeFruits * 2;
+            Player.LifeMax += exampleLifeFruits * 2;
         }
         /*public override void OnEnterWorld(Player player)
         {
@@ -181,7 +181,7 @@ namespace gracosmod123
         public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
         {
             Item item = new Item();
-            item.SetDefaults(mod.ItemType("harvesterCopper"));//ItemType<items.botany.copper.harvesterCopper>());//USEFULWATCHOUT
+            item.SetDefaults(ModContent.ItemType("harvesterCopper"));//ItemType<items.botany.copper.harvesterCopper>());//USEFULWATCHOUT
             item.stack = 1;
             items.Add(item);
         }
@@ -268,7 +268,7 @@ namespace gracosmod123
         {
             /*if (ExampleMod.RandomBuffHotKey.JustPressed)
             {
-                int buff = Main.rand.Next(BuffID.Count);
+                int buff = Main.rand.Next(ModContent.BuffType.Count);
                 player.AddBuff(buff, 600);
             }*/
         }
@@ -280,11 +280,11 @@ namespace gracosmod123
                 bool flag = false;
                 for (int k = 0; k < 200; k++)
                 {
-                    NPC npc = Main.npc[k];
-                    /*if (npc.active && npc.type == NPCType<PuritySpirit>())
+                    NPC NPC = Main.NPC[k];
+                    /*if (NPC.active && NPC.type == NPCType<PuritySpirit>())
                     {
                         flag = true;
-                        PuritySpiritTeleport(npc);
+                        PuritySpiritTeleport(NPC);
                         break;
                     }*/
                 }
@@ -311,38 +311,38 @@ namespace gracosmod123
             }
         }
 
-        /*private void PuritySpiritTeleport(NPC npc)
+        /*private void PuritySpiritTeleport(NPC NPC)
         {
             int halfWidth = PuritySpirit.arenaWidth / 2;
             int halfHeight = PuritySpirit.arenaHeight / 2;
             Vector2 newPosition = player.position;
-            if (player.position.X <= npc.Center.X - halfWidth)
+            if (player.position.X <= NPC.Center.X - halfWidth)
             {
-                newPosition.X = npc.Center.X + halfWidth - player.width - 1;
+                newPosition.X = NPC.Center.X + halfWidth - player.width - 1;
                 while (Collision.SolidCollision(newPosition, player.width, player.height))
                 {
                     newPosition.X -= 16f;
                 }
             }
-            else if (player.position.X + player.width >= npc.Center.X + halfWidth)
+            else if (player.position.X + player.width >= NPC.Center.X + halfWidth)
             {
-                newPosition.X = npc.Center.X - halfWidth + 1;
+                newPosition.X = NPC.Center.X - halfWidth + 1;
                 while (Collision.SolidCollision(newPosition, player.width, player.height))
                 {
                     newPosition.X += 16f;
                 }
             }
-            else if (player.position.Y <= npc.Center.Y - halfHeight)
+            else if (player.position.Y <= NPC.Center.Y - halfHeight)
             {
-                newPosition.Y = npc.Center.Y + halfHeight - player.height - 1;
+                newPosition.Y = NPC.Center.Y + halfHeight - player.height - 1;
                 while (Collision.SolidCollision(newPosition, player.width, player.height))
                 {
                     newPosition.Y -= 16f;
                 }
             }
-            else if (player.position.Y + player.height >= npc.Center.Y + halfHeight)
+            else if (player.position.Y + player.height >= NPC.Center.Y + halfHeight)
             {
-                newPosition.Y = npc.Center.Y - halfHeight + 1;
+                newPosition.Y = NPC.Center.Y - halfHeight + 1;
                 while (Collision.SolidCollision(newPosition, player.width, player.height))
                 {
                     newPosition.Y += 16f;
@@ -419,7 +419,7 @@ namespace gracosmod123
             {
                 Nullify();
             }
-            if (player.inventory[player.selectedItem].type != mod.ItemType("Note"))
+            if (player.inventory[player.selectedItem].type != ModContent.ItemType("Note"))
             {
                 OpenWindow = false;
             }
@@ -492,17 +492,17 @@ namespace gracosmod123
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
             ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            /*if (damageSource.SourceProjectileType == mod.ProjectileType("MeteorLaunch"))
+            /*if (damageSource.SourceProjectileType == ModContent.ProjectileType("MeteorLaunch"))
             {
                 damageSource = PlayerDeathReason.ByCustomReason(player.name + " was driven to extintion by meteor!"); // change death message
             }*/
-            if (damageSource.SourceNPCIndex >= 0 && Main.npc[damageSource.SourceNPCIndex].type == mod.NPCType("POSIDEN"))
+            if (damageSource.SourceNPCIndex >= 0 && Main.NPC[damageSource.SourceNPCIndex].type == ModContent.NPCType("POSIDEN"))
             {
                 damageSource = PlayerDeathReason.ByCustomReason(player.name + " was washed away by Posiden, never to be seen again...");
             }
             if (constantDamage > 0 || percentDamage > 0f)
             {
-                int damageFromPercent = (int)(player.statLifeMax2 * percentDamage);
+                int damageFromPercent = (int)(Player.LifeMax * percentDamage);
                 damage = Math.Max(constantDamage, damageFromPercent);
                 customDamage = true;
             }
@@ -528,7 +528,7 @@ namespace gracosmod123
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
-            /*if (blockyAccessory) Main.PlaySound(SoundID.Zombie, player.position, 13);
+            /*if (blockyAccessory) SoundEngine.PlaySound(SoundID.Zombie, player.position, 13);
             if (elementShield && damage > 1.0)
             {
                 if (elementShields < 6)
@@ -545,7 +545,7 @@ namespace gracosmod123
                     }
                     if (flag)
                     {
-                        Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, ProjectileType<ElementShield>(), player.GetWeaponDamage(player.armor[k]), player.GetWeaponKnockback(player.armor[k], 2f), player.whoAmI, elementShields++);
+                        Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0f, 0f, ProjectileType<ElementShield>(), player.GetWeaponDamage(player.armor[k]), player.GetWeaponKnockback(player.armor[k], 2f), player.whoAmI, elementShields++);
                     }
                 }
                 elementShieldTimer = 600;
@@ -554,13 +554,13 @@ namespace gracosmod123
             {
                 /*for (int k = 0; k < 200; k++)
                 {
-                    NPC npc = Main.npc[k];
-                    if (npc.active && npc.type == NPCType<PuritySpirit>())
+                    NPC NPC = Main.NPC[k];
+                    if (NPC.active && NPC.type == NPCType<PuritySpirit>())
                     {
-                        PuritySpirit modNPC = (PuritySpirit)npc.modNPC;
+                        PuritySpirit modNPC = (PuritySpirit)NPC.modNPC;
                         if (modNPC.attack >= 0)
                         {
-                            double proportion = damage / player.statLifeMax2;
+                            double proportion = damage / Player.LifeMax;
                             if (proportion > 1.0)
                             {
                                 proportion = 1.0;
@@ -587,7 +587,7 @@ namespace gracosmod123
                 if (balloons.count > 0)
                 {
                     balloons.count--;
-                    Main.PlaySound(SoundID.Item38, player.position);
+                    SoundEngine.PlaySound(SoundID.Item38, player.position);
                 }
             }*/
         }
@@ -607,15 +607,15 @@ namespace gracosmod123
                 }
                 if (heroLives > 0)
                 {
-                    player.statLife = player.statLifeMax2;
-                    player.HealEffect(player.statLifeMax2);
+                    player.statLife = Player.LifeMax;
+                    player.HealEffect(Player.LifeMax);
                     player.immune = true;
                     player.immuneTime = player.longInvince ? 180 : 120;
                     for (int k = 0; k < player.hurtCooldowns.Length; k++)
                     {
                         player.hurtCooldowns[k] = player.longInvince ? 180 : 120;
                     }
-                    Main.PlaySound(SoundID.Item29, player.position);
+                    SoundEngine.PlaySound(SoundID.Item29, player.position);
                     reviveTime = 60;
                     return false;
                 }
@@ -641,15 +641,15 @@ namespace gracosmod123
                 {
                     if (Main.netMode != NetmodeID.Server)
                     {
-                        Main.PlaySound(SoundID.Item4, player.position);
+                        SoundEngine.PlaySound(SoundID.Item4, player.position);
                         player.statLife += 20;
                         if (Main.myPlayer == player.whoAmI)
                         {
                             player.HealEffect(20, true);
                         }
-                        if (player.statLife > player.statLifeMax2)
+                        if (player.statLife > Player.LifeMax)
                         {
-                            player.statLife = player.statLifeMax2;
+                            player.statLife = Player.LifeMax;
                         }
                     }
                     manaHeartCounter -= 200;
@@ -666,7 +666,7 @@ namespace gracosmod123
 
         /*public override void GetDyeTraderReward(List<int> dyeItemIDsPool)
         {
-            if (player.FindBuffIndex(BuffID.UFOMount) > -1)
+            if (player.FindBuffIndex(ModContent.BuffType.UFOMount) > -1)
             {
                 dyeItemIDsPool.Clear();
                 dyeItemIDsPool.Add(ItemID.MartianArmorDye);

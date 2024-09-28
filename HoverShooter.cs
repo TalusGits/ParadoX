@@ -57,11 +57,11 @@ namespace gracosmod123
             projectile.tileCollide = true;
             if (player.HasMinionAttackTargetNPC)
             {
-                NPC npc = Main.npc[player.MinionAttackTargetNPC];
-                if (Collision.CanHitLine(projectile.position, projectile.width, projectile.height, npc.position, npc.width, npc.height))
+                NPC NPC = Main.NPC[player.MinionAttackTargetNPC];
+                if (Collision.CanHitLine(projectile.position, projectile.width, projectile.height, NPC.position, NPC.width, NPC.height))
                 {
                     targetDist = Vector2.Distance(projectile.Center, targetPos);
-                    targetPos = npc.Center;
+                    targetPos = NPC.Center;
                     target = true;
                 }
             }
@@ -69,14 +69,14 @@ namespace gracosmod123
             {
                 for (int k = 0; k < 200; k++)
                 {
-                    NPC npc = Main.npc[k];
-                    if (npc.CanBeChasedBy(this, false))
+                    NPC NPC = Main.NPC[k];
+                    if (NPC.CanBeChasedBy(this, false))
                     {
-                        float distance = Vector2.Distance(npc.Center, projectile.Center);
-                        if ((distance < targetDist || !target) && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, npc.position, npc.width, npc.height))
+                        float distance = Vector2.Distance(NPC.Center, projectile.Center);
+                        if ((distance < targetDist || !target) && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, NPC.position, NPC.width, NPC.height))
                         {
                             targetDist = distance;
-                            targetPos = npc.Center;
+                            targetPos = NPC.Center;
                             target = true;
                         }
                     }
@@ -205,7 +205,7 @@ namespace gracosmod123
                             }
                             shootVel.Normalize();
                             shootVel *= shootSpeed;
-                            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, shootVel.X, shootVel.Y, shoot, projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
+                            int proj = Projectile.NewProjectileDirect(projectile.Center.X, projectile.Center.Y, shootVel.X, shootVel.Y, shoot, projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
                             Main.projectile[proj].timeLeft = 300;
                             Main.projectile[proj].netUpdate = true;
                             projectile.netUpdate = true;

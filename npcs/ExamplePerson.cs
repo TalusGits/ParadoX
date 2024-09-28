@@ -3,13 +3,13 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs
+namespace gracosmod123.NPCs
 {
-    // [AutoloadHead] and npc.townNPC are extremely important and absolutely both necessary for any Town NPC to work at all.
+    // [AutoloadHead] and NPC.townNPC are extremely important and absolutely both necessary for any Town NPC to work at all.
     [AutoloadHead]
     public class ExamplePerson : ModNPC
     {
-        public override string Texture => "gracosmod123/npcs/ExamplePerson";
+        public override string Texture => "gracosmod123/NPCs/ExamplePerson";
 
         //public override string[] AltTextures => new[] { "gracosmod123/townNPCs/ExamplePerson_Alt_1" };
 
@@ -23,38 +23,38 @@ namespace gracosmod123.npcs
         {
             // DisplayName automatically assigned from .lang files, but the commented line below is the normal approach.
             // DisplayName.SetDefault("Example Person");
-            Main.npcFrameCount[npc.type] = 25;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-            NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 90;
-            NPCID.Sets.AttackAverageChance[npc.type] = 30;
-            NPCID.Sets.HatOffsetY[npc.type] = 4;
+            Main.NPCFrameCount[NPC.type] = 25;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 90;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+            NPCID.Sets.HatOffsetY[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-            npc.damage = 10;
-            npc.defense = 15;
-            npc.lifeMax = 9999999;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 10;
+            NPC.defense = 15;
+            NPC.LifeMax = 9999999;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
             animationType = NPCID.Guide;
         }
 
         /*public override void HitEffect(int hitDirection, double damage)
         {
-            int num = npc.life > 0 ? 1 : 5;
+            int num = NPC.life > 0 ? 1 : 5;
             for (int k = 0; k < num; k++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("pandadust"));
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType("pandadust"));
             }
         }*/
 
@@ -70,7 +70,7 @@ namespace gracosmod123.npcs
 
                 foreach (Item item in player.inventory)
                 {
-                    if (item.type == mod.ItemType("") || item.type == mod.ItemType(""))
+                    if (item.type == ModContent.ItemType("") || item.type == ModContent.ItemType(""))
                     {
                         return true;
                     }
@@ -101,7 +101,7 @@ namespace gracosmod123.npcs
                 for (int y = top; y <= bottom; y++)
                 {
                     int type = Main.tile[x, y].type;
-                    if (type == mod.TileType("ExampleBlock") || type == mod.TileType("ExampleChair") || type == mod.TileType("ExampleWorkbench") || type == mod.TileType("ExampleBed") || type == mod.TileType("ExampleDoorOpen") || type == mod.TileType("ExampleDoorClosed"))
+                    if (type == ModContent.TileType("ExampleBlock") || type == ModContent.TileType("ExampleChair") || type == ModContent.TileType("ExampleWorkbench") || type == ModContent.TileType("ExampleBed") || type == ModContent.TileType("ExampleDoorOpen") || type == ModContent.TileType("ExampleDoorClosed"))
                     {
                         score++;
                     }
@@ -145,14 +145,14 @@ namespace gracosmod123.npcs
 
         public override void FindFrame(int frameHeight)
         {
-            /*npc.frame.Width = 40;
+            /*NPC.frame.Width = 40;
 			if (((int)Main.time / 10) % 2 == 0)
 			{
-				npc.frame.X = 40;
+				NPC.frame.X = 40;
 			}
 			else
 			{
-				npc.frame.X = 0;
+				NPC.frame.X = 0;
 			}*/
         }
 
@@ -161,7 +161,7 @@ namespace gracosmod123.npcs
             /*int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
             if (partyGirl >= 0 && Main.rand.NextBool(4))
             {
-                return "Can you please tell " + Main.npc[partyGirl].GivenName + " to keep decorating my house with colors?";
+                return "Can you please tell " + Main.NPC[partyGirl].GivenName + " to keep decorating my house with colors?";
             }*/
             switch (Main.rand.Next(4))
             {
@@ -187,7 +187,7 @@ namespace gracosmod123.npcs
 			int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
 			if (partyGirl >= 0 && Main.rand.NextBool(4))
 			{
-				chat.Add("Can you please tell " + Main.npc[partyGirl].GivenName + " to stop decorating my house with colors?");
+				chat.Add("Can you please tell " + Main.NPC[partyGirl].GivenName + " to stop decorating my house with colors?");
 			}
 			chat.Add("Sometimes I feel like I'm different from everyone else here.");
 			chat.Add("What's your favorite color? My favorite colors are white and black.");
@@ -215,94 +215,94 @@ namespace gracosmod123.npcs
                 // If the 2nd button is pressed, open the inventory...
                 Main.playerInventory = true;
                 // remove the chat window...
-                Main.npcChatText = "";
+                Main.NPCChatText = "";
                 // and start an instance of our UIState.
                 //gracosmod123.Instance.ExamplePersonUserInterface.SetState(new UI.ExamplePersonUI());//started with examplemod
-                // Note that even though we remove the chat window, Main.LocalPlayer.talkNPC will still be set correctly and we are still technically chatting with the npc.
+                // Note that even though we remove the chat window, Main.LocalPlayer.talkNPC will still be set correctly and we are still technically chatting with the NPC.
             }
         }
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("pandablock"));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType("pandablock"));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("CustomBombItem"));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomBombItem"));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
             nextSlot++;
-            if (NPC.downedBoss1)   //this make so when the king slime is killed the town npc will sell this
+            if (NPC.downedBoss1)   //this make so when the king slime is killed the town NPC will sell this
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("golemswordsword"));  //an example of how to add a vanilla terraria item
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("golemswordsword"));  //an example of how to add a vanilla terraria item
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("encimpstaff"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("encimpstaff"));
                 nextSlot++;
             }
-            if (NPC.downedSlimeKing)   //this make so when the king slime is killed the town npc will sell this
+            if (NPC.downedSlimeKing)   //this make so when the king slime is killed the town NPC will sell this
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));  //an example of how to add a vanilla terraria item
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));  //an example of how to add a vanilla terraria item
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
-            if (NPC.downedBoss3)   //this make so when Skeletron is killed the town npc will sell this
+            if (NPC.downedBoss3)   //this make so when Skeletron is killed the town NPC will sell this
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
-            if (Main.hardMode)   //this make so when hardmode is open the town npc will sell this
+            if (Main.hardMode)   //this make so when hardmode is open the town NPC will sell this
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("ANTEGGSUMMON"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("ANTEGGSUMMON"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
-            /*if (Main.LocalPlayer.HasBuff(BuffID.Lifeforce))
+            /*if (Main.LocalPlayer.HasBuff(ModContent.BuffType.Lifeforce))
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("ExampleHealingPotion"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("ExampleHealingPotion"));
                 nextSlot++;
             }*/
             /*if (Main.LocalPlayer.GetModPlayer<exampleplayer>().ZoneExample && !ExampleMod.exampleServerConfig.DisableExampleWings)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("ExampleWings"));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType("ExampleWings"));
                 nextSlot++;
             }*/
             if (Main.moonPhase < 2)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
             else if (Main.moonPhase < 4)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
             else if (Main.moonPhase < 6)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType(""));
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType(""));
                 nextSlot++;
             }
             else
             {
             }
-            // Here is an example of how your npc can sell items from other mods.
+            // Here is an example of how your NPC can sell items from other mods.
             var modSummonersAssociation = ModLoader.GetMod("");
             if (modSummonersAssociation != null)
             {
@@ -327,7 +327,7 @@ namespace gracosmod123.npcs
 
         public override void NPCLoot()
         {
-            //Item.NewItem(npc.getRect(), mod.ItemType<Items.Armor.ExampleCostume>());
+            //Item.NewItem(NPC.getRect(), ModContent.ItemType<Items.Armor.ExampleCostume>());
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -360,7 +360,7 @@ namespace gracosmod123.npcs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = mod.ProjectileType("bamboodiscus");
+            projType = ModContent.ProjectileType("bamboodiscus");
             attackDelay = 1;
         }
 
@@ -390,25 +390,25 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
         }
         public override void SetDefaults()
         {
-            npc.name = "Custom Town NPC";   //the name displayed when hovering over the npc ingame.
-            npc.townNPC = true; //This defines if the npc is a town Npc or not
-            npc.friendly = true;  //this defines if the npc can hur you or not()
-            npc.width = 18; //the npc sprite width
-            npc.height = 46;  //the npc sprite height
-            npc.aiStyle = 7; //this is the npc ai style, 7 is Pasive Ai
-            npc.defense = 25;  //the npc defense
-            npc.lifeMax = 250;// the npc life
-            npc.HitSound = SoundID.NPCHit1;  //the npc sound when is hit
-            npc.DeathSound = SoundID.NPCDeath1;  //the npc sound when he dies
-            npc.knockBackResist = 0.5f;  //the npc knockback resistance
-            Main.npcFrameCount[npc.type] = 25; //this defines how many frames the npc sprite sheet has
-            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-            NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 150; //this defines the npc danger detect range
-            NPCID.Sets.AttackType[npc.type] = 3; //this is the attack type,  0 (throwing), 1 (shooting), or 2 (magic). 3 (melee) 
-            NPCID.Sets.AttackTime[npc.type] = 30; //this defines the npc attack speed
-            NPCID.Sets.AttackAverageChance[npc.type] = 10;//this defines the npc atack chance
-            NPCID.Sets.HatOffsetY[npc.type] = 4; //this defines the party hat position
+            NPC.name = "Custom Town NPC";   //the name displayed when hovering over the NPC ingame.
+            NPC.townNPC = true; //This defines if the NPC is a town NPC or not
+            NPC.friendly = true;  //this defines if the NPC can hur you or not()
+            NPC.width = 18; //the NPC sprite width
+            NPC.height = 46;  //the NPC sprite height
+            NPC.aiStyle = 7; //this is the NPC ai style, 7 is Pasive Ai
+            NPC.defense = 25;  //the NPC defense
+            NPC.LifeMax = 250;// the NPC life
+            NPC.HitSound = SoundID.NPCHit1;  //the NPC sound when is hit
+            NPC.DeathSound = SoundID.NPCDeath1;  //the NPC sound when he dies
+            NPC.knockBackResist = 0.5f;  //the NPC knockback resistance
+            Main.NPCFrameCount[NPC.type] = 25; //this defines how many frames the NPC sprite sheet has
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 150; //this defines the NPC danger detect range
+            NPCID.Sets.AttackType[NPC.type] = 3; //this is the attack type,  0 (throwing), 1 (shooting), or 2 (magic). 3 (melee) 
+            NPCID.Sets.AttackTime[NPC.type] = 30; //this defines the NPC attack speed
+            NPCID.Sets.AttackAverageChance[NPC.type] = 10;//this defines the NPC atack chance
+            NPCID.Sets.HatOffsetY[NPC.type] = 4; //this defines the party hat position
             animationType = NPCID.Guide;  //this copy the guide animation
         }
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) //Whether or not the conditions have been met for this town NPC to be able to move into town.
@@ -421,7 +421,7 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
         }
         public override bool CheckConditions(int left, int right, int top, int bottom)    //Allows you to define special conditions required for this town NPC's house
         {
-            return true;  //so when a house is available the npc will  spawn
+            return true;  //so when a house is available the NPC will  spawn
         }
         public override string TownNPCName()     //Allows you to give this town NPC any name when it spawns
         {
@@ -459,14 +459,14 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
 
         public override void SetupShop(Chest shop, ref int nextSlot)       //Allows you to add items to this town NPC's shop. Add an item by setting the defaults of shop.item[nextSlot] then incrementing nextSlot.
         {
-            if (NPC.downedSlimeKing)   //this make so when the king slime is killed the town npc will sell this
+            if (NPC.downedSlimeKing)   //this make so when the king slime is killed the town NPC will sell this
             {
                 shop.item[nextSlot].SetDefaults(ItemID.RecallPotion);  //an example of how to add a vanilla terraria item
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(ItemID.WormholePotion);
                 nextSlot++;
             }
-            if (NPC.downedBoss3)   //this make so when Skeletron is killed the town npc will sell this
+            if (NPC.downedBoss3)   //this make so when Skeletron is killed the town NPC will sell this
             {
                 shop.item[nextSlot].SetDefaults(ItemID.BookofSkulls);
                 nextSlot++;
@@ -475,24 +475,24 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
             }
             shop.item[nextSlot].SetDefaults(ItemID.IronskinPotion);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("CustomSword"));  //this is an example of how to add a modded item
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType("CustomSword"));  //this is an example of how to add a modded item
             nextSlot++;
 
         }
 
         public override string GetChat()       //Allows you to give this town NPC a chat message when a player talks to it.
         {
-            int wizardNPC = NPC.FindFirstNPC(NPCID.Wizard);   //this make so when this npc is close to Wizard
+            int wizardNPC = NPC.FindFirstNPC(NPCID.Wizard);   //this make so when this NPC is close to Wizard
             if (wizardNPC >= 0 && Main.rand.Next(4) == 0)    //has 1 in 3 chance to show this message
             {
-                return "Yes " + Main.npc[wizardNPC].displayName + " is a wizard.";
+                return "Yes " + Main.NPC[wizardNPC].displayName + " is a wizard.";
             }
-            int guideNPC = NPC.FindFirstNPC(NPCID.Guide); //this make so when this npc is close to the Guide
+            int guideNPC = NPC.FindFirstNPC(NPCID.Guide); //this make so when this NPC is close to the Guide
             if (guideNPC >= 0 && Main.rand.Next(4) == 0) //has 1 in 3 chance to show this message
             {
-                return "Sure you can ask " + Main.npc[guideNPC].displayName + " how to make Ironskin potion or you can buy it from me..hehehe.";
+                return "Sure you can ask " + Main.NPC[guideNPC].displayName + " how to make Ironskin potion or you can buy it from me..hehehe.";
             }
-            switch (Main.rand.Next(4))    //this are the messages when you talk to the npc
+            switch (Main.rand.Next(4))    //this are the messages when you talk to the NPC
             {
                 case 0:
                     return "You wanna buy something?";
@@ -509,8 +509,8 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
         }
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)//  Allows you to determine the damage and knockback of this town NPC attack
         {
-            damage = 40;  //npc damage
-            knockback = 2f;   //npc knockback
+            damage = 40;  //NPC damage
+            knockback = 2f;   //NPC knockback
         }
 
         public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)  //Allows you to determine the cooldown between each of this town NPC's attack. The cooldown will be a number greater than or equal to the first parameter, and less then the sum of the two parameters.
@@ -518,11 +518,11 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
             cooldown = 5;
             randExtraCooldown = 10;
         }
-        //------------------------------------This is an example of how to make the npc use a sward attack-------------------------------
-        public override void DrawTownAttackSwing(ref Texture2D item, ref int itemSize, ref float scale, ref Vector2 offset)//Allows you to customize how this town NPC's weapon is drawn when this NPC is swinging it (this NPC must have an attack type of 3). Item is the Texture2D instance of the item to be drawn (use Main.itemTexture[id of item]), itemSize is the width and height of the item's hitbox
+        //------------------------------------This is an example of how to make the NPC use a sward attack-------------------------------
+        public override void DrawTownAttackSwing(ref Texture2D item, ref int itemSize, ref float scale, ref Vector2 offset)//Allows you to customize how this town NPC's weapon is drawn when this NPC is swinging it (this NPC must have an attack type of 3). Item is the Texture2D instance of the item to be drawn (use ModContent.Request[id of item]), itemSize is the width and height of the item's hitbox
         {
             scale = 1f;
-            item = Main.itemTexture[mod.ItemType("CustomSword")]; //this defines the item that this npc will use
+            item = ModContent.Request[ModContent.ItemType("CustomSword")]; //this defines the item that this NPC will use
             itemSize = 56;
         }
 
@@ -532,11 +532,11 @@ namespace TutorialMOD.NPCs            //We need this to basically indicate the f
             itemHeight = 56;
         }
 
-        //----------------------------------This is an example of how to make the npc use a gun and a projectile ----------------------------------
+        //----------------------------------This is an example of how to make the NPC use a gun and a projectile ----------------------------------
         /*public override void DrawTownAttackGun(ref float scale, ref int item, ref int closeness) //Allows you to customize how this town NPC's weapon is drawn when this NPC is shooting (this NPC must have an attack type of 1). Scale is a multiplier for the item's drawing size, item is the ID of the item to be drawn, and closeness is how close the item should be drawn to the NPC.
           {
               scale = 1f;
-              item = mod.ItemType("GunName");  
+              item = ModContent.ItemType("GunName");  
               closeness = 20;
           }
           public override void TownNPCAttackProj(ref int projType, ref int attackDelay)//Allows you to determine the projectile type of this town NPC's attack, and how long it takes for the projectile to actually appear

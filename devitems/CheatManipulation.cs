@@ -18,7 +18,7 @@ namespace gracosmod123.devitems
             projectile.width = 1;
             projectile.height = 1;
             projectile.aiStyle = 0;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.tileCollide = false;
             projectile.usesIDStaticNPCImmunity = true;
             projectile.idStaticNPCHitCooldown = 4;
@@ -42,7 +42,7 @@ namespace gracosmod123.devitems
         }
         public override void AI()
         {
-            int enpc = (int)projectile.ai[0] - 1;
+            int eNPC = (int)projectile.ai[0] - 1;
             //int pvp = (int)projectile.ai[1] - 1;
             Player player = Main.player[projectile.owner];
             if (Main.myPlayer == projectile.owner)
@@ -62,9 +62,9 @@ namespace gracosmod123.devitems
                     }
                 }
             }
-            if (enpc >= 0)
+            if (eNPC >= 0)
             {
-                NPC target = Main.npc[enpc];
+                NPC target = Main.NPC[eNPC];
                 if (target.active && target.type != NPCID.TargetDummy)
                 {
                     target.position = projectile.position - new Vector2(target.width / 2, target.height / 2);
@@ -104,10 +104,10 @@ namespace gracosmod123.devitems
                     {*/
                         for (int i = 0; i < 200; i++)
                         {
-                            NPC target = Main.npc[i];
+                            NPC target = Main.NPC[i];
                             if (target.active && projectile.Hitbox.Intersects(target.Hitbox) && target.type != NPCID.TargetDummy)
                             {
-                                enpc = i;
+                                eNPC = i;
                                 projectile.ai[0] = i + 1;
                             }
                         }
@@ -117,9 +117,9 @@ namespace gracosmod123.devitems
             bool channeling = player.channel && !player.noItems && !player.CCed;
             if (!channeling)
             {
-                if (enpc >= 0)
+                if (eNPC >= 0)
                 {
-                    NPC target = Main.npc[enpc];
+                    NPC target = Main.NPC[eNPC];
                     if (target.active && target.type != NPCID.TargetDummy)
                     {
                         Vector2 vel = projectile.position - projectile.oldPosition;

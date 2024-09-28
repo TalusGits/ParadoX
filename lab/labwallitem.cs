@@ -12,16 +12,16 @@ namespace gracosmod123.lab
         }
         public override void SetDefaults()
         {
-            item.rare = 3;
-            item.width = 12;
-            item.height = 12;
-            item.maxStack = 999;
+            Item.rare = 3;
+            Item.width = 12;
+            Item.height = 12;
+            Item.maxStack = 999;
             item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 7;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 7;
             item.useStyle = 1;
-            item.consumable = true;
+            Item.consumable = true;
             item.createWall = mod.WallType("labwall");
         }
     }

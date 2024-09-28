@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-namespace gracosmod123.npcs.ocean.oceanitems.armor
+namespace gracosmod123.NPCs.ocean.oceanitems.armor
 {
     public class LifeRingEffect : ModProjectile
     {
@@ -20,7 +20,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
             projectile.tileCollide = false;
             projectile.ownerHitCheck = true;
             projectile.ignoreWater = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.timeLeft = 28;
             projectile.light = 2.00f; // projectile light still a lot
         }

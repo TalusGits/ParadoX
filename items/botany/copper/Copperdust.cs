@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 namespace gracosmod123.items.botany.copper
 {
-    public class Copperdust : ModDust
+    public class Copperdust : ModContent.DustType
     {
         public override void OnSpawn(Dust dust)
         {

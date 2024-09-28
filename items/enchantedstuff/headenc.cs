@@ -23,8 +23,8 @@ namespace gracosmod123.items.enchantedstuff
         public override void SetDefaults()
         {
             item.Size = new Vector2(18);
-            item.value = Item.sellPrice(silver: 26);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 26);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 7;
         }
 
@@ -36,7 +36,7 @@ namespace gracosmod123.items.enchantedstuff
         public override void UpdateArmorSet(Player player)
         {
             ExampleDamagePlayer modPlayer = ExampleDamagePlayer.ModPlayer(player);
-            player.AddBuff(mod.BuffType("BlazingFeet"), 20, true);
+            player.AddBuff(ModContent.BuffType("BlazingFeet"), 20, true);
             player.moveSpeed += 3f;
 			modPlayer.exampleDamageMult *= 1.2f; // add 20% to the multiplicative bonus
 			modPlayer.exampleCrit += 15; // add 15% crit
@@ -45,11 +45,11 @@ namespace gracosmod123.items.enchantedstuff
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<ore.eliasBar>(), 6);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

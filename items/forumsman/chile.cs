@@ -11,18 +11,18 @@ namespace gracosmod123.items.forumsman
     {
         public override void SetDefaults()
         {
-            item.damage = 26;
+            Item.DamageType = 26;
             item.melee = true;
-            item.width = 36;
-            item.height = 38;
-            item.useTime = 25;
-            item.useAnimation = 25;
+            Item.width = 36;
+            Item.height = 38;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
             item.useStyle = 1;
-            item.knockBack = 10;
-            item.value = Item.sellPrice(0, 4, 0, 0);
-            item.rare = 4;
-            item.UseSound = SoundID.Item71;
-            item.autoReuse = true;
+            Item.knockBack = 10;
+            Item.value = Item.sellPrice(0, 4, 0, 0);
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item71;
+            Item.autoReuse = true;
             item.useTurn = true;
         }
 
@@ -33,7 +33,7 @@ namespace gracosmod123.items.forumsman
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.OnFire, 180);
+            target.AddBuff(ModContent.BuffType.OnFire, 180);
         }
     }
 }

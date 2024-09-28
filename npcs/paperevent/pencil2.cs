@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class pencil2 : ModProjectile
     {
@@ -20,7 +20,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.height = 44;
             projectile.aiStyle = 19;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.tileCollide = false;
             projectile.scale = 1.3f;
             projectile.hide = true;
@@ -37,7 +37,7 @@ namespace gracosmod123.npcs.paperevent
             projectile.melee = true;
             projectile.hide = true;
             projectile.ownerHitCheck = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.timeLeft = 600;
             projectile.tileCollide = false;
             aiType = 49;
@@ -109,13 +109,13 @@ namespace gracosmod123.npcs.paperevent
                     for (int k = 0; (double)k < (double)count; k++)
                     {
                         Vector2 vector2 = (Vector2.UnitX * 0.0f + -Vector2.UnitY.RotatedBy((double)k * (6.22 / (double)count), new Vector2()) * new Vector2(2.0f, 8.0f)).RotatedBy((double)projectile.velocity.ToRotation(), new Vector2());
-                        int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("White"));
+                        int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType("White"));
                         Main.dust[dust].scale = 1.25f;
                         Main.dust[dust].noGravity = true;
                         Main.dust[dust].position = projectile.Center + vector2;
                         Main.dust[dust].velocity = projectile.velocity * 0.0f + vector2.SafeNormalize(Vector2.UnitY) * 1.0f;
                     }
-                    if (player.itemAnimation < player.itemAnimationMax / 2) Projectile.NewProjectile(projectile.Center.X + projectile.velocity.X, projectile.Center.Y + projectile.velocity.Y, projectile.velocity.X * 1.5f, projectile.velocity.Y * 1.5f, mod.ProjectileType("pencil2pro"), projectile.damage * 2, projectile.knockBack * 0.85f, projectile.owner, 0f, 0f);
+                    if (player.itemAnimation < player.itemAnimationMax / 2) Projectile.NewProjectileDirect(projectile.Center.X + projectile.velocity.X, projectile.Center.Y + projectile.velocity.Y, projectile.velocity.X * 1.5f, projectile.velocity.Y * 1.5f, ModContent.ProjectileType("pencil2pro"), projectile.damage * 2, projectile.knockBack * 0.85f, projectile.owner, 0f, 0f);
                 }
             }
         }

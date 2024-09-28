@@ -10,10 +10,10 @@ namespace gracosmod123.items.accessories
     {
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 90, 15);
-            item.rare = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 90, 15);
+            Item.rare = 1;
             item.accessory = true;
         }
 
@@ -24,12 +24,12 @@ namespace gracosmod123.items.accessories
         }
         /*public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.OnFire, 180);
+            target.AddBuff(ModContent.BuffType.OnFire, 180);
         }*/
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.meleeSpeed += 2f;
-            //player.AddBuff(BuffID.Inferno, 180);
+            //player.AddBuff(ModContent.BuffType.Inferno, 180);
 
         }
     }
@@ -56,8 +56,8 @@ using static Terraria.ModLoader.ModContent;
         {
             item.Size = new Vector2(20);
             item.accessory = true;
-            item.value = Item.sellPrice(silver: 12);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 12);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 1000000;
 
         }
@@ -147,10 +147,10 @@ using static Terraria.ModLoader.ModContent;
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }*/

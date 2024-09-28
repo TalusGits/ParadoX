@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using TileObjectData = Terraria.ObjectData.TileObjectData;
 
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class GlowingCrystal : ModTile        // Tile counterpart to GlowingCompound
     {
@@ -18,7 +18,7 @@ namespace gracosmod123.npcs.wormboss
             Main.tileNoAttach[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoFail[Type] = true;
-            drop = mod.ItemType("GlowingCrystalItem");
+            drop = ModContent.ItemType("GlowingCrystalItem");
             AddMapEntry(new Color(148, 134, 48));
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);

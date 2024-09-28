@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class ANTEGGSUMMON : ModItem
     {
@@ -18,23 +18,23 @@ namespace gracosmod123.npcs.ant
 
         public override void SetDefaults()
         {
-            item.width = 78;
-            item.height = 78;
-            item.maxStack = 9999;
-            item.rare = 3;
-            item.useAnimation = 45;
-            item.useTime = 45;
+            Item.width = 78;
+            Item.height = 78;
+            Item.maxStack = 9999;
+            Item.rare = 3;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
             item.useStyle = 5;
-            item.UseSound = SoundID.Item44;
-            item.consumable = false;
+            Item.UseSound = SoundID.Item44;
+            Item.consumable = false;
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("AntlionQueen")))
+            if (!NPC.AnyNPCs(ModContent.NPCType("AntlionQueen")))
             {
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("AntlionQueen"));
-                Main.PlaySound(SoundID.Roar, player.position, 0);
+                NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType("AntlionQueen"));
+                SoundEngine.PlaySound(SoundID.Roar, player.position, 0);
                 item.stack--;
                 return true;
             }
@@ -43,12 +43,12 @@ namespace gracosmod123.npcs.ant
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemID.AdamantiteBar / ItemID.TitaniumBar, 20);
             recipe.AddIngredient(ItemID.BeeWax, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

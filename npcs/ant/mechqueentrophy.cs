@@ -1,24 +1,24 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class mechqueentrophy : ModItem
     {
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 30;
-            item.maxStack = 99;
+            Item.width = 30;
+            Item.height = 30;
+            Item.maxStack = 99;
             item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.value = 50000;
-            item.rare = ItemRarityID.Blue;
-            item.createTile = ModContent.TileType<mechqueentrophy2>();
+            Item.consumable = true;
+            Item.value = 50000;
+            Item.rare = ItemRarityID.Blue;
+            Item.createTile = ModContent.TileType<mechqueentrophy2>();
             item.placeStyle = 0;
         }
     }
@@ -59,7 +59,7 @@ namespace Antiaris.Tiles.Decorations.Trophies
 		{
 			if(frameX == 0)
 			{
-				Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("AntlionQueenTrophy"), 1, false, 0, false, false);
+				Item.NewItem(i * 16, j * 16, 48, 48, ModContent.ItemType("AntlionQueenTrophy"), 1, false, 0, false, false);
 			}
 		}
 	}

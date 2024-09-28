@@ -9,7 +9,7 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
 
-namespace gracosmod123.npcs.ocean.oceanitems
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class oceanyoyo : ModItem
     {
@@ -27,31 +27,31 @@ namespace gracosmod123.npcs.ocean.oceanitems
         public override void SetDefaults()
         {
             item.Size = new Vector2(24);
-            item.rare = ItemRarityID.Blue;
-            item.value = Item.sellPrice(silver: 25);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 25);
 
-            item.useTime = 25;
-            item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
             item.useStyle = ItemUseStyleID.HoldingOut;
-            item.UseSound = SoundID.Item1;
+            Item.UseSound = SoundID.Item1;
 
             item.melee = true;
             item.channel = true;
-            item.noMelee = true;
+            Item.noMelee = true;
             item.noUseGraphic = true;
 
-            item.damage = 300;
-            item.knockBack = 3.5f;
-            item.shoot = ProjectileType<npcs.ocean.oceanitems.ript>();
-            item.shootSpeed = 16.5f;
+            Item.DamageType = 300;
+            Item.knockBack = 3.5f;
+            Item.shoot = ProjectileType<NPCs.ocean.oceanitems.ript>();
+            Item.shootSpeed = 16.5f;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<oreaqua.Aquabar>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

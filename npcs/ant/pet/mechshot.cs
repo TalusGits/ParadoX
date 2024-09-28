@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant.pet
+namespace gracosmod123.NPCs.ant.pet
 {
     public class mechshot : ModProjectile
     {
@@ -16,7 +16,7 @@ namespace gracosmod123.npcs.ant.pet
             projectile.melee = true;
             projectile.tileCollide = false;
             projectile.timeLeft = 240;
-            projectile.penetrate = 4;
+            Projectile.Penetrate = 4;
         }
 
         public override void SetStaticDefaults()
@@ -31,7 +31,7 @@ namespace gracosmod123.npcs.ant.pet
             if (projectile.ai[1] == 0f && projectile.type == 44)
             {
                 projectile.ai[1] = 1f;
-                Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 8);
+                SoundEngine.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 8);
             }
             projectile.ai[0] += 1f;
             if (projectile.ai[0] >= 30f)
@@ -47,9 +47,9 @@ namespace gracosmod123.npcs.ant.pet
             }
             for (var k = 0; k < 2; k++)
             {
-                //var dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType(""));
+                //var dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType(""));
                 //Main.dust[dust].noGravity = true;
-            }//            int DustID2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width + 2, projectile.height + 2, mod.DustType("ret"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 20, default(Color), 2.9f);
+            }//            int DustID2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width + 2, projectile.height + 2, ModContent.DustType("ret"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 20, default(Color), 2.9f);
 
             projectile.rotation += (float)projectile.direction * 0.3f;
             projectile.velocity *= 0.95f;

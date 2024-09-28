@@ -2,7 +2,7 @@
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.Glichfolder.notes//location in the folders
+namespace gracosmod123.NPCs.Glichfolder.notes//location in the folders
 {
     public class Note : ModItem
     {
@@ -14,12 +14,12 @@ namespace gracosmod123.npcs.Glichfolder.notes//location in the folders
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.width = 32;
-            item.height = 32;
-            item.rare = 0;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            Item.maxStack = 1;
+            Item.width = 32;
+            Item.height = 32;
+            Item.rare = 0;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
             item.useStyle = 3;
             item.useTurn = true;
         }

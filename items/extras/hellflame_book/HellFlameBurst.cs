@@ -24,7 +24,7 @@ namespace gracosmod123.items.extras.hellflame_book
             projectile.ignoreWater = true;
             projectile.magic = true;
             projectile.aiStyle = 1;
-            projectile.penetrate = 3;
+            Projectile.Penetrate = 3;
             projectile.scale = 1.5f;
             projectile.timeLeft = 32;
             projectile.light = 2.00f;
@@ -34,13 +34,13 @@ namespace gracosmod123.items.extras.hellflame_book
             switch ((int)projectile.ai[0])
             {
                 case 1:
-                    target.AddBuff(BuffID.OnFire, 300); // 5 second debuff
+                    target.AddBuff(ModContent.BuffType.OnFire, 300); // 5 second debuff
                     break;
                 case 2:
-                    target.AddBuff(BuffID.OnFire, 100); // 5 second debuff
+                    target.AddBuff(ModContent.BuffType.OnFire, 100); // 5 second debuff
                     break;
                 case 3:
-                    target.AddBuff(BuffID.OnFire, 200); // 5 second debuff
+                    target.AddBuff(ModContent.BuffType.OnFire, 200); // 5 second debuff
                     break;
             }
             base.OnHitNPC(target, damage, knockback, crit);

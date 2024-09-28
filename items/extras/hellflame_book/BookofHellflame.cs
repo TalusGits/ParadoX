@@ -16,22 +16,22 @@ namespace gracosmod123.items.extras.hellflame_book
 
         public override void SetDefaults()
         {
-            item.damage = 40;
+            Item.DamageType = 40;
             item.magic = true;
-            item.width = 20;
-            item.height = 20;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            Item.width = 20;
+            Item.height = 20;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
             item.useStyle = 5;
-            item.knockBack = 1;
-            item.value = 10000;
-            item.rare = 4;
-            item.mana = 10;
-            item.shoot = mod.ProjectileType("HellFlameBurst");
-            item.shootSpeed = 5f;
-            item.UseSound = SoundID.Item20;
-            item.noMelee = true;
-            item.autoReuse = true;
+            Item.knockBack = 1;
+            Item.value = 10000;
+            Item.rare = 4;
+            Item.mana = 10;
+            Item.shoot = ModContent.ProjectileType("HellFlameBurst");
+            Item.shootSpeed = 5f;
+            Item.UseSound = SoundID.Item20;
+            Item.noMelee = true;
+            Item.autoReuse = true;
 
 
 
@@ -43,22 +43,22 @@ namespace gracosmod123.items.extras.hellflame_book
             {
                 Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(80));
 
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
             }
             return false;
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.OnFire, 60);
+            target.AddBuff(ModContent.BuffType.OnFire, 60);
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemID.HellstoneBar, 15);
             recipe.AddIngredient(ItemID.Book, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

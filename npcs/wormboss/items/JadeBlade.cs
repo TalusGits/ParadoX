@@ -7,27 +7,27 @@ using Terraria.ModLoader;
 using System;
 
 
-namespace gracosmod123.npcs.wormboss.items
+namespace gracosmod123.NPCs.wormboss.items
 {
     public class JadeBlade : ModItem
     {
         public override void SetDefaults()
         {
-            item.damage = 40;
+            Item.DamageType = 40;
             item.melee = true;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 22;
+            Item.useAnimation = 22;
             item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = Item.sellPrice(0, 0, 20, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             item.useTurn = true;
-            item.shootSpeed = 60f;
-            item.value = Item.sellPrice(0, 9, 0, 0);
+            Item.shootSpeed = 60f;
+            Item.value = Item.sellPrice(0, 9, 0, 0);
         }
 
         public override void SetStaticDefaults()
@@ -41,11 +41,11 @@ namespace gracosmod123.npcs.wormboss.items
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(mod, "GlowingCrystalItem", 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -4,19 +4,19 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
-namespace gracosmod123.npcs.wormboss.accessories
+namespace gracosmod123.NPCs.wormboss.accessories
 {
     [AutoloadEquip(new EquipType[] { EquipType.HandsOn })]
     public class JadeRing : ModItem
     {
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 90, 15);
-            item.rare = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 90, 15);
+            Item.rare = 1;
             item.accessory = true;
-            item.rare = ItemRarityID.Green;
+            Item.rare = ItemRarityID.Green;
 
         }
 
@@ -28,18 +28,18 @@ namespace gracosmod123.npcs.wormboss.accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.AddBuff(BuffID.WeaponImbuePoison, 1);
-            player.AddBuff(BuffID.Thorns, 1);
-            player.AddBuff(BuffID.AmmoReservation, 1);
+            player.AddBuff(ModContent.BuffType.WeaponImbuePoison, 1);
+            player.AddBuff(ModContent.BuffType.Thorns, 1);
+            player.AddBuff(ModContent.BuffType.AmmoReservation, 1);
 
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(mod, "GlowingCrystalItem", 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }/*
@@ -65,8 +65,8 @@ using static Terraria.ModLoader.ModContent;
         {
             item.Size = new Vector2(20);
             item.accessory = true;
-            item.value = Item.sellPrice(silver: 12);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 12);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 1000000;
 
         }
@@ -156,10 +156,10 @@ using static Terraria.ModLoader.ModContent;
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }*/

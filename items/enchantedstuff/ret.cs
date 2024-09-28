@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace gracosmod123.items.enchantedstuff
 {
-    public class ret : ModDust
+    public class ret : ModContent.DustType
     {
         public override void OnSpawn(Dust dust)
         {

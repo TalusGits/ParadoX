@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent.lightpet
+namespace gracosmod123.NPCs.paperevent.lightpet
 {
     public class PaperAirplane : ModProjectile
     {

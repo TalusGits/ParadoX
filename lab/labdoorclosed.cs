@@ -41,10 +41,10 @@ namespace gracosmod123.lab
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Lab door");
             AddMapEntry(new Color(162, 184, 185), name);
-            dustType = mod.DustType("labdust");
+            dustType = ModContent.DustType("labdust");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = mod.TileType("labdooropen");
+            openDoorID = ModContent.TileType("labdooropen");
         }
 
         public override bool HasSmartInteract()
@@ -59,7 +59,7 @@ namespace gracosmod123.lab
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType("labdoor"));
+            Item.NewItem(i * 16, j * 16, 16, 48, ModContent.ItemType("labdoor"));
         }
 
         public override void MouseOver(int i, int j)
@@ -67,7 +67,7 @@ namespace gracosmod123.lab
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("labdoor");
+            player.showItemIcon2 = ModContent.ItemType("labdoor");
         }
     }
 
@@ -124,10 +124,10 @@ namespace gracosmod123.lab
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Lab door");
             AddMapEntry(new Color(162, 184, 185), name);
-            dustType = mod.DustType("labdust");
+            dustType = ModContent.DustType("labdust");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.OpenDoor };
-            closeDoorID = mod.TileType("labdoorclosed");
+            closeDoorID = ModContent.TileType("labdoorclosed");
         }
 
         public override bool HasSmartInteract()
@@ -142,7 +142,7 @@ namespace gracosmod123.lab
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, mod.ItemType("labdoor"));
+            Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType("labdoor"));
         }
 
         public override void MouseOver(int i, int j)
@@ -150,7 +150,7 @@ namespace gracosmod123.lab
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("labdoor");
+            player.showItemIcon2 = ModContent.ItemType("labdoor");
         }
     }
 }

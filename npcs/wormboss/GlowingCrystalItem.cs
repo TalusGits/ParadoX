@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-namespace gracosmod123.npcs.wormboss
+namespace gracosmod123.NPCs.wormboss
 {
     public class GlowingCrystalItem : ModItem
     {
@@ -21,19 +21,19 @@ namespace gracosmod123.npcs.wormboss
         }
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
+            Item.width = 16;
+            Item.height = 16;
             item.useTurn = true;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.value = 1000;
-            item.createTile = mod.TileType("GlowingCrystal");
-            item.UseSound = null;
-            item.rare = ItemRarityID.Green;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.value = 1000;
+            Item.createTile = ModContent.TileType("GlowingCrystal");
+            Item.UseSound = null;
+            Item.rare = ItemRarityID.Green;
 
         }
     }

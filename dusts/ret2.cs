@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace gracosmod123.dusts
 {
-    public class ret2 : ModDust
+    public class ret2 : ModContent.DustType
     {
         public override void OnSpawn(Dust dust)
         {

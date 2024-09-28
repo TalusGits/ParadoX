@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class mechqueentrophy2 : ModTile
     {
@@ -28,7 +28,7 @@ namespace gracosmod123.npcs.ant
         {
             if (frameX == 0)
             {
-                Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("AntlionQueenTrophy"), 1, false, 0, false, false);
+                Item.NewItem(i * 16, j * 16, 48, 48, ModContent.ItemType("AntlionQueenTrophy"), 1, false, 0, false, false);
             }
         }
     }

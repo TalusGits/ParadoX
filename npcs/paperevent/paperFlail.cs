@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class paperFlail : ModItem
     {
@@ -20,20 +20,20 @@ namespace gracosmod123.npcs.paperevent
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.value = Item.sellPrice(silver: 5);
-            item.rare = ItemRarityID.White;
-            item.noMelee = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = Item.sellPrice(silver: 5);
+            Item.rare = ItemRarityID.White;
+            Item.noMelee = true;
             item.useStyle = ItemUseStyleID.HoldingOut;
-            item.useAnimation = 40;
-            item.useTime = 20;
-            item.knockBack = 200f;
-            item.damage = 35;
+            Item.useAnimation = 40;
+            Item.useTime = 20;
+            Item.knockBack = 200f;
+            Item.DamageType = 35;
             item.noUseGraphic = true;
-            item.shoot = ModContent.ProjectileType<paperFlailProj>();
-            item.shootSpeed = 30f;//15
-            item.UseSound = SoundID.Item1;
+            Item.shoot = ModContent.ProjectileType<paperFlailProj>();
+            Item.shootSpeed = 30f;//15
+            Item.UseSound = SoundID.Item1;
             item.melee = true;
             item.crit = 9;
             item.channel = true;

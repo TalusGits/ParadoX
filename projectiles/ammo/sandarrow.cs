@@ -25,7 +25,7 @@ namespace gracosmod123.projectiles.ammo
             projectile.friendly = true;
             projectile.ranged = true;
 
-            projectile.penetrate = 40;
+            Projectile.Penetrate = 40;
             projectile.timeLeft = 600;
 
             projectile.ignoreWater = true;
@@ -37,7 +37,7 @@ namespace gracosmod123.projectiles.ammo
         }
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
+            SoundEngine.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
 			for (int i = 0; i < 25; i++)
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 19, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
@@ -45,8 +45,8 @@ namespace gracosmod123.projectiles.ammo
         }
         /*public override void Kill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
-            Projectile.NewProjectile(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
+            SoundEngine.PlaySound(SoundID.Item10, projectile.position);
+            Projectile.NewProjectileDirect(projectile.position, new Vector2(projectile.velocity.X, -projectile.velocity.Y), ProjectileID.SandBlock, projectile.damage / 2, projectile.knockBack / 2f);
         }*/
     }
 }//

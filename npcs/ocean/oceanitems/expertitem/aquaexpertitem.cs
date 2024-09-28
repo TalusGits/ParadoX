@@ -3,7 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems.expertitem
+namespace gracosmod123.NPCs.ocean.oceanitems.expertitem
 {
     public class aquaexpertitem : ModItem
     {
@@ -16,18 +16,18 @@ namespace gracosmod123.npcs.ocean.oceanitems.expertitem
 
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 40;
-            item.maxStack = 1;
-            item.value = 0;
-            item.rare = 10;
-            item.value = 500;
-            item.rare = 9;
+            Item.width = 40;
+            Item.height = 40;
+            Item.maxStack = 1;
+            Item.value = 0;
+            Item.rare = 10;
+            Item.value = 500;
+            Item.rare = 9;
             item.expert = true;
             item.useStyle = 5;
-            item.useAnimation = 2;
-            item.useTime = 2;
-            item.autoReuse = true;
+            Item.useAnimation = 2;
+            Item.useTime = 2;
+            Item.autoReuse = true;
         }
 
         public override bool UseItem(Player player)
@@ -39,7 +39,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.expertitem
 
             player.velocity = new Vector2((float)Math.Cos(direction), (float)Math.Sin(direction)) * distance / 10;
 
-            //int dust = Dust.NewDust(player.position, player.width, player.height, mod.DustType("B4PDust"), 0, 0);
+            //int dust = Dust.NewDust(player.position, player.width, player.height, ModContent.DustType("B4PDust"), 0, 0);
             player.noFallDmg = true;
             return true;
         }

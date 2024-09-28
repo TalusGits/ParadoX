@@ -13,7 +13,7 @@ namespace gracosmod123.lab
     {
         public override void SetDefaults()
         {
-            Main.tileSolidTop[Type] = true;
+            TileLoader.IsTileSolidop[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
@@ -35,7 +35,7 @@ namespace gracosmod123.lab
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("labtableitem"));
+            Item.NewItem(i * 16, j * 16, 48, 32, ModContent.ItemType("labtableitem"));
             Chest.DestroyChest(i, j);
         }
     }

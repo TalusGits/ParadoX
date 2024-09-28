@@ -12,11 +12,11 @@ namespace gracosmod123.items.botany.accessoriesbot.plant
         public override void SetDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileSolidTop[Type] = true;
+            TileLoader.IsTileSolidop[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileSpelunker[Type] = true;
-            drop = mod.ItemType("StarflowerPlanterBox");
+            drop = ModContent.ItemType("StarflowerPlanterBox");
             dustType = 1;
         }
 

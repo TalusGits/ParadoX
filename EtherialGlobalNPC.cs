@@ -18,131 +18,131 @@ namespace gracosmod123
             }
         }
 
-        public override void SetDefaults(NPC npc)
+        public override void SetDefaults(NPC NPC)
         {
-            if (npc.type == NPCID.DD2EterniaCrystal)
+            if (NPC.type == NPCID.DD2EterniaCrystal)
             {
-                npc.dontTakeDamageFromHostiles = false;
+                NPC.dontTakeDamageFromHostiles = false;
             }
-            else if (npc.friendly)
+            else if (NPC.friendly)
             {
-                npc.dontTakeDamageFromHostiles = true;
+                NPC.dontTakeDamageFromHostiles = true;
             }
-            if (npc.type == NPCID.Guide)
+            if (NPC.type == NPCID.Guide)
             {
 
             }
         }
-        public override void NPCLoot(NPC npc)
+        public override void NPCLoot(NPC NPC)
         {
-            if (npc.type == NPCID.Derpling)
+            if (NPC.type == NPCID.Derpling)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BorealWoodSpear"), 1);
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("BorealWoodSpear"), 1);
             }
-            if (npc.type == NPCID.Zombie)
+            if (NPC.type == NPCID.Zombie)
             {
                 if (Main.rand.Next(2) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ItemName")); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("ItemName")); //Item spawn
                 }
             }//MarbleBow
             if (Main.player[Main.myPlayer].ZoneCorrupt)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("nuthing"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("nuthing"));
             }
-            if (npc.type == NPCID.FireImp && NPC.downedBoss3)
+            if (NPC.type == NPCID.FireImp && NPC.downedBoss3)
             {
                 if (Main.rand.Next(80) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("impsword")); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("impsword")); //Item spawn
                 }
             }
-            if (npc.type == (49))//  51 60 150 
+            if (NPC.type == (49))//  51 60 150 
             {
                 if (Main.rand.Next(50) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
                 }
             }
-            if (npc.type == (634))//  51 60 150 
+            if (NPC.type == (634))//  51 60 150 
             {
                 if (Main.rand.Next(50) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
                 }
             }
-            if (npc.type == (51))//   60 150 
+            if (NPC.type == (51))//   60 150 
             {
                 if (Main.rand.Next(50) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
                 }
             }
-            if (npc.type == (60))//   60 150 
+            if (NPC.type == (60))//   60 150 
             {
                 if (Main.rand.Next(50) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
                 }
             }
-            if (npc.type == (150))//   60 150 
+            if (NPC.type == (150))//   60 150 
             {
                 if (Main.rand.Next(50) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("CustomSpinningWeapon")); //Item spawn battus battus
                 }
             }
-            if (npc.type == (NPCID.Medusa))
+            if (NPC.type == (NPCID.Medusa))
             {
                 if (Main.rand.Next(30) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MarbleBow")); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("MarbleBow")); //Item spawn
                 }
             }//CustomSpinningWeapon
-            if (npc.type == (481))
+            if (NPC.type == (481))
             {
                 if (Main.rand.Next(30) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MarbleBow")); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("MarbleBow")); //Item spawn
                 }
             }//
-            if (npc.type == 35)
+            if (NPC.type == 35)
             {
                 if (Main.rand.Next(1) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 1169); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 1169); //Item spawn
                 }
             }
             if (Main.rand.Next(30) == 0)   //item rarity
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("meBurger")); //Item spawn
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("meBurger")); //Item spawn
             }
-            if (npc.type == 491)
+            if (NPC.type == 491)
             {
                 switch (Main.rand.Next(4))
                 {
                     case 0:
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.CoinGun); //Item spawn
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.CoinGun); //Item spawn
                         break;
                     case 1:
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Cutlass); //Item spawn
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Cutlass); //Item spawn
                         break;
                     case 2:
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.GoldRing); //Item
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.GoldRing); //Item
                         break;
                     case 3:
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LuckyCoin); //Item spawn
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.LuckyCoin); //Item spawn
                         break;
                     default:
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.DiscountCard); //Item spawn
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.DiscountCard); //Item spawn
                         break;
                 }
             }
-            if (npc.type == 395)
+            if (NPC.type == 395)
             {
                 if (Main.rand.Next(7) == 0)   //item rarity
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Alien_blaster")); //Item spawn
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType("Alien_blaster")); //Item spawn
                 }
 
             }

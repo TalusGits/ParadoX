@@ -10,8 +10,8 @@ namespace gracosmod123.lab
         public override void SetDefaults()
         {
             Main.wallHouse[Type] = true;
-            dustType = mod.DustType("labdust");
-            drop = mod.ItemType("labwallitem");
+            dustType = ModContent.DustType("labdust");
+            drop = ModContent.ItemType("labwallitem");
             AddMapEntry(new Color(76, 80, 92));
         }
 

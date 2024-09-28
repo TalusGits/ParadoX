@@ -9,7 +9,7 @@ using System.IO;//what?
 using Microsoft.Xna.Framework.Graphics;//framework
 using System.Collections.Generic;
 using Terraria.Graphics.Shaders;
-namespace gracosmod123.npcs.Glichfolder//location in the folders
+namespace gracosmod123.NPCs.Glichfolder//location in the folders
 {
     [AutoloadBossHead]//AntlionQueen_Head_Boss
     public class Glich : ModNPC
@@ -25,40 +25,40 @@ namespace gracosmod123.npcs.Glichfolder//location in the folders
         }
         public override void SetDefaults()
         {
-            npc.width = 88;//npc width
-            npc.height = 92;//npc hight
-            npc.damage = 10;// damage
-            npc.defense = 21;// defence
-            npc.lifeMax = 50000;//max life
-            npc.HitSound = SoundID.NPCHit4;//hit sound
-            npc.DeathSound = SoundID.NPCDeath14;//death sound
-            npc.value = 60f;//drop in money
-            npc.knockBackResist = 0f;//will not take knockback
-            npc.lavaImmune = true;//will not get killed by lava
-            npc.noGravity = true;//has no gravity
-            npc.noTileCollide = true;//doesn't collide with tiles
-            npc.boss = true;//is a boss
-            npc.dontTakeDamage = true;
+            NPC.width = 88;//NPC width
+            NPC.height = 92;//NPC hight
+            NPC.damage = 10;// damage
+            NPC.defense = 21;// defence
+            NPC.LifeMax = 50000;//max life
+            NPC.HitSound = SoundID.NPCHit4;//hit sound
+            NPC.DeathSound = SoundID.NPCDeath14;//death sound
+            NPC.value = 60f;//drop in money
+            NPC.knockBackResist = 0f;//will not take knockback
+            NPC.lavaImmune = true;//will not get killed by lava
+            NPC.noGravity = true;//has no gravity
+            NPC.NoTileCollide = true;//doesn't collide with tiles
+            NPC.boss = true;//is a boss
+            NPC.dontTakeDamage = true;
         }
         private float timer;
-        public override void AI()//programming the npc
+        public override void AI()//programming the NPC
         {
             ++timer;
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             Vector2 vector;
-            npc.position.X = player.Center.X - 20f;
-            npc.position.Y = player.Center.Y - 400f;
-            if (npc.life == npc.lifeMax)
+            NPC.position.X = player.Center.X - 20f;
+            NPC.position.Y = player.Center.Y - 400f;
+            if (NPC.life == NPC.LifeMax)
             {
-                npc.velocity.X = player.velocity.X;
-                npc.velocity.Y = player.velocity.Y;
+                NPC.velocity.X = player.velocity.X;
+                NPC.velocity.Y = player.velocity.Y;
             }
             if (timer >= 180f && timer % 20f == 0f)
             {
                 
             }
         }
-        public override bool CheckDead()//if the npc is dead
+        public override bool CheckDead()//if the NPC is dead
         {
             SetDefaults();//set the defaults at the top
             return base.CheckDead();// return

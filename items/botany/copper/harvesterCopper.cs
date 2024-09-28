@@ -17,19 +17,19 @@ namespace gracosmod123.items.botany.copper
 
         public override void SafeSetDefaults()
         {
-            item.damage = 2;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 12;
-            item.useAnimation = 22;
+            Item.DamageType = 2;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 12;
+            Item.useAnimation = 22;
             item.useStyle = 1;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 0, 20, 0);
-            item.rare = 10;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("copperwave1");
-            item.shootSpeed = 20f;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType("copperwave1");
+            Item.shootSpeed = 20f;
             item.useTurn = true;
             item.melee = true;
         }
@@ -42,9 +42,9 @@ namespace gracosmod123.items.botany.copper
 
             if (player.altFunctionUse == 2 && reloadplayer.dabuff == false)
             {
-                //item.damage = var1 * 2;
-                item.shoot = mod.ProjectileType("copperwave2");
-                item.shootSpeed = 30f;//
+                //Item.DamageType = var1 * 2;
+                Item.shoot = ModContent.ProjectileType("copperwave2");
+                Item.shootSpeed = 30f;//
             }
             else
             {

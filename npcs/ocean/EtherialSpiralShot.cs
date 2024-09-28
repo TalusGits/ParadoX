@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean
+namespace gracosmod123.NPCs.ocean
 {
     public class EtherialSpiralShot : ModNPC
     {
@@ -23,48 +23,48 @@ namespace gracosmod123.npcs.ocean
             _distRate = 1;
             _dist = 20;
             _theta = -1;
-            npc.width = 44;
-            npc.height = 44;
-            npc.damage = 60;
-            npc.defense = 12;
-            npc.lifeMax = 4500;
-            npc.value = 0f;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = 0;
-            npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.buffImmune[24] = true;
-            npc.dontTakeDamage = true;
-            npc.scale = 1.5f;
+            NPC.width = 44;
+            NPC.height = 44;
+            NPC.damage = 60;
+            NPC.defense = 12;
+            NPC.LifeMax = 4500;
+            NPC.value = 0f;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = 0;
+            NPC.lavaImmune = true;
+            NPC.noGravity = true;
+            NPC.NoTileCollide = true;
+            NPC.buffImmune[24] = true;
+            NPC.dontTakeDamage = true;
+            NPC.scale = 1.5f;
         }
 
         public override void OnHitPlayer(Player target, int dmgDealt, bool crit)
         {
-            target.AddBuff(BuffID.Wet, 300, true);
+            target.AddBuff(ModContent.BuffType.Wet, 300, true);
         }
 
         public override void AI()
         {
             if (_theta == -1)
             {
-                _theta = npc.ai[1] * 6.28f / 8;
-                _origin = npc.position;
+                _theta = NPC.ai[1] * 6.28f / 8;
+                _origin = NPC.position;
             }
             _theta += 3.14f / 120;
             _dist += _distRate;
             _distRate += .05f;
             float divisions = 6.28f / 8;
             Vector2 targetPos;
-            targetPos.X = _origin.X + _dist * (float)Math.Cos(_theta) - npc.width / 2;
+            targetPos.X = _origin.X + _dist * (float)Math.Cos(_theta) - NPC.width / 2;
             targetPos.Y = _origin.Y + _dist * (float)Math.Sin(_theta);
-            npc.position = targetPos;
+            NPC.position = targetPos;
             if (_dist > 1200)
             {
-                npc.active = false;
-                npc.life = 0;
+                NPC.active = false;
+                NPC.life = 0;
             }
-            npc.rotation = (float)Math.Atan2((double)npc.velocity.Y, (double)npc.velocity.X) + 1.57f / 2;
+            NPC.rotation = (float)Math.Atan2((double)NPC.velocity.Y, (double)NPC.velocity.X) + 1.57f / 2;
         }
 
         public override Color? GetAlpha(Color drawColor)

@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems.summonocean
+namespace gracosmod123.NPCs.ocean.oceanitems.summonocean
 {
     public class SwordMinionBuff : ModBuff
     {
@@ -16,7 +16,7 @@ namespace gracosmod123.npcs.ocean.oceanitems.summonocean
         public override void Update(Player player, ref int buffIndex)
         {
             MinionManager modPlayer = player.GetModPlayer<MinionManager>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("SwordMinion")] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType("SwordMinion")] > 0)
             {
                 modPlayer.SwordMinion = true;
             }

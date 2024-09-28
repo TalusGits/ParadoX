@@ -28,7 +28,7 @@ namespace gracosmod123.items.extras.randombox
             projectile.height = 92;
             projectile.aiStyle = 16;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
             projectile.timeLeft = 50;
 
             drawOffsetX = -15;

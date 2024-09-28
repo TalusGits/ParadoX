@@ -14,33 +14,33 @@ namespace gracosmod123.items.botany.accessoriesbot
  
        public override void SetDefaults()
        {
-           item.width = 16;
-           item.height = 30;
+           Item.width = 16;
+           Item.height = 30;
            item.useStyle = ItemUseStyleID.EatingUsing;
-           item.useAnimation = 17;
-           item.useTime = 17;
+           Item.useAnimation = 17;
+           Item.useTime = 17;
            item.useTurn = true;
-           item.UseSound = SoundID.Item3;
-           item.maxStack = 30;
-           item.consumable = true;
-           item.rare = 1;
-           item.value = 80;
+           Item.UseSound = SoundID.Item3;
+           Item.maxStack = 30;
+           Item.consumable = true;
+           Item.rare = 1;
+           Item.value = 80;
        }
  
        public override bool UseItem(Player player)
        {
-           player.AddBuff(mod.BuffType("buffhalfsmall"), 18000);
+           player.AddBuff(ModContent.BuffType("buffhalfsmall"), 18000);
            return true;
        }
  
        public override void AddRecipes()
        {
-           ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "Starflower");
+           Recipe recipe = new Recipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<Starflower>());
             recipe.AddIngredient(ItemID.Daybloom);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this, (30));
-            recipe.AddRecipe();
+            recipe.Register();
        }
  
    }

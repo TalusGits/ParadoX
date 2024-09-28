@@ -20,31 +20,31 @@ namespace gracosmod123.items.enchantedstuff
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.value = Item.sellPrice(silver: 5);
-            item.rare = ItemRarityID.White;
-            item.noMelee = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = Item.sellPrice(silver: 5);
+            Item.rare = ItemRarityID.White;
+            Item.noMelee = true;
             item.useStyle = ItemUseStyleID.HoldingOut;
-            item.useAnimation = 40;
-            item.useTime = 20;
-            item.knockBack = 200f;
-            item.damage = 30;
+            Item.useAnimation = 40;
+            Item.useTime = 20;
+            Item.knockBack = 200f;
+            Item.DamageType = 30;
             item.noUseGraphic = true;
-            item.shoot = ModContent.ProjectileType<MineFlailProjectile>();
-            item.shootSpeed = 15.1f;
-            item.UseSound = SoundID.Item1;
+            Item.shoot = ModContent.ProjectileType<MineFlailProjectile>();
+            Item.shootSpeed = 15.1f;
+            Item.UseSound = SoundID.Item1;
             item.melee = true;
             item.crit = 9;
             item.channel = true;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<ore.eliasBar>(), 3);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

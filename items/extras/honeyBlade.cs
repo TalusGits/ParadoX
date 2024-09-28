@@ -13,22 +13,22 @@ namespace gracosmod123.items.extras
     {
         public override void SetDefaults()
         {
-            item.damage = 10;
+            Item.DamageType = 10;
             item.melee = true;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 22;
+            Item.useAnimation = 22;
             item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = Item.sellPrice(0, 0, 20, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             item.useTurn = true;
-            //item.shoot = 15/*ProjectileID.ImpProjectile*/;//295//296//41
-            item.shootSpeed = 60f;
-            item.value = Item.sellPrice(0, 9, 0, 0);
+            //Item.shoot = 15/*ProjectileID.ImpProjectile*/;//295//296//41
+            Item.shootSpeed = 60f;
+            Item.value = Item.sellPrice(0, 9, 0, 0);
         }
 
         public override void SetStaticDefaults()
@@ -38,7 +38,7 @@ namespace gracosmod123.items.extras
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
         {
-            player.AddBuff(BuffID.Honey, 180);
+            player.AddBuff(ModContent.BuffType.Honey, 180);
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
@@ -54,11 +54,11 @@ namespace gracosmod123.items.extras
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(1125, 20);//honey
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

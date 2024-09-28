@@ -4,7 +4,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean.oceanitems
+namespace gracosmod123.NPCs.ocean.oceanitems
 {
     public class Tide : ModProjectile
     {
@@ -30,8 +30,8 @@ namespace gracosmod123.npcs.ocean.oceanitems
             projectile.magic = false;
             projectile.thrown = false;
             projectile.minion = false;
-            projectile.penetrate = -1;
-            //projectile.penetrate = -1;
+            Projectile.Penetrate = -1;
+            //Projectile.Penetrate = -1;
             projectile.timeLeft = 100;
             projectile.damage = 20;
             projectile.light = 2.00f;
@@ -115,7 +115,7 @@ namespace gracosmod123.npcs.ocean.oceanitems
                 float num617 = ((float)(num612 + num613) - projectile.ai[1] + 1f) * num614 / (float)(num613 + num612);
                 center4.Y -= (float)num616 * num617 / 2f;
                 center4.Y += 2f;
-                Projectile.NewProjectile(center4.X, center4.Y, projectile.velocity.X, projectile.velocity.Y, projectile.type, 20, projectile.knockBack, projectile.owner, 10f, projectile.ai[1] - 1f);
+                Projectile.NewProjectileDirect(center4.X, center4.Y, projectile.velocity.X, projectile.velocity.Y, projectile.type, 20, projectile.knockBack, projectile.owner, 10f, projectile.ai[1] - 1f);
                 int num618 = 4;
                 //if (projectile.type == 386)
                 //{
@@ -129,12 +129,12 @@ namespace gracosmod123.npcs.ocean.oceanitems
                     //	num619 = 373;
                     //}
                     //int num620 = NPC.NewNPC((int)center4.X, (int)center4.Y, num619, 0, 0f, 0f, 0f, 0f, 255);
-                    //Main.npc[num620].velocity = projectile.velocity;
-                    //Main.npc[num620].netUpdate = true;
+                    //Main.NPC[num620].velocity = projectile.velocity;
+                    //Main.NPC[num620].netUpdate = true;
                     //if (projectile.type == 386)
                     //{
-                    //	Main.npc[num620].ai[2] = (float)projectile.width;
-                    //	Main.npc[num620].ai[3] = -1.5f;
+                    //	Main.NPC[num620].ai[2] = (float)projectile.width;
+                    //	Main.NPC[num620].ai[3] = -1.5f;
                     //}
                 }
             }
@@ -159,41 +159,41 @@ namespace gracosmod123.npcs.ocean.oceanitems
             //Player
 
             //NPCS
-            for (int i = 0; i < Main.npc.Length; i++)
+            for (int i = 0; i < Main.NPC.Length; i++)
             {
-                if ((projectile.position.X / 16) <= ((Main.npc[i].position.X + 700) / 16) && (projectile.position.X / 16) >= ((Main.npc[i].position.X - 700) / 16) && !Main.npc[i].boss && Main.npc[i].type != 488)
+                if ((projectile.position.X / 16) <= ((Main.NPC[i].position.X + 700) / 16) && (projectile.position.X / 16) >= ((Main.NPC[i].position.X - 700) / 16) && !Main.NPC[i].boss && Main.NPC[i].type != 488)
                 {
-                    Main.npc[i].netUpdate = true;
+                    Main.NPC[i].netUpdate = true;
 
-                    Main.npc[i].rotation += projectile.velocity.X * 0.8f;
+                    Main.NPC[i].rotation += projectile.velocity.X * 0.8f;
 
                     //X
-                    if (Main.npc[i].position.X <= (projectile.position.X + 37))
+                    if (Main.NPC[i].position.X <= (projectile.position.X + 37))
                     {
-                        //Main.npc[i].velocity.X = 2;
-                        Main.npc[i].velocity.X = Main.npc[i].velocity.X + 0.3f;
+                        //Main.NPC[i].velocity.X = 2;
+                        Main.NPC[i].velocity.X = Main.NPC[i].velocity.X + 0.3f;
                     }
                     else
                     {
-                        //Main.npc[i].velocity.X = -2;
-                        Main.npc[i].velocity.X = Main.npc[i].velocity.X - 0.3f;
+                        //Main.NPC[i].velocity.X = -2;
+                        Main.NPC[i].velocity.X = Main.NPC[i].velocity.X - 0.3f;
                     }
 
                     //Y
-                    if (Main.npc[i].position.Y <= (projectile.position.Y - 250))
+                    if (Main.NPC[i].position.Y <= (projectile.position.Y - 250))
                     {
-                        //Main.npc[i].velocity.Y = 2;
-                        Main.npc[i].velocity.Y = Main.npc[i].velocity.Y + .5f;
+                        //Main.NPC[i].velocity.Y = 2;
+                        Main.NPC[i].velocity.Y = Main.NPC[i].velocity.Y + .5f;
                     }
                     else
                     {
-                        //Main.npc[i].velocity.Y = -2;
-                        Main.npc[i].velocity.Y = Main.npc[i].velocity.Y - .5f;
+                        //Main.NPC[i].velocity.Y = -2;
+                        Main.NPC[i].velocity.Y = Main.NPC[i].velocity.Y - .5f;
                     }
                 }
                 else
                 {
-                    Main.npc[i].rotation = 0;
+                    Main.NPC[i].rotation = 0;
                 }
             }
 
@@ -205,24 +205,24 @@ namespace gracosmod123.npcs.ocean.oceanitems
                     //X
                     if (Main.item[v].position.X <= (projectile.position.X))//+37
                     {
-                        //Main.npc[i].velocity.X = 2;
+                        //Main.NPC[i].velocity.X = 2;
                         Main.item[v].velocity.X = Main.item[v].velocity.X + 0.3f;
                     }
                     else
                     {
-                        //Main.npc[i].velocity.X = -2;
+                        //Main.NPC[i].velocity.X = -2;
                         Main.item[v].velocity.X = Main.item[v].velocity.X - 0.3f;
                     }
 
                     //Y
                     if (Main.item[v].position.Y <= (projectile.position.Y - 200))
                     {
-                        //Main.npc[i].velocity.Y = 2;
+                        //Main.NPC[i].velocity.Y = 2;
                         Main.item[v].velocity.Y = Main.item[v].velocity.Y + .5f;
                     }
                     else
                     {
-                        //Main.npc[i].velocity.Y = -2;
+                        //Main.NPC[i].velocity.Y = -2;
                         Main.item[v].velocity.Y = Main.item[v].velocity.Y - .5f;
                     }
                 }
@@ -249,17 +249,17 @@ namespace gracosmod123.npcs.ocean.oceanitems
         public override void Kill(int timeLeft)
         {
             var player = Main.player[projectile.owner];
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 65f, 0.0f, 0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X - 65f, projectile.Center.Y, 0.2f, 0.0f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 65f, 0.0f, -0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X + 65f, projectile.Center.Y, -0.2f, 0.0f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X - 40f, projectile.Center.Y - 40f, 0.2f, 0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X + 40f, projectile.Center.Y + 40f, -0.2f, -0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X - 40f, projectile.Center.Y + 40f, 0.2f, -0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            Projectile.NewProjectile(projectile.Center.X + 40f, projectile.Center.Y - 40f, -0.2f, 0.2f, mod.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
-            for (int i = 0; i < Main.npc.Length; i++)
+            Projectile.NewProjectileDirect(projectile.Center.X, projectile.Center.Y - 65f, 0.0f, 0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X - 65f, projectile.Center.Y, 0.2f, 0.0f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X, projectile.Center.Y + 65f, 0.0f, -0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X + 65f, projectile.Center.Y, -0.2f, 0.0f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X - 40f, projectile.Center.Y - 40f, 0.2f, 0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X + 40f, projectile.Center.Y + 40f, -0.2f, -0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X - 40f, projectile.Center.Y + 40f, 0.2f, -0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            Projectile.NewProjectileDirect(projectile.Center.X + 40f, projectile.Center.Y - 40f, -0.2f, 0.2f, ModContent.ProjectileType("starfish2"), (int)(73 * (double)player.meleeDamage), 6.5f, projectile.owner, 0.0f, 0.0f);
+            for (int i = 0; i < Main.NPC.Length; i++)
             {
-                Main.npc[i].rotation = 0;
+                Main.NPC[i].rotation = 0;
             }
         }
     }

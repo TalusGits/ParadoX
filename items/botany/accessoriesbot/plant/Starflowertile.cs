@@ -56,13 +56,13 @@ namespace gracosmod123.items.botany.accessoriesbot.plant
                 // I thought this was a workaround but it turns out the source code does it this way too. Ech.
                 if (Main.player[Player.FindClosest(new Microsoft.Xna.Framework.Vector2(i * 16, j * 16), 0, 0)].HeldItem.netID == ItemID.StaffofRegrowth)
                 {
-                    Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType("StarflowerSeeds"), Main.rand.Next(1, 6));
-                    Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType("Starflower"), Main.rand.Next(1, 3));
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType("StarflowerSeeds"), Main.rand.Next(1, 6));
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType("Starflower"), Main.rand.Next(1, 3));
                 }
                 else if (growthStage == 2)
                 {
-                    Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType("StarflowerSeeds"), Main.rand.Next(1, 4));
-                    Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType("Starflower"));
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType("StarflowerSeeds"), Main.rand.Next(1, 4));
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType("Starflower"));
                 }
             }
             // Tells game not to use default drop. Method won't work without a return statement.

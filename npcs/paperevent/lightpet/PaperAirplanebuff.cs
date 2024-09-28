@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.paperevent.lightpet
+namespace gracosmod123.NPCs.paperevent.lightpet
 {
     public class PaperAirplanebuff : ModBuff
     {
@@ -18,10 +18,10 @@ namespace gracosmod123.npcs.paperevent.lightpet
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 18000;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("PaperAirplane")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType("PaperAirplane")] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("PaperAirplane"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectileDirect(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType("PaperAirplane"), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

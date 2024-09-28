@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class paperhell : ModItem
     {
@@ -19,22 +19,22 @@ namespace gracosmod123.npcs.paperevent
         }
         public override void SetDefaults()
         {
-            item.damage = 100;
+            Item.DamageType = 100;
             item.ranged = true;
-            item.width = 56;
-            item.height = 48;
-            item.useTime = 2;
-            item.useAnimation = 16;
+            Item.width = 56;
+            Item.height = 48;
+            Item.useTime = 2;
+            Item.useAnimation = 16;
             item.reuseDelay = 12;
             item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 5;
-            item.value = 300000;
-            item.rare = 9;
-            item.UseSound = SoundID.Item11;
-            item.autoReuse = true;
-            item.shoot = 10;
-            item.shootSpeed = 10f;
+            Item.noMelee = true;
+            Item.knockBack = 5;
+            Item.value = 300000;
+            Item.rare = 9;
+            Item.UseSound = SoundID.Item11;
+            Item.autoReuse = true;
+            Item.shoot = 10;
+            Item.shootSpeed = 10f;
             item.useAmmo = AmmoID.Bullet;
         }
         public override Vector2? HoldoutOffset()
@@ -43,7 +43,7 @@ namespace gracosmod123.npcs.paperevent
         }
         public override bool ConsumeAmmo(Player player)
         {
-            return player.itemAnimation < item.useAnimation / 2;
+            return player.itemAnimation < Item.useAnimation / 2;
         }
         public override bool AltFunctionUse(Player player)
         {
@@ -53,14 +53,14 @@ namespace gracosmod123.npcs.paperevent
         {
             if (player.altFunctionUse == 2)
             {
-                item.UseSound = SoundID.Item102;
-                item.shoot = 1;
+                Item.UseSound = SoundID.Item102;
+                Item.shoot = 1;
                 item.useAmmo = AmmoID.Arrow;
             }
             else
             {
-                item.UseSound = SoundID.Item11;
-                item.shoot = 10;
+                Item.UseSound = SoundID.Item11;
+                Item.shoot = 10;
                 item.useAmmo = AmmoID.Bullet;
             }
             return base.CanUseItem(player);
@@ -83,13 +83,13 @@ namespace gracosmod123.npcs.paperevent
             double offsetAngle;
             
             int dir = player.altFunctionUse == 2 ? player.itemAnimation : 15 - player.itemAnimation;
-            Main.PlaySound(2, player.Center, player.altFunctionUse == 2 ? 102 : 11);
+            SoundEngine.PlaySound(2, player.Center, player.altFunctionUse == 2 ? 102 : 11);
             offsetAngle = startAngle + deltaAngle * dir;
-            Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, player.whoAmI);
+            Projectile.NewProjectileDirect(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, player.whoAmI);
 
             dir = player.altFunctionUse == 2 ? (player.itemAnimation - 1) : 15 - (player.itemAnimation - 1);
             offsetAngle = startAngle + deltaAngle * dir;
-            Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, player.whoAmI);
+            Projectile.NewProjectileDirect(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, player.whoAmI);
             return false;
         }
     }

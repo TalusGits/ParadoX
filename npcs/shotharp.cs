@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs
+namespace gracosmod123.NPCs
 {
     public class shotharp : ModProjectile
     {
@@ -26,7 +26,7 @@ namespace gracosmod123.npcs
             if (Main.netMode != 2)
             {
                 Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+                SoundEngine.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
                 for (int i = 0; i < 25; i++)
                 {
                     Dust.NewDust(projectile.position, projectile.width, projectile.height, 15, projectile.velocity.X, projectile.velocity.Y);

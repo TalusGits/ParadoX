@@ -22,30 +22,30 @@ namespace gracosmod123.items.forumsman
         public override void SetDefaults()
         {
             item.Size = new Vector2(12, 24);
-            item.rare = ItemRarityID.Blue;
-            item.value = Item.sellPrice(silver: 22);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 22);
 
-            item.useTime = 25;
-            item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
             item.useStyle = ItemUseStyleID.HoldingOut;
-            item.UseSound = SoundID.Item5;
+            Item.UseSound = SoundID.Item5;
 
-            item.noMelee = true;
+            Item.noMelee = true;
             item.ranged = true;
-            item.damage = 30;
+            Item.DamageType = 30;
 
             item.useAmmo = AmmoID.Arrow;
-            item.shoot = 1;
-            item.shootSpeed = 8.5f;
+            Item.shoot = 1;
+            Item.shootSpeed = 8.5f;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             if (type == ProjectileID.WoodenArrowFriendly) // or ProjectileID.WoodenArrowFriendly
             {
-                type = mod.ProjectileType("MarbleArrow"); // or ProjectileID.FireArrow;
+                type = ModContent.ProjectileType("MarbleArrow"); // or ProjectileID.FireArrow;
             }
-            return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
-        }//mod.ProjectileType("bamboodiscus");
+            return true; // return true to allow tmodloader to call Projectile.NewProjectileDirect as normal
+        }//ModContent.ProjectileType("bamboodiscus");
     }
 }
 /*
@@ -62,30 +62,30 @@ namespace ExampleMod.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 20; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+			Item.DamageType = 20; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
 			item.ranged = true; // sets the damage type to ranged
-			item.width = 40; // hitbox width of the item
-			item.height = 20; // hitbox height of the item
-			item.useTime = 20; // The item's use time in ticks (60 ticks == 1 second.)
-			item.useAnimation = 20; // The length of the item's use animation in ticks (60 ticks == 1 second.)
+			Item.width = 40; // hitbox width of the item
+			Item.height = 20; // hitbox height of the item
+			Item.useTime = 20; // The item's use time in ticks (60 ticks == 1 second.)
+			Item.useAnimation = 20; // The length of the item's use animation in ticks (60 ticks == 1 second.)
 			item.useStyle = ItemUseStyleID.HoldingOut; // how you use the item (swinging, holding out, etc)
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 4; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
-			item.value = 10000; // how much the item sells for (measured in copper)
-			item.rare = ItemRarityID.Green; // the color that the item's name will be in-game
-			item.UseSound = SoundID.Item11; // The sound that this item plays when used.
-			item.autoReuse = true; // if you can hold click to automatically use it again
-			item.shoot = 10; //idk why but all the guns in the vanilla source have this
-			item.shootSpeed = 16f; // the speed of the projectile (measured in pixels per frame)
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
+			Item.value = 10000; // how much the item sells for (measured in copper)
+			Item.rare = ItemRarityID.Green; // the color that the item's name will be in-game
+			Item.UseSound = SoundID.Item11; // The sound that this item plays when used.
+			Item.autoReuse = true; // if you can hold click to automatically use it again
+			Item.shoot = 10; //idk why but all the guns in the vanilla source have this
+			Item.shootSpeed = 16f; // the speed of the projectile (measured in pixels per frame)
 			item.useAmmo = AmmoID.Bullet; // The "ammo Id" of the ammo item that this weapon uses. Note that this is not an item Id, but just a magic value.
 		}
 
 		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = new Recipe(mod);
 			recipe.AddIngredient(ModContent.ItemType<ExampleItem>(), 10);
 			recipe.AddTile(ModContent.TileType<ExampleWorkbench>());
 			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
 		/*
@@ -106,7 +106,7 @@ namespace ExampleMod.Items.Weapons
     {
         type = ProjectileID.BulletHighVelocity; // or ProjectileID.FireArrow;
     }
-    return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
+    return true; // return true to allow tmodloader to call Projectile.NewProjectileDirect as normal
 }*/
 
 // What if I wanted it to shoot like a shotgun?
@@ -120,7 +120,7 @@ namespace ExampleMod.Items.Weapons
         // If you want to randomize the speed to stagger the projectiles
         // float scale = 1f - (Main.rand.NextFloat() * .3f);
         // perturbedSpeed = perturbedSpeed * scale; 
-        Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+        Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
     }
     return false; // return false because we don't want tmodloader to shoot projectile
 }*/
@@ -145,7 +145,7 @@ namespace ExampleMod.Items.Weapons
     for (int i = 0; i < numberProjectiles; i++)
     {
         Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-        Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+        Projectile.NewProjectileDirect(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
     }
     return false;
 }*/
@@ -171,21 +171,21 @@ namespace ExampleMod.Items.Weapons
 // How can I get a "Clockwork Assault Rifle" effect?
 // 3 round burst, only consume 1 ammo for burst. Delay between bursts, use reuseDelay
 /*	The following changes to SetDefaults()
-    item.useAnimation = 12;
-    item.useTime = 4;
+    Item.useAnimation = 12;
+    Item.useTime = 4;
     item.reuseDelay = 14;
 public override bool ConsumeAmmo(Player player)
 {
     // Because of how the game works, player.itemAnimation will be 11, 7, and finally 3. (useAnimation - 1, then - useTime until less than 0.) 
     // We can get the Clockwork Assault Riffle Effect by not consuming ammo when itemAnimation is lower than the first shot.
-    return !(player.itemAnimation < item.useAnimation - 2);
+    return !(player.itemAnimation < Item.useAnimation - 2);
 }*/
 
 // How can I shoot 2 different projectiles at the same time?
 /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 {
     // Here we manually spawn the 2nd projectile, manually specifying the projectile type that we wish to shoot.
-    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.GrenadeI, damage, knockBack, player.whoAmI);
+    Projectile.NewProjectileDirect(position.X, position.Y, speedX, speedY, ProjectileID.GrenadeI, damage, knockBack, player.whoAmI);
     // By returning true, the vanilla behavior will take place, which will shoot the 1st projectile, the one determined by the ammo.
     return true;
 }*/

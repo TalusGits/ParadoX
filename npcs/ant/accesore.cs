@@ -3,17 +3,17 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     //[AutoloadEquip(new EquipType[] { EquipType.HandsOn })]
     public class accesore : ModItem
     {
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 90, 15);
-            item.rare = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 90, 15);
+            Item.rare = 1;
             item.accessory = true;
         }
 
@@ -24,14 +24,14 @@ namespace gracosmod123.npcs.ant
         }
         /*public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.OnFire, 180);
+            target.AddBuff(ModContent.BuffType.OnFire, 180);
         }*/
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
 
             if (player.statLife <= 100)
             {
-                player.AddBuff(BuffID.Inferno, 180);
+                player.AddBuff(ModContent.BuffType.Inferno, 180);
                 player.lifeRegen += 15;
 
             }
@@ -64,8 +64,8 @@ namespace gr.Items.Accessories
         {
             item.Size = new Vector2(20);
             item.accessory = true;
-            item.value = Item.sellPrice(silver: 12);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 12);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 1000000;
 
         }
@@ -157,11 +157,11 @@ namespace gr.Items.Accessories
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<eliasBasicItem>(), 12);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }*/

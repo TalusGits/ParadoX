@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     public class mecharrow : ModItem
     {
@@ -23,19 +23,19 @@ namespace gracosmod123.npcs.ant
         {
 
             item.Size = new Vector2(8);
-            item.value = Item.buyPrice(copper: 20);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.buyPrice(copper: 20);
+            Item.rare = ItemRarityID.Blue;
 
-            item.consumable = true;
-            item.maxStack = 999;
+            Item.consumable = true;
+            Item.maxStack = 999;
 
             item.ranged = true;
-            item.damage = 14;
-            item.knockBack = 3.25f;
+            Item.DamageType = 14;
+            Item.knockBack = 3.25f;
 
-            item.shoot = ProjectileType<npcs.ant.mecharrow2>();
-            item.shootSpeed = 5.25f;
-            item.ammo = AmmoID.Arrow;
+            Item.shoot = ProjectileType<NPCs.ant.mecharrow2>();
+            Item.shootSpeed = 5.25f;
+            Item.ammo = AmmoID.Arrow;
         }
     }
 }*/

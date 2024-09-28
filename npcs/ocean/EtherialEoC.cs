@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ocean
+namespace gracosmod123.NPCs.ocean
 {
     public class EtherialEoC : ModNPC
     {
@@ -23,20 +23,20 @@ namespace gracosmod123.npcs.ocean
         public override void SetDefaults()
         {
             movementCounter = 0;
-            npc.width = 124;
-            npc.height = 124;
-            npc.damage = 180;
-            npc.defense = 50;
-            npc.lifeMax = 40000;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath19;
-            npc.value = 60f;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = 4;
-            npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = 6;
+            NPC.width = 124;
+            NPC.height = 124;
+            NPC.damage = 180;
+            NPC.defense = 50;
+            NPC.LifeMax = 40000;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath19;
+            NPC.value = 60f;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = 4;
+            NPC.lavaImmune = true;
+            NPC.noGravity = true;
+            NPC.NoTileCollide = true;
+            Main.NPCFrameCount[NPC.type] = 6;
         }
 
         public override void AI()
@@ -44,19 +44,19 @@ namespace gracosmod123.npcs.ocean
             if (!justSpawned)
             {
                 justSpawned = true;
-                movementCounter = 45 * (int)npc.ai[1];
-                targetPos = Main.player[npc.target].Center;
+                movementCounter = 45 * (int)NPC.ai[1];
+                targetPos = Main.player[NPC.target].Center;
             }
-            if (npc.life > npc.lifeMax * 2 / 3)
+            if (NPC.life > NPC.LifeMax * 2 / 3)
                 Shoot();
             else
             {
                 Movement();
-                npc.rotation = (float)Math.Atan2(targetPos.Y - npc.Center.Y, targetPos.X - npc.Center.X) - 1.57f;
+                NPC.rotation = (float)Math.Atan2(targetPos.Y - NPC.Center.Y, targetPos.X - NPC.Center.X) - 1.57f;
             }
             if (POSIDEN.death == true)
             {
-                npc.life -= 999999999;
+                NPC.life -= 999999999;
             }
             POSIDEN.death = false;
 
@@ -64,7 +64,7 @@ namespace gracosmod123.npcs.ocean
 
         private void Movement()
         {
-            npc.aiStyle = 0;
+            NPC.aiStyle = 0;
             MovementTypeCheck();
             Move();
             MoveToTarget();
@@ -87,7 +87,7 @@ namespace gracosmod123.npcs.ocean
             if (movementCounter > 2 * 60 && movementType == 2)
             {
                 movementType = 3;
-                targetPos.X -= npc.ai[1] * 800;
+                targetPos.X -= NPC.ai[1] * 800;
                 movementCounter = 0;
             }
             if (movementCounter > 60 && movementType == 3)
@@ -106,24 +106,24 @@ namespace gracosmod123.npcs.ocean
         {
             if (movementType == 0)
             {
-                targetPos = Main.player[npc.target].Center;
-                targetPos.Y -= 300 + 100 * (int)npc.ai[1];
+                targetPos = Main.player[NPC.target].Center;
+                targetPos.Y -= 300 + 100 * (int)NPC.ai[1];
             }
             if (movementType == 2)
             {
-                targetPos = Main.player[npc.target].Center;
-                targetPos.X += npc.ai[1] * 300;
+                targetPos = Main.player[NPC.target].Center;
+                targetPos.X += NPC.ai[1] * 300;
             }
             if (movementType == 4)
             {
                 if (movementCounter % 60 == 0)
-                    targetPos = Main.player[npc.target].Center + (Main.player[npc.target].Center - npc.Center) / 2;
+                    targetPos = Main.player[NPC.target].Center + (Main.player[NPC.target].Center - NPC.Center) / 2;
             }
         }
 
         private void MoveToTarget()
         {
-            float dist = Vector2.Distance(targetPos, npc.Center);
+            float dist = Vector2.Distance(targetPos, NPC.Center);
             float tVel = dist / 15;
             float vMax = 24;
             if (vMag < vMax && vMag < tVel)
@@ -141,7 +141,7 @@ namespace gracosmod123.npcs.ocean
             }
             if (dist != 0)
             {
-                npc.velocity = npc.DirectionTo(targetPos) * vMag;
+                NPC.velocity = NPC.DirectionTo(targetPos) * vMag;
             }
         }
 
@@ -151,26 +151,26 @@ namespace gracosmod123.npcs.ocean
             if (counter >= 4 * 60)
             {
                 counter = 0;
-                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 0, ModContent.ProjectileType<starfish>(), (int)(npc.damage / 4), 3, Main.myPlayer);
+                Projectile.NewProjectileDirect(NPC.Center.X, NPC.Center.Y, 0, 0, ModContent.ProjectileType<starfish>(), (int)(NPC.damage / 4), 3, Main.myPlayer);
             }
         }
 
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter += 1.0;
-            if (npc.frameCounter > 24.0)
+            NPC.frameCounter += 1.0;
+            if (NPC.frameCounter > 24.0)
             {
-                npc.frame.Y = npc.frame.Y + frameHeight;
-                npc.frameCounter = 0.0;
+                NPC.frame.Y = NPC.frame.Y + frameHeight;
+                NPC.frameCounter = 0.0;
             }
-            if (npc.frame.Y > frameHeight * 2 && npc.life > npc.lifeMax * 2 / 3)
+            if (NPC.frame.Y > frameHeight * 2 && NPC.life > NPC.LifeMax * 2 / 3)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
-            else if (npc.frame.Y > frameHeight * 5 && npc.life <= npc.lifeMax * 2 / 3)
+            else if (NPC.frame.Y > frameHeight * 5 && NPC.life <= NPC.LifeMax * 2 / 3)
             {
-                npc.frame.Y = 3 * frameHeight;
+                NPC.frame.Y = 3 * frameHeight;
             }
         }
 

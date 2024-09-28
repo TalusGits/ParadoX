@@ -10,7 +10,7 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.Localization;
 
-namespace gracosmod123.npcs.ocean.oceanitems.armor
+namespace gracosmod123.NPCs.ocean.oceanitems.armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class Aquatichelmet : ModItem
@@ -22,8 +22,8 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
         public override void SetDefaults()
         {
             item.Size = new Vector2(18);
-            item.value = Item.sellPrice(silver: 26);
-            item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 26);
+            Item.rare = ItemRarityID.Blue;
             item.defense = 35;
         }
 
@@ -40,10 +40,10 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
             player.lifeRegen += 20;
             player.statLifeMax = 700;
             player.magicDamageMult += 1.5f;
-            //player.Addbuff = BuffID.Wet;
+            //player.Addbuff = ModContent.BuffType.Wet;
             player.noFallDmg = true;
-            player.AddBuff(BuffID.Wet, 180);
-            for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+            player.AddBuff(ModContent.BuffType.Wet, 180);
+            for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
             player.wingTimeMax = 180;
             player.meleeSpeed += 20f;
 
@@ -80,24 +80,24 @@ namespace gracosmod123.npcs.ocean.oceanitems.armor
                 player.buffImmune[80] = true;
                 player.buffImmune[144] = true;
                 player.maxMinions += 10;
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
-                for (int k = 0; k < 2; k++) Projectile.NewProjectile(player.Center.X, player.Center.Y, 0.0f, 0.0f, mod.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
+                for (int k = 0; k < 2; k++) Projectile.NewProjectileDirect(player.Center.X, player.Center.Y, 0.0f, 0.0f, ModContent.ProjectileType("LifeRingEffect"), 0, 0.0f, player.whoAmI, (float)k, 0.0f);
             }
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(ItemType<oreaqua.Aquabar>(), 6);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

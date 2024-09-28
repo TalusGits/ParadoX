@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.ant
+namespace gracosmod123.NPCs.ant
 {
     // Ethereal Flames is an example of a buff that causes constant loss of life.
     // See exampleplayer.UpdateBadLifeRegen and ExampleGlobalNPC.UpdateLifeRegen for more information.
@@ -22,9 +22,9 @@ namespace gracosmod123.npcs.ant
             player.GetModPlayer<exampleplayer>().eFlames = true;
         }
 
-        /*public override void Update(NPC npc, ref int buffIndex)
+        /*public override void Update(NPC NPC, ref int buffIndex)
         {
-            npc.GetGlobalNPC<ExampleGlobalNPC>().eFlames = true;
+            NPC.GetGlobalNPC<ExampleGlobalNPC>().eFlames = true;
         }*/
     }
 }

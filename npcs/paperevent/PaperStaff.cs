@@ -5,32 +5,32 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace gracosmod123.npcs.paperevent
+namespace gracosmod123.NPCs.paperevent
 {
     public class PaperStaff : ModItem
     {
-        //public override void HoldItem(Player player) { AntiarisGlowMask2.AddGlowMask(mod.ItemType(GetType().Name), "Antiaris/Glow/" + GetType().Name + "_GlowMask"); }
+        //public override void HoldItem(Player player) { AntiarisGlowMask2.AddGlowMask(ModContent.ItemType(GetType().Name), "Antiaris/Glow/" + GetType().Name + "_GlowMask"); }
         //public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI) { AntiarisUtils.DrawItemGlowMaskWorld(spriteBatch, item, mod.GetTexture("Glow/" + GetType().Name + "_GlowMask"), rotation, scale); }
 
         public override void SetDefaults()
         {
-            item.damage = 500;
+            Item.DamageType = 500;
             item.magic = true;
-            item.mana = 14;
-            item.width = 36;
-            item.height = 36;
-            item.useTime = 19;
-            item.useAnimation = 19;
+            Item.mana = 14;
+            Item.width = 36;
+            Item.height = 36;
+            Item.useTime = 19;
+            Item.useAnimation = 19;
             item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 2.0f;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 3;
-            item.UseSound = SoundID.Item73;
-            item.autoReuse = false;
-            item.shoot = mod.ProjectileType("sheetpaperdagger");
-            item.shootSpeed = 6.0f;
-            item.autoReuse = true;
+            Item.noMelee = true;
+            Item.knockBack = 2.0f;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 3;
+            Item.UseSound = SoundID.Item73;
+            Item.autoReuse = false;
+            Item.shoot = ModContent.ProjectileType("sheetpaperdagger");
+            Item.shootSpeed = 6.0f;
+            Item.autoReuse = true;
             Item.staff[item.type] = true;
         }
 
@@ -45,17 +45,17 @@ namespace gracosmod123.npcs.paperevent
             for (int i = 0; i < 11; i++)
             {
                 //if (Main.rand.Next(5) == 0)
-                Projectile.NewProjectile((int)((item.position.X - 500) + Main.rand.Next(1000)), (int)((item.position.Y - 500) + Main.rand.Next(1000)), 0.0f, 0.0f, mod.ProjectileType("sheetpaperdaggerNH"), item.damage / 3, 4.5f);
+                Projectile.NewProjectileDirect((int)((item.position.X - 500) + Main.rand.Next(1000)), (int)((item.position.Y - 500) + Main.rand.Next(1000)), 0.0f, 0.0f, ModContent.ProjectileType("sheetpaperdaggerNH"), Item.DamageType / 3, 4.5f);
             }
             return true;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = new Recipe(mod);
             recipe.AddIngredient(mod, "PaperStaffV2", 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }
