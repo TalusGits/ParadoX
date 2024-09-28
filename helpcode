@@ -1,0 +1,20 @@
+            player.noKnockback = true;   //so the player is immune to knockback
+            if (NPC.downedSlimeKing) 
+            if (NPC.downedBoss1)  
+            if (NPC.downedBoss2)  
+            if (NPC.downedQueenBee)  
+            if (NPC.downedBoss3)  
+            if (Main.hardMode)  
+            if (NPC.downedMechBoss2) 
+            if (NPC.downedMechBoss1) 
+            if (NPC.downedMechBoss3) 
+            if (NPC.downedPlantBoss)  
+            if (NPC.downedGolemBoss)  
+            if (NPC.downedFishron)  
+            if (NPC.downedMoonlord)  
+                //WorldGen.KillTile(x, y);
+                //WorldGen.KillWall(x, y);
+                //WorldGen.PlaceTile(x, y, TileID.);
+                //WorldGen.PlaceWall(x, y, WallID.);
+                //WorldGen.PlaceChest(x, y, 21, false);
+        }

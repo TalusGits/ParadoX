@@ -1,0 +1,4 @@
+displayName = ParadoX mod
+author = @Talus. Artists: @Cantwontdo, @Mr Ribbon Eel, @Jabbahutt317, @Shattered_sun,and @WYNAUT!
+version = 0.4.6
+includePDB = false
